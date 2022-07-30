@@ -25,7 +25,7 @@ export default function AppHeader() {
 
 					{menu ? (
 						<AppNav
-							className={`md:hidden md:bg-transparent mx-auto w-full ${
+							className={`md:hidden md:bg-transparent mx-auto w-full border-b shadow-lg border-gray-800 ${
 								menu ? "fixed left-0 bg-black" : "hidden"
 							}`}
 						/>
