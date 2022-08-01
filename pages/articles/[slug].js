@@ -2,82 +2,83 @@
 
 import { generateStaticPaths, getDocBySlug } from "../../toad/core/index";
 
-import ArticleSidebar from "~/layouts/ArticleSidebar";
-// import Image from "next/image";
+import Link from "next/link";
+import ArticleLayout from "~/layouts/ArticleLayout";
+
 // import { basicMeta } from "~/utils/seoMetaData";
 // import { AuthorCard } from "~/components/articles/AuthorCard";
-import { RelatedArticles } from "~/components/content/RelatedArticles";
+// import { RelatedArticles } from "~/components/content/RelatedArticles";
+
 import { ArticleMeta } from "~/components/content/ArticleMeta";
 import { Breadcrumbs } from "~/components/content/Breadcrumbs";
-
-// import WaitlistForm from "~/components/waitlist/WaitlistForm";
+import { ArticleContent } from "~/components/content/ArticleContent";
 
 // construct the meta data for the page
 // const metaData = basicMeta({
 const metaData = {
-	title: "Articles",
-	description: "",
+  title: "Articles",
+  description: "",
 };
 
 export async function getStaticPaths() {
-	// get the listing of all of the markdown files
-	const basePath = "content";
-
-	// let files = await crawlForFiles(basePath);
-	const paths = generateStaticPaths(basePath, false);
-
-	// add the temp placeholder item
-	// console.log(paths);
-
-	return {
-		paths: paths,
-		fallback: false,
-	};
+  // get the listing of all of the markdown files
+  return generateStaticPaths("articles", false);
 }
 
 export async function getStaticProps({ params }) {
-	console.log("Static props:");
-	console.log(params);
+  const post = await getDocBySlug(params?.slug, "articles");
 
-	const post = await getDocBySlug(params?.slug);
+  // give the 404 page when the post is not found
+  if (!post) return { notFound: true };
 
-	console.log("----- file data found ---- ");
-	console.log(post);
-
-	// give the 404 page when the post is not found
-	if (!post) return { notFound: true };
-
-	return {
-		props: { ...post },
-	};
+  return {
+    props: post,
+  };
 }
 
 /*
 
 */
-export default function SingleArticlePage({ meta, content, mdx, seo }) {
-	return (
-		<ArticleSidebar seo={metaData} className="space-y-10">
-			{/* Bread crumbs area */}
-			<Breadcrumbs />
+export default function SingleArticlePage({
+  meta = {},
+  content = null,
+  seo = {},
+}) {
+  // construct the parent link item for the breadcrumbs
+  const parentPage = {
+    title: "Articles",
+    href: "/articles",
+  };
 
-			{/* Primary content area */}
-			<main className="space-y-5">
-				<h1 className="heading heading-xl">{meta?.title}</h1>
+  // compute the link for the current page
+  const href = `${parentPage?.href || ""}/${meta.slug}`;
 
-				<ArticleMeta />
+  // TODO: support setting a canonical tag, likely via a util function to standardize the data
+  // if (!meta?.canonical) meta.canonical = `${href}`;
 
-				<article
-					className="py-10 text-gray-500"
-					dangerouslySetInnerHTML={{ __html: content }}
-				></article>
+  return (
+    <ArticleLayout seo={{ ...meta, ...seo }} className="space-y-10">
+      {/* Bread crumbs area */}
+      <Breadcrumbs meta={meta} parent={parentPage} href={href} />
 
-				{mdx}
+      {/* Primary content area */}
+      <main className="space-y-5">
+        <Link href={href}>
+          <a>
+            <h1 className="heading heading-xl hover:underline">
+              {meta?.title}
+            </h1>
+          </a>
+        </Link>
 
-				{/* <AuthorCard /> */}
-			</main>
+        <ArticleMeta meta={meta} hrefTemplate={`/articles/browse/{{tag}}`} />
 
-			{/* <RelatedArticles /> */}
-		</ArticleSidebar>
-	);
+        <ArticleContent content={content} />
+
+        {/* <AuthorCard /> */}
+      </main>
+
+      {/* <RelatedArticles /> */}
+    </ArticleLayout>
+  );
 }

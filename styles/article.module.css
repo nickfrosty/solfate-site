@@ -1,0 +1,122 @@
+.article {
+  @apply break-words;
+
+  a {
+    @apply font-semibold underline;
+  }
+
+  h1,
+  h1 a {
+    @apply font-bold leading-none no-underline uppercase font-display text-4xl;
+    @apply capitalize;
+    /* font-size: min(max(3rem, 5.25vw), 6rem); */
+    /* @supports (font-size: clamp(3rem, 5.25vw, 7rem)) {
+      font-size: clamp(3rem, 5.25vw, 7rem);
+    } */
+  }
+
+  h2,
+  h2 a {
+    @apply py-6 mt-12 leading-none tracking-tight no-underline;
+    @apply font-bold text-4xl;
+    /* @apply text-indigo-500; */
+    @apply capitalize;
+    /* text-shadow: 0 0 5px rgb(79 70 229 / 60%); */
+  }
+
+  h3 {
+    @apply py-6 text-xl font-bold leading-none;
+    @apply text-yellow-400;
+    @apply capitalize;
+    /* text-shadow: 0 0 5px rgb(254 211 24 / 50%); */
+  }
+
+  h4 {
+    @apply py-6 font-bold leading-none tracking-widest uppercase;
+    @apply capitalize;
+  }
+
+  p {
+    @apply mb-8 text-lg leading-relaxed;
+    @apply capitalize;
+  }
+  > p:first-of-type {
+    @apply text-xl md:text-2xl;
+  }
+
+  > blockquote > p,
+  > blockquote {
+    @apply px-4 pt-6 mb-12 text-3xl italic font-semibold leading-tight text-gray-600;
+  }
+
+  > blockquote > blockquote > p {
+    @apply text-xl leading-tight;
+  }
+
+  > p > img,
+  > img {
+    @apply mx-auto my-10;
+  }
+
+  /* a {
+    @apply font-bold text-indigo-500 underline;
+    &:hover {
+      @apply text-hot-pink;
+    }
+  } */
+
+  ul:not(.list-none) {
+    @apply pl-0 mb-8 ml-10 text-lg list-disc;
+    li {
+      @apply mb-1;
+    }
+  }
+
+  ol {
+    @apply pl-0 mb-8 ml-10 text-lg list-decimal;
+    li {
+      @apply mb-1;
+    }
+  }
+
+  p code,
+  ul li *:not(pre) code,
+  ul li > code,
+  ol li *:not(pre) code,
+  ol li > code {
+    /* @apply inline-block p-2 font-mono text-sm leading-none text-white align-baseline whitespace-nowrap; */
+  }
+
+  /* pre code,
+  pre code&,
+  > ul li pre code,
+  > ol li pre code {
+    @apply p-5;
+  } */
+
+  pre,
+  pre&,
+  > ul li pre,
+  > ol li pre {
+    @apply p-0 mb-3 leading-loose rounded-md;
+  }
+
+  table {
+    @apply w-full mb-8 text-sm text-left border-2 border-collapse;
+    th {
+      @apply p-4 text-xl font-bold border-t-4 border-b;
+    }
+
+    td {
+      @apply p-4 border-b;
+    }
+
+    p {
+      @apply leading-normal;
+    }
+  }
+}
+
+.content section > *:first-child {
+  @apply pt-0 mt-0;
+}

@@ -11,58 +11,53 @@ import { SmallCard } from "~/components/cards/SmallCard";
 // construct the meta data for the page
 // const metaData = basicMeta({
 const metaData = {
-	title: "Articles",
-	description: "",
+  title: "Articles",
+  description: "",
 };
 
 export default function HomePage() {
-	return (
-		<DefaultLayout seo={metaData}>
-			{/* <p>page content here</p> */}
+  return (
+    <DefaultLayout seo={metaData}>
+      {/* <p>page content here</p> */}
 
-			<section className="double-wide-cards">
-				{[
-					{ id: 1, title: "Introduction to the Solana CLI" },
-					{ id: 2, title: "Setup your development environment" },
-				].map((item) => {
-					return (
-						<LargeCard
-							key={item.id}
-							title={item.title}
-							href="/articles/example"
-						>
-							Description of the article here. Learn these really
-							cool things here. Should likely cap it around 155ish
-							characters.
-						</LargeCard>
-					);
-				})}
-			</section>
+      <section className="double-wide-cards">
+        {[
+          {
+            id: 1,
+            title: "Introduction to the Solana CLI",
+            href: "/articles/intro-to-solana-cli",
+            description:
+              "Learn the basics and how to get around in the Solana CLI",
+            image: "d",
+          },
+          {
+            id: 2,
+            title: "What is a NFT?",
+            href: "/articles/nft",
+            image: "d",
+          },
+        ].map((item) => {
+          return <LargeCard key={item.id} {...item}></LargeCard>;
+        })}
+      </section>
 
-			<section className="card-listing">
-				{[
-					{ id: 1 },
-					{ id: 2 },
-					{ id: 3 },
-					{ id: 4 },
-					{ id: 5 },
-					{ id: 6 },
-					{ id: 7 },
-					{ id: 8 },
-				].map((item) => {
-					return (
-						<SmallCard
-							key={item.id}
-							title={`Article title #${item.id}`}
-							href="/articles/example"
-						>
-							Description of the article here. Learn these really
-							cool things here. Should likely cap it around 155ish
-							characters.
-						</SmallCard>
-					);
-				})}
-			</section>
-		</DefaultLayout>
-	);
+      <section className="card-listing">
+        {[
+          {
+            id: 1,
+            title: "Setup Solana on Linux",
+            description: "",
+            href: "/articles/setup-solana-on-linux",
+          },
+        ].map((item) => {
+          return (
+            <SmallCard key={item.id} {...item}>
+              Description of the article here. Learn these really cool things
+              here. Should likely cap it around 155ish characters.
+            </SmallCard>
+          );
+        })}
+      </section>
+    </DefaultLayout>
+  );
 }
