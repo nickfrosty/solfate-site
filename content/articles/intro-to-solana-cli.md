@@ -1,5 +1,6 @@
 ---
 title: Introduction to the Solana CLI
+featured: true
 description:
 oneliner: Learn the basics and how to get around in the Solana CLI
 keywords:

@@ -1,7 +1,7 @@
 ---
-title: Example article
-description: Learn all about what a NFT is and how to mint them
-oneliner: Learn all about what a NFT is and how to mint them
+title: Example course
+description: This is an example course file
+oneliner: This is an example course file
 keywords: meta, keywords, for the, meta, keywords, how, meta
 image:
 tags:
@@ -10,7 +10,7 @@ tags:
   - spl token
 ---
 
-this is an example article
+this is an example course
 
 ## Custom h2
 

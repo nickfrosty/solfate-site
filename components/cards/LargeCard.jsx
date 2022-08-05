@@ -1,16 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/solid";
+import { generateSlug } from "~/toad/core";
 
 export function LargeCard({
   title,
   image = null,
+  baseHref = "",
   href = "",
+  slug = "",
   description = null,
+  oneliner = null,
   children = null,
   actionButton = null,
   className = "",
 }) {
+  // construct the `href` location, when not provided
+  if (!href) href = `${baseHref || ""}/${slug || generateSlug(title)}`;
+
   return (
     <Link href={href}>
       <a
@@ -18,28 +25,27 @@ export function LargeCard({
           className || ""
         }`}
       >
-        {image ? (
-          <div className="sm:max-h-72 md:max-h-80 md:w-1/2 pb-2/3 overflow-hidden flex-shrink-0 bg-gray-900">
+        <div className="sm:max-h-72 md:max-h-80 md:w-1/2 pb-2/3 overflow-hidden flex-shrink-0 bg-gray-900">
+          {image ? (
             <img
               src={image}
               className="object-cover relative left-0 w-full h-full"
               alt={title || "[unknown]"}
             />
-            {/* TODO: onerror load a default image, or remove the image? */}
-          </div>
-        ) : (
-          ""
-        )}
+          ) : (
+            ""
+          )}
+        </div>
         <div className="md:p-5 flex-grow p-8 space-y-4">
           <h2 className="text-3xl font-bold">{title || "[unknown]"}</h2>
 
-          {children || description ? (
+          {children || oneliner || description ? (
             <p
               className={`text-gray-500 ${
                 actionButton ? "line-clamp-4" : "line-clamp-6"
               }`}
             >
-              {(children && children) || description}
+              {(children && children) || oneliner || description}
             </p>
           ) : (
             ""

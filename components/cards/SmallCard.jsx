@@ -1,15 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { generateSlug } from "~/toad/core";
 
 export function SmallCard({
   title,
   image = null,
-  href = "",
+  baseHref = null,
+  href = null,
   description = null,
   children = null,
-  meta,
+  slug = null,
   className = "",
 }) {
+  // construct the `href` location, when not provided
+  if (!href) href = `${baseHref || ""}/${slug || generateSlug(title)}`;
+
   return (
     <Link href={href || ""}>
       <a className={`p-0 card hover-outline ${className || ""}`}>

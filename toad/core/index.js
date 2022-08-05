@@ -3,9 +3,10 @@
 // const matter = require("gray-matter");
 
 import fs from "fs";
-import path from "path";
+import path, { dirname } from "path";
 
 import { DateTime } from "luxon";
+import slugify from "slugify";
 
 //
 import matter from "gray-matter";
@@ -19,26 +20,111 @@ const BASE_PATH = "content";
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
+ * Filter a listing of documents by the provided `filter` criteria on the `doc.meta` data
+ * @param {array} docs array of documents to be filtered
+ * @param {object} filters criteria to filter by
+ * @param {number} limit max number of filtered documents to return
+ * @returns
+ */
+export function filterDocs(docs, filters, limit = 0) {
+  try {
+    // parse each of the provided filters
+    for (const [key, value] of Object.entries(filters)) {
+      // do NOT parse arrays!
+      if (Array.isArray(value)) return false;
+
+      // filter the provided `docs` listing for the current working filter (aka `key`)
+      docs = docs?.filter((item) => {
+        // auto select the `meta` object from each document
+        item = item?.meta;
+
+        // check for exact match for the simple types of `boolean` and `string`
+        if (typeof value === "boolean" || typeof value === "string")
+          return item?.[key] === value;
+        // parse each of the comparison operators
+        else if (typeof value === "object") {
+          if (value?.eq) return item?.[key] === value.eq;
+          else if (value?.neq) return item?.[key] !== value.neq;
+          else if (value?.gt) return item?.[key] > value.gt;
+          else if (value?.gte) return item?.[key] >= value.gte;
+          else if (value?.lt) return item?.[key] < value.lt;
+          else if (value?.lte) return item?.[key] <= value.lte;
+          else if (value?.startsWith)
+            return item?.[key]?.startsWith(value.startsWith.toString());
+          else if (value?.endsWith)
+            return item?.[key]?.endsWith(value.endsWith.toString());
+          else if (value?.contains?.toString())
+            return item?.[key]?.indexOf(value.contains.toString()) >= 0;
+          else return false;
+        }
+      });
+    }
+
+    // return false when no documents were found
+    if (!docs || !docs?.length) return false;
+
+    // return the final filtered (and limited) results
+    return limit ? docs?.slice(0, limit) : docs;
+  } catch (err) {
+    console.warn("Unable to filter documents:", filters);
+    console.warn(err);
+  }
+  return false;
+}
+
+/**
  * Retreive a markdown document from the `content` directory, parsed and ready to go
  * @param {string} slug slug of the file name to locate
  * @param {string} basePath (optional) folder path inside of the `content` folder to search for the given slug
  * @returns
  */
-export async function getDocBySlug(slug, basePath = null) {
+export async function getDocBySlug(slug, basePath = "") {
   try {
     // remove file extension from the slug
-    slug = slug?.replace(/.md|.html|.html$/, "") || false;
+    slug = slug?.replace(/.md|.mdx|.html|.html$/, "") || false;
 
     // locate the document based on its `slug`
     const filePath = getFilePath({ slug, basePath });
     if (!filePath) return false;
 
     // load the doc and return it as requested
-    const doc = await loadAndParseFile(filePath);
+    const doc = await loadAndParseDoc(filePath);
     if (!doc) return false;
     return doc;
   } catch (err) {
     console.warn("Unable to locate document:", slug);
+    console.warn(err);
+  }
+  return false;
+}
+
+/**
+ * Retreive a listing of markdown documents from the given `searchPath` directory, parsed and ready to go
+ * @param {string} searchPath base relative path of documents to locate
+ * @returns `array` of documents located inside the `searchPath`
+ */
+export async function getDocsByPath(searchPath = "") {
+  try {
+    // crawl the `searchPath` for all the documents
+    const files = crawlForFiles(searchPath, true);
+
+    let docs = [];
+
+    // load and parse each of the located docs
+    for (let i = 0; i < files.length; i++) {
+      // attempt to load the doc's meta info
+      try {
+        const doc = await loadAndParseDoc(files[i], true);
+        if (doc) docs.push(doc);
+      } catch (err) {
+        console.warn("Unable to parse doc:", files[i]);
+      }
+    }
+
+    if (!docs || !docs?.length) return false;
+    return docs;
+  } catch (err) {
+    console.warn("Unable to locate path:", path);
     console.warn(err);
   }
   return false;
@@ -56,9 +142,8 @@ export function getFilePath(options) {
   if (!options?.slug) return false;
 
   // construct the base working path to search
-  if (options?.basePath)
-    options.basePath = path.join(BASE_PATH, options.basePath);
-  else options.basePath = path.join(BASE_PATH);
+  if (!options?.basePath) options.basePath = path.join(BASE_PATH);
+  //   options.basePath = path.join(BASE_PATH, options.basePath);
 
   // check for file based routing (fastest)
   if (
@@ -68,7 +153,7 @@ export function getFilePath(options) {
     return path.join(options.basePath, `${options?.slug}.md`);
 
   // when not found in file based routing, begin crawling...
-  const files = crawlForFiles(options.basePath, true);
+  const files = crawlForFiles(options.basePath, true) || [];
 
   const file =
     files?.filter((item) => {
@@ -92,10 +177,11 @@ export function getFilePath(options) {
 
 /**
  * Load and parse a the file from the given `filePath`, making it ready for the frontend.
- * @param {string} filePath
+ * @param {string} filePath path to the file to load and parse
+ * @param {boolean} metaOnly whether or not to only parse/return the meta data
  * @returns
  */
-export async function loadAndParseFile(filePath) {
+export async function loadAndParseDoc(filePath, metaOnly = false) {
   try {
     // read the file from the local file system
     const stats = fs.statSync(path.join(filePath));
@@ -107,12 +193,9 @@ export async function loadAndParseFile(filePath) {
     const data = {
       path: filePath,
       meta: file?.data || {},
-      content: file?.content,
+      content: metaOnly ? null : file?.content,
       slug: null,
     };
-
-    console.log("dates");
-    console.log(data?.meta?.updatedAt, new Date(data?.meta?.updatedAt));
 
     // enable the user to override the `updatedAt` date from the front matter
     data.meta.createdAt = DateTime.fromJSDate(stats.birthtime).toString();
@@ -121,15 +204,17 @@ export async function loadAndParseFile(filePath) {
       let tmp = new Date(data?.meta?.updatedAt);
 
       if (tmp instanceof Date && !isNaN(tmp).valueOf()) {
-        console.log("valid and parse");
+        // console.log("valid and parse");
         data.updatedAt = DateTime.fromISO(tmp.toISOString()).toString();
       }
       // else invalid date and keep it as the updated loaded from the file
     }
 
-    if (!data?.meta?.updatedAt)
-      (data.meta.updatedAt = DateTime.fromJSDate(stats.mtime).toString()),
-        console.log(data);
+    // parse and set the `updatedAt` date
+    if (!data?.meta?.updatedAt) {
+      data.meta.updatedAt = DateTime.fromJSDate(stats.mtime).toString();
+      // console.log(data);
+    }
 
     // TODO: generate the SEO details?
 
@@ -159,30 +244,36 @@ export function generateSlug(item) {
     meta: {}, // object of a files frontmatter meta data
   };
 
+  let slug = "";
+
   /* 
     Order of precedence for slug generation:
-      1. item as a string (aka the string path)
+      1. item as a string (e.g. the string path of the file or the title from the doc front matter)
       2. item.path
       // 3. item.meta.slug
+      // 3. item.title
   */
 
-  if (typeof item === "string" || item?.path) {
-    let slug = typeof item === "string" ? item : item?.path || "";
+  if (typeof item === "string") slug = item;
+  else if (item?.path) slug = item.path;
+  else return "";
+
+  // for path based slugs, strip out the final item (aka file name slug) from the path
+  if (slug.indexOf(path.sep) >= 0) {
     slug = slug.split(path.sep);
     slug = slug[slug.length - 1];
-
-    // NOTE: this may result in unexpected issues if the file name has multiple extensions (e.g ".env.bak")
-    // but this should not be a problem for simple text files (like .md) or most image formats
-
-    return slug?.replace(/.md|.html|.html$/, "") || slug;
-    return slug;
-  } else {
-    // console.log("-----------------");
-    // console.log("item ::: ", item);
-    // console.log("item.path ::: ", item.path);
-
-    return "";
   }
+
+  // extract the final slugified version of the slug
+  const slug_options = { lower: true };
+  slug = slugify(slug, slug_options);
+
+  // NOTE: this may result in unexpected issues if the file name has multiple extensions (e.g ".md.bak")
+  // but this should not be a problem for simple text files (like .md) or most image formats
+  // TODO: fix this from being an issue...
+
+  // strip the file extension
+  return slug?.replace(/.md|.mdx|.html|.html$/, "") || slug;
 }
 
 /**
@@ -229,34 +320,38 @@ export function generateStaticPaths(files = null, drafts = false) {
  * @returns array of file paths, and when `autoParseFile` is true returns an array of file paths with their file parsed
  */
 export function crawlForFiles(
-  dirName = BASE_PATH,
+  dirName = "",
   autoParseFile = true,
   drafts = false,
 ) {
   let files = [];
 
-  let listing = fs.readdirSync(path.join(dirName), { withFileTypes: true });
+  // only resolve in the `BASE_PATH` directory
+  if (!dirName?.startsWith(path.resolve(BASE_PATH)))
+    dirName = path.resolve(path.join(BASE_PATH, dirName));
 
-  // crawl the search directory for more files
-  for (let i = 0; i < listing.length; i++) {
-    const pointer = path.join(dirName, listing[i]?.name);
+  try {
+    // ensure the root `dirName` actually exists
+    if (!fs.existsSync(dirName)) return false;
 
-    // recursively crawl child directories
-    if (listing[i].isDirectory())
-      files.push(...crawlForFiles(pointer, autoParseFile));
-    else if (listing[i].isFile()) {
-      // TODO: add checking to only search for the given file extensions
+    // read in the desired directory
+    let listing = fs.readdirSync(dirName, { withFileTypes: true });
 
-      // when desired, ready and parse the files contents
-      // if (autoParseFile) {
-      // 	const item = parseFile(pointer);
+    // crawl the search directory for more files
+    for (let i = 0; i < listing.length; i++) {
+      const pointer = path.join(dirName, listing[i]?.name);
 
-      // 	// add the files parsed 'item' to the array (but NOT drafts unless explictly wanted)
-      // 	if (drafts === true || item?.meta?.draft !== false)
-      // 		files.push(item);
-      // } else
-      files.push(pointer);
+      // recursively crawl child directories
+      if (listing[i].isDirectory()) {
+        files.push(...crawlForFiles(pointer, autoParseFile));
+      } else if (listing[i].isFile()) {
+        // TODO: add checking to only search for the given file extensions
+        files.push(pointer);
+      }
     }
+  } catch (err) {
+    console.log("[error] crawlForFiles:");
+    console.warn(err);
   }
 
   // console.log("files: ", files);

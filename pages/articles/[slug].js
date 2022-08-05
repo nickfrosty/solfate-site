@@ -20,12 +20,12 @@ const metaData = {
   description: "",
 };
 
-export async function getStaticPaths() {
-  // get the listing of all of the markdown files
-  return generateStaticPaths("articles", false);
-}
+// export async function getStaticPaths() {
+//   // get the listing of all of the markdown files
+//   return generateStaticPaths("articles", false);
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const post = await getDocBySlug(params?.slug, "articles");
 
   // give the 404 page when the post is not found
