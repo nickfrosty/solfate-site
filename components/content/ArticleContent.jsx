@@ -20,7 +20,7 @@ export function ArticleContent({ content = null, className = "" }) {
   Define a custom reusable code block component
 */
 const CodeBlock = (props) => {
-  const { className, children } = props;
+  const { className = "", children } = props;
   // console.log(props);
 
   // trim white space and extra lines at the end
@@ -32,7 +32,7 @@ const CodeBlock = (props) => {
   } else if (typeof children === "string") children = children.trim();
 
   // compute the `language`
-  let language = className.slice("language-".length).toLowerCase();
+  let language = className?.slice("language-".length).toLowerCase() || "";
 
   if (language === "sh") language = "bash";
 

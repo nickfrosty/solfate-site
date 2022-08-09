@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Example article
 description: Learn all about what a NFT is and how to mint them
 oneliner: Learn all about what a NFT is and how to mint them

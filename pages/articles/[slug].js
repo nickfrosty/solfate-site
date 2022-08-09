@@ -20,12 +20,15 @@ const metaData = {
   description: "",
 };
 
-// export async function getStaticPaths() {
-//   // get the listing of all of the markdown files
-//   return generateStaticPaths("articles", false);
-// }
+export async function getStaticPaths() {
+  // get the listing of all of the markdown files
+  return generateStaticPaths("articles", false);
+}
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
+  if (process && process.env?.NODE_ENV !== "development")
+    return { notFound: true };
+
   const post = await getDocBySlug(params?.slug, "articles");
 
   // give the 404 page when the post is not found
@@ -65,7 +68,7 @@ export default function SingleArticlePage({
       <main className="space-y-5">
         <Link href={href}>
           <a>
-            <h1 className="heading heading-xl hover:underline">
+            <h1 className="heading heading-xl hover:underline text-yellow-400">
               {meta?.title}
             </h1>
           </a>

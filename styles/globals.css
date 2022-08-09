@@ -188,7 +188,7 @@ body {
 .tag {
   @apply px-3 py-1 rounded-xl mr-3 cursor-pointer;
   @apply border border-gray-800;
-  @apply bg-transparent;
+  /* @apply bg-transparent; */
   @apply hover:border-gray-500;
 }
 

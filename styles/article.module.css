@@ -8,7 +8,9 @@
   h1,
   h1 a {
     @apply font-bold leading-none no-underline uppercase font-display text-4xl;
-    @apply capitalize;
+    /* @apply capitalize; */
+    @apply text-yellow-400;
+
     /* font-size: min(max(3rem, 5.25vw), 6rem); */
     /* @supports (font-size: clamp(3rem, 5.25vw, 7rem)) {
       font-size: clamp(3rem, 5.25vw, 7rem);
@@ -17,28 +19,34 @@
 
   h2,
   h2 a {
-    @apply py-6 mt-12 leading-none tracking-tight no-underline;
+    @apply py-6  leading-none tracking-tight no-underline;
     @apply font-bold text-4xl;
+    @apply text-indigo-400;
+
     /* @apply text-indigo-500; */
-    @apply capitalize;
+    /* @apply capitalize; */
+
     /* text-shadow: 0 0 5px rgb(79 70 229 / 60%); */
   }
 
   h3 {
     @apply py-6 text-xl font-bold leading-none;
-    @apply text-yellow-400;
-    @apply capitalize;
+    @apply text-indigo-400;
+    /* @apply text-yellow-400; */
+
+    /* @apply capitalize; */
+
     /* text-shadow: 0 0 5px rgb(254 211 24 / 50%); */
   }
 
   h4 {
     @apply py-6 font-bold leading-none tracking-widest uppercase;
-    @apply capitalize;
+    /* @apply capitalize; */
   }
 
   p {
-    @apply mb-8 text-lg leading-relaxed;
-    @apply capitalize;
+    @apply my-4 text-lg leading-relaxed;
+    /* @apply capitalize; */
   }
   > p:first-of-type {
     @apply text-xl md:text-2xl;
@@ -46,7 +54,10 @@
 
   > blockquote > p,
   > blockquote {
-    @apply px-4 pt-6 mb-12 text-3xl italic font-semibold leading-tight text-gray-600;
+    @apply px-6 py-4 text-3xl italic font-semibold leading-tight;
+    @apply rounded-xl shadow-xl;
+    @apply md:mx-14 my-10;
+    @apply bg-indigo-900 text-white border-2 border-white;
   }
 
   > blockquote > blockquote > p {
@@ -58,12 +69,12 @@
     @apply mx-auto my-10;
   }
 
-  /* a {
-    @apply font-bold text-indigo-500 underline;
+  a {
+    @apply font-bold text-yellow-500 underline;
     &:hover {
       @apply text-hot-pink;
     }
-  } */
+  }
 
   ul:not(.list-none) {
     @apply pl-0 mb-8 ml-10 text-lg list-disc;
@@ -98,7 +109,7 @@
   pre&,
   > ul li pre,
   > ol li pre {
-    @apply p-0 mb-3 leading-loose rounded-md;
+    @apply p-0 mb-5 leading-loose rounded-md;
   }
 
   table {

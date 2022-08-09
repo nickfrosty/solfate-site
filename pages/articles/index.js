@@ -16,6 +16,9 @@ const metaData = {
 
 // export async function getStaticProps({ params }) {
 export async function getServerSideProps({ params }) {
+  if (process && process.env?.NODE_ENV !== "development")
+    return { notFound: true };
+
   const posts = await getDocsByPath("articles");
 
   // extract the `featured` posts

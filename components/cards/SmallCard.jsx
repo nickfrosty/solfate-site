@@ -10,6 +10,7 @@ export function SmallCard({
   description = null,
   children = null,
   slug = null,
+  draft = null,
   className = "",
 }) {
   // construct the `href` location, when not provided
@@ -21,7 +22,11 @@ export function SmallCard({
         {/* <div className="flex-shrink-0 h-60 bg-gray-600"></div> */}
         <div className="block flex-shrink-0 w-full h-60 bg-gray-900">
           {/* TODO: onerror load a default image, or remove the image? */}
-
+          {draft && draft === true && (
+            <span className="tag bg-slate-500 relative top-5 left-5 text-white">
+              draft article
+            </span>
+          )}
           {image ? (
             <img src={image} className="" alt={title || "[unknown]"} />
           ) : (

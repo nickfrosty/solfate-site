@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Basic Example article
 description: basic example of in a folder
 oneliner: Learn all about what a NFT is and how to mint them

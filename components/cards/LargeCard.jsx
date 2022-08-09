@@ -11,6 +11,7 @@ export function LargeCard({
   slug = "",
   description = null,
   oneliner = null,
+  draft = null,
   children = null,
   actionButton = null,
   className = "",
@@ -26,6 +27,11 @@ export function LargeCard({
         }`}
       >
         <div className="sm:max-h-72 md:max-h-80 md:w-1/2 pb-2/3 overflow-hidden flex-shrink-0 bg-gray-900">
+          {draft && draft === true && (
+            <span className="tag bg-slate-500 relative top-5 left-5 text-white">
+              draft article
+            </span>
+          )}
           {image ? (
             <img
               src={image}
@@ -38,7 +44,6 @@ export function LargeCard({
         </div>
         <div className="md:p-5 flex-grow p-8 space-y-4">
           <h2 className="text-3xl font-bold">{title || "[unknown]"}</h2>
-
           {children || oneliner || description ? (
             <p
               className={`text-gray-500 ${

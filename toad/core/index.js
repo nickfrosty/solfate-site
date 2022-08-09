@@ -89,7 +89,11 @@ export async function getDocBySlug(slug, basePath = "") {
 
     // load the doc and return it as requested
     const doc = await loadAndParseDoc(filePath);
-    if (!doc) return false;
+    if (
+      !doc ||
+      (doc?.meta?.draft === true && process.env?.NODE_ENV === "production")
+    )
+      return false;
     return doc;
   } catch (err) {
     console.warn("Unable to locate document:", slug);
@@ -99,7 +103,7 @@ export async function getDocBySlug(slug, basePath = "") {
 }
 
 /**
- * Retreive a listing of markdown documents from the given `searchPath` directory, parsed and ready to go
+ * Retrieve a listing of markdown documents from the given `searchPath` directory, parsed and ready to go
  * @param {string} searchPath base relative path of documents to locate
  * @returns `array` of documents located inside the `searchPath`
  */
@@ -115,7 +119,14 @@ export async function getDocsByPath(searchPath = "") {
       // attempt to load the doc's meta info
       try {
         const doc = await loadAndParseDoc(files[i], true);
-        if (doc) docs.push(doc);
+
+        if (doc) {
+          if (
+            doc?.meta?.draft !== true ||
+            process.env?.NODE_ENV !== "production"
+          )
+            docs.push(doc);
+        }
       } catch (err) {
         console.warn("Unable to parse doc:", files[i]);
       }
@@ -133,7 +144,7 @@ export async function getDocsByPath(searchPath = "") {
 export function getFilePath(options) {
   // options structure
   // const struct = {
-  // 	// either a path or a slug is required, but not both. Path will superceed the slug, since it is faster
+  // 	// either a path or a slug is required, but not both. Path will supersede the slug, since it is faster
   // 	path: "",
   // 	slug: "",
   // 	basePath: null, // base directory, inside of BASE_PATH

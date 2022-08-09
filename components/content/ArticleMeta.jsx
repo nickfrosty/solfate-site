@@ -12,6 +12,9 @@ export function ArticleMeta({
   return (
     <section className={`${className} space-y-3`}>
       <p className="flexer space-x-2 tracking-wider text-gray-500">
+        {meta?.draft === true && (
+          <span className="tag bg-slate-500 text-white">draft article</span>
+        )}
         <span className="">
           Posted on{" "}
           {DateTime.fromISO(meta.createdAt).toFormat("MMM dd, yyyy").toString()}
