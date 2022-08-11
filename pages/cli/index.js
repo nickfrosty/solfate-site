@@ -7,92 +7,90 @@ import Link from "next/link";
 import { LargeCard } from "~/components/cards/LargeCard";
 import { useState } from "react";
 
-// import Image from "next/image";
-// import WaitlistForm from "~/components/waitlist/WaitlistForm";
-
 // construct the meta data for the page
 // const metaData = basicMeta({
 const metaData = {
-	title: "Solfate CLI",
-	description:
-		"Command line developer utility to help build Solana programs.",
+  title: "Solfate CLI",
+  description:
+    "Command line developer utility for building Solana programs: hot reloads, auto deploys, auto airdrops, and more!",
 };
 
 export default function HomePage() {
-	// state used for the copy to clipboard section
-	const [enabled, setEnabled] = useState(true);
-	const [displayText, setDisplayText] = useState("npm i -g solfate");
+  // state used for the copy to clipboard section
+  const [enabled, setEnabled] = useState(true);
+  const [displayText, setDisplayText] = useState("npm i -g solfate");
 
-	const copyToClipboard = (text) => {
-		if (enabled) {
-			navigator.clipboard.writeText(displayText);
-			let tmp = displayText;
-			setDisplayText("Copied to clipboard!");
-			setEnabled(false);
-			setTimeout(() => {
-				setDisplayText(tmp);
-				setEnabled(true);
-			}, 700);
-		}
-	};
+  const copyToClipboard = (text) => {
+    if (enabled) {
+      navigator.clipboard.writeText(displayText);
+      let tmp = displayText;
+      setDisplayText("Copied to clipboard!");
+      setEnabled(false);
+      setTimeout(() => {
+        setDisplayText(tmp);
+        setEnabled(true);
+      }, 700);
+    }
+  };
 
-	return (
-		<DefaultLayout seo={metaData} className="md:space-y-16">
-			{/* Page heading */}
-			<div className="col-span-2 py-14 mx-auto space-y-8 max-w-2xl text-center">
-				<h1 className="text-5xl font-bold">Solfate CLI</h1>
+  return (
+    <DefaultLayout seo={metaData} className="md:space-y-16">
+      {/* Page heading */}
+      <div className="col-span-2 py-14 mx-auto space-y-8 max-w-2xl text-center">
+        <h1 className="text-5xl font-bold">Solfate CLI</h1>
 
-				<p className="mx-auto text-xl text-gray-500">
-					Developer utility for building Solana programs
-				</p>
+        <p className="mx-auto text-xl text-gray-500">
+          Developer utility for building Solana programs
+        </p>
 
-				<div
-					className="input mx-auto max-w-xs cursor-pointer"
-					onClick={copyToClipboard}
-				>
-					<p className="flexer justify-between space-x-5 text-xl">
-						<span className="block flex-grow mx-auto">
-							{displayText}
-						</span>
-						<DocumentDuplicateIcon className="icon-sm flex-shrink" />
-					</p>
-				</div>
+        <div
+          className="input mx-auto max-w-xs cursor-pointer"
+          onClick={copyToClipboard}
+        >
+          <p className="flexer justify-between space-x-5 text-xl">
+            <span className="block flex-grow mx-auto">{displayText}</span>
+            <DocumentDuplicateIcon className="icon-sm flex-shrink" />
+          </p>
+        </div>
 
-				<div className="flex justify-center space-x-4">
-					<Link href="https://github.com/solfate/solfate">
-						<a
-							target="_blank"
-							rel="noreferrer"
-							className="btn btn-indigo-outline block w-min whitespace-nowrap"
-						>
-							<span>View on Github</span>
-							<ArrowRightIcon className="icon-sm" />
-						</a>
-					</Link>
-					{/* <Link href="/cli">
-						<a className="btn btn-indigo-outline block w-min whitespace-nowrap">
-							<span>Read the Docs</span>
-							<ArrowRightIcon className="icon-sm" />
-						</a>
-					</Link> */}
-				</div>
-			</div>
+        <div className="flex justify-center space-x-4">
+          <Link href="https://github.com/solfate/solfate">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-indigo-outline block w-min whitespace-nowrap"
+            >
+              <span>View on Github</span>
+              <ArrowRightIcon className="icon-sm" />
+            </a>
+          </Link>
+          {/* <Link href="/cli">
+            <a className="btn btn-indigo-outline block w-min whitespace-nowrap">
+              <span>Read the Docs</span>
+              <ArrowRightIcon className="icon-sm" />
+            </a>
+          </Link> */}
+        </div>
+      </div>
 
-			<div className="card sm:max-h-72 md:max-h-80 md:w-1/2 flex-shrink-0 p-5 mx-auto bg-gray-900">
-				<h2 className="text-3xl font-semibold">
-					Hot reloading Solana programs
-				</h2>
-				<p className="mt-2 mb-6 text-gray-500">
-					Auto rebuild and reload Solana programs while editing.
-				</p>
-				<img
-					src="/img/cli/hot-reload.png"
-					className="card object-cover relative left-0 w-full h-full"
-					alt={"Live hot reloads and auto builds of Solana programs"}
-				/>
-			</div>
+      <div className="card sm:max-h-72 md:max-h-80 md:w-1/2 flex-shrink-0 p-5 mx-auto bg-gray-900">
+        <h2 className="text-3xl font-semibold">
+          Hot reloading Solana programs
+        </h2>
+        <p className="mt-2 mb-6 text-gray-500">
+          Auto rebuild and reload Solana programs while editing, with optional
+          auto deploys.
+        </p>
+        <img
+          src="/img/cli/hot-reload.png"
+          className="card object-cover relative left-0 w-full h-full"
+          alt={
+            "Live hot reloads and auto builds of Solana programs, with optional auto deploys"
+          }
+        />
+      </div>
 
-			{/* <section className="md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4 grid gap-12">
+      {/* <section className="md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4 grid gap-12">
 				<div className="md:col-span-2 md:mb-14 lg:mb-0 md:px-24 lg:px-0 space-y-3">
 					<h3 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
 						Autogenerated Profile Pages
@@ -141,6 +139,6 @@ export default function HomePage() {
 					</a>
 				</div>
 			</section> */}
-		</DefaultLayout>
-	);
+    </DefaultLayout>
+  );
 }
