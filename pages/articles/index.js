@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function ArticlesPage({ posts, featured }) {
+export default function ArticlesIndex({ posts, featured }) {
   return (
     <DefaultLayout seo={metaData}>
       {featured && featured?.length ? (

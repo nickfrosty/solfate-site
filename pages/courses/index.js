@@ -5,64 +5,67 @@ import { basicMeta } from "~/utils/seoMetaData";
 import { LargeCard } from "~/components/cards/LargeCard";
 import { SmallCard } from "~/components/cards/SmallCard";
 
-// import Image from "next/image";
-// import WaitlistForm from "~/components/waitlist/WaitlistForm";
+import { getDocsByPath, filterDocs } from "../../toad/core/index";
 
 // construct the meta data for the page
 // const metaData = basicMeta({
 const metaData = {
-	title: "Solana Blockchain Courses",
-	description: "",
+  title: "Solana Blockchain Courses",
+  baseHref: "/courses",
+  description: "",
 };
 
-export default function HomePage() {
-	return (
-		<DefaultLayout seo={metaData}>
-			{/* <p>page content here</p> */}
+export async function getStaticProps({ params }) {
+  if (process && process.env?.NODE_ENV !== "development")
+    return { notFound: true };
 
-			<section className="double-wide-cards">
-				{[
-					{ id: 1, title: "Fundamentals of Solana" },
-					{ id: 2, title: "Setup your development environment" },
-				].map((item) => {
-					return (
-						<LargeCard
-							key={item.id}
-							title={`${item.title}`}
-							href="/courses/example"
-						>
-							Description of the article here. Learn these really
-							cool things here. Should likely cap it around 155ish
-							characters.
-						</LargeCard>
-					);
-				})}
-			</section>
+  const posts = await getDocsByPath("courses");
 
-			<section className="card-listing">
-				{[
-					{ id: 1 },
-					{ id: 2 },
-					{ id: 3 },
-					{ id: 4 },
-					{ id: 5 },
-					{ id: 6 },
-					{ id: 7 },
-					{ id: 8 },
-				].map((item) => {
-					return (
-						<SmallCard
-							key={item.id}
-							title={`Course title #${item.id}`}
-							href="/courses/example"
-						>
-							Description of the courses here. Learn these really
-							cool things here. Should likely cap it around 155ish
-							characters.
-						</SmallCard>
-					);
-				})}
-			</section>
-		</DefaultLayout>
-	);
+  // extract the `featured` posts
+  const featured = filterDocs(posts, { featured: true }, 2);
+
+  // remove the featured from the posts
+  // posts = posts?.filter(item => )
+
+  // give the 404 page when the post is not found
+  // if (!posts || !posts?.length) return { notFound: true };
+
+  return {
+    props: { posts, featured },
+  };
+}
+
+export default function CoursesIndex({ posts, featured }) {
+  return (
+    <DefaultLayout seo={metaData}>
+      {featured && featured?.length ? (
+        <section className="double-wide-cards">
+          {featured.map((item) => {
+            return (
+              <LargeCard
+                key={item.updatedAt}
+                {...item?.meta}
+                baseHref={metaData.baseHref}
+              ></LargeCard>
+            );
+          })}
+        </section>
+      ) : (
+        <></>
+      )}
+
+      <section className="card-listing">
+        {posts &&
+          posts.map((item) => {
+            return (
+              <SmallCard
+                key={`${item.id}-${item.updatedAt}`}
+                {...item?.meta}
+                baseHref={metaData.baseHref}
+              />
+            );
+          })}
+      </section>
+    </DefaultLayout>
+  );
 }

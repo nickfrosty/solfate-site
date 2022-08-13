@@ -1,7 +1,8 @@
 ---
-title: Introduction to Anchor Development
-description: Learn the very basics of developing a Solana programs with the Anchor framework
-oneliner: Learn the very basics of developing a Solana programs with the Anchor framework
+featured: true
+title: Introduction to Anchor
+description: Learn the basics of developing Solana programs with the Anchor framework
+oneliner: Learn the basics of developing Solana programs with the Anchor framework
 # keywords:
 image:
 tags:
