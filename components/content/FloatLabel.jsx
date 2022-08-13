@@ -11,7 +11,7 @@ export function FloatLabel({
   const spaner = (
     <span
       className={`inline-code text-white ${
-        overlay ? "relative left-3 top-4" : ""} ${className}`}
+        overlay ? "absolute z-10 mt-2 ml-2" : ""} ${className}`}
     >
       {label}
     </span>

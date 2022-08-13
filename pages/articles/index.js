@@ -18,13 +18,13 @@ export async function getStaticProps({ params }) {
   if (process && process.env?.NODE_ENV !== "development")
     return { notFound: true };
 
-  const posts = await getDocsByPath("articles");
+  let posts = await getDocsByPath("articles");
 
   // extract the `featured` posts
   const featured = filterDocs(posts, { featured: true }, 2);
 
-  // remove the featured from the posts
-  // posts = posts?.filter(item => )
+  // remove the `featured` from the `posts`
+  posts = posts?.filter((item) => !item?.meta?.featured);
 
   // give the 404 page when the post is not found
   // if (!posts || !posts?.length) return { notFound: true };

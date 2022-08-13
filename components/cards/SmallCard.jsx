@@ -26,7 +26,11 @@ export function SmallCard({
             <FloatLabel label={"draft"} overlay={true} />
           )}
           {image ? (
-            <img src={image} className="" alt={title || "[unknown]"} />
+            <img
+              src={image}
+              className="object-cover object-left relative left-0 w-full h-full"
+              alt={title || "[unknown]"}
+            />
           ) : (
             ""
           )}

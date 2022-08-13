@@ -35,7 +35,7 @@ export function LargeCard({
           {image ? (
             <img
               src={image}
-              className="object-cover relative left-0 w-full h-full"
+              className="object-cover object-left relative left-0 w-full h-full"
               alt={title || "[unknown]"}
             />
           ) : (
