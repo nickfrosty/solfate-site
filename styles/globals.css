@@ -17,7 +17,7 @@
 */
 body {
   @apply scroller;
-  @apply text-white bg-black;
+  @apply text-gray-300 bg-black;
   @apply tracking-wide;
   @apply items-center;
   /* @apply text-lg; */
@@ -185,11 +185,79 @@ body {
 /* 
 
 */
+
 .tag {
   @apply px-3 py-1 rounded-xl mr-3 cursor-pointer;
   @apply border border-gray-800;
-  /* @apply bg-transparent; */
+  @apply bg-transparent;
   @apply hover:border-gray-500;
+}
+
+.inline-code {
+  @apply px-3 py-1 ml-1 mr-2 rounded-lg;
+  @apply text-base tracking-wide font-mono;
+  @apply bg-slate-800 border border-slate-700 text-white !important;
+}
+
+/* Inline `msg` boxes used throughout the site */
+.msg {
+  @apply px-4 py-3 rounded-lg;
+  @apply shadow-xl border;
+  /* @apply text-2xl; */
+  @apply bg-slate-800 border-slate-700;
+  @apply my-5;
+}
+.msg p {
+  @apply m-0 !important;
+  @apply text-lg !important;
+}
+
+.msg.grey,
+.msg.gray {
+  @apply bg-slate-800 border-slate-700;
+}
+.msg.note,
+.msg.purple,
+.msg.indigo {
+  @apply bg-indigo-900 border-indigo-700;
+}
+
+.msg.blue {
+  @apply bg-blue-900 border-blue-700;
+}
+.msg.red,
+.msg.error {
+  @apply bg-red-900 border-red-700;
+}
+.msg.green,
+.msg.good,
+.msg.success {
+  @apply bg-green-900 border-green-700;
+}
+.msg.yellow,
+.msg.caution,
+.msg.warn,
+.msg.warning {
+  @apply bg-yellow-900 border-yellow-700;
+}
+
+.msg.text::before {
+  @apply block;
+  @apply text-white;
+  @apply uppercase font-mono;
+  @apply font-semibold text-base;
+}
+.msg.note.text::before {
+  content: "Note:";
+}
+.msg.warn.text::before {
+  content: "Warning:";
+}
+.msg.caution.text::before {
+  content: "Caution:";
+}
+.msg.danger.text::before {
+  content: "Danger:";
 }
 
 .box {

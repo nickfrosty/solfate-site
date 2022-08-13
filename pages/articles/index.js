@@ -62,10 +62,7 @@ export default function ArticlesPage({ posts, featured }) {
                 key={`${item.id}-${item.updatedAt}`}
                 {...item?.meta}
                 baseHref={metaData.baseHref}
-              >
-                Description of the article here. Learn these really cool things
-                here. Should likely cap it around 155ish characters.
-              </SmallCard>
+              />
             );
           })}
       </section>

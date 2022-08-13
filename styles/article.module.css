@@ -6,6 +6,24 @@
   }
 
   h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  b,
+  strong,
+  i,
+  em {
+    @apply text-white !important;
+  }
+
+  em > strong,
+  strong > em {
+    @apply underline;
+  }
+
+  h1,
   h1 a {
     @apply font-bold leading-none no-underline uppercase font-display text-4xl;
     /* @apply capitalize; */
@@ -30,7 +48,7 @@
   }
 
   h3 {
-    @apply py-6 text-xl font-bold leading-none;
+    @apply py-6 text-2xl font-bold leading-none;
     @apply text-indigo-400;
     /* @apply text-yellow-400; */
 
@@ -52,8 +70,7 @@
     @apply text-xl md:text-2xl;
   }
 
-  > blockquote > p,
-  > blockquote {
+  blockquote > p {
     @apply px-6 py-4 text-3xl italic font-semibold leading-tight;
     @apply rounded-xl shadow-xl;
     @apply md:mx-14 my-10;

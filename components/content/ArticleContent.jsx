@@ -2,8 +2,13 @@
 import styles from "~/styles/article.module.css";
 import ReactMarkdown from "react-markdown";
 
+//
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
+//
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 /*
 
@@ -11,7 +16,12 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 export function ArticleContent({ content = null, className = "" }) {
   return (
     <article className={styles.article}>
-      <ReactMarkdown components={{ code: CodeBlock }}>{content}</ReactMarkdown>
+      <ReactMarkdown
+        rehypePlugins={[rehypeRaw, remarkGfm]}
+        components={{ code: CodeBlock }}
+      >
+        {content}
+      </ReactMarkdown>
     </article>
   );
 }
@@ -20,7 +30,7 @@ export function ArticleContent({ content = null, className = "" }) {
   Define a custom reusable code block component
 */
 const CodeBlock = (props) => {
-  const { className = "", children } = props;
+  const { className = "", inline = false, children } = props;
   // console.log(props);
 
   // trim white space and extra lines at the end
@@ -36,14 +46,16 @@ const CodeBlock = (props) => {
 
   if (language === "sh") language = "bash";
 
-  return (
-    <SyntaxHighlighter
-      className={className}
-      style={dracula}
-      language={language}
-      showLineNumbers={true}
-    >
-      {children}
-    </SyntaxHighlighter>
-  );
+  if (inline) return <span className="inline-code">{children}</span>;
+  else
+    return (
+      <SyntaxHighlighter
+        className={className}
+        style={dracula}
+        language={language}
+        showLineNumbers={true}
+      >
+        {children}
+      </SyntaxHighlighter>
+    );
 };
