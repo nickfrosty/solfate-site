@@ -352,6 +352,9 @@ export function crawlForFiles(
     for (let i = 0; i < listing.length; i++) {
       const pointer = path.join(dirName, listing[i]?.name);
 
+      // prevent crawling files/dirs with names starting with "_"
+      if (listing[i]?.name?.startsWith("_")) continue;
+
       // recursively crawl child directories
       if (listing[i].isDirectory()) {
         files.push(...crawlForFiles(pointer, autoParseFile));
