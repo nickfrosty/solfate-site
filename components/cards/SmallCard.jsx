@@ -3,19 +3,28 @@ import Link from "next/link";
 import { generateSlug } from "~/toad/core";
 import { FloatLabel } from "../content/FloatLabel";
 
-export function SmallCard({
-  title,
-  image = null,
-  baseHref = null,
-  href = null,
-  description = null,
-  children = null,
-  slug = null,
-  draft = null,
-  className = "",
-}) {
+export function SmallCard(meta) {
+  // extract the commonly used `meta` tags
+  let {
+    draft = null,
+    title,
+    image = null,
+    slug = null,
+    baseHref = null,
+    href = null,
+    description = null,
+    blurb = null,
+    children = null,
+    className = "",
+  } = meta;
+
   // construct the `href` location, when not provided
   if (!href) href = `${baseHref || ""}/${slug || generateSlug(title)}`;
+
+  // handle the `image_focus` option
+  const imageFocusSide = `object-${
+    meta?.image_focus?.toLowerCase() || "center"
+  }`;
 
   return (
     <Link href={href || ""}>
@@ -28,7 +37,7 @@ export function SmallCard({
           {image ? (
             <img
               src={image}
-              className="object-cover object-left relative left-0 w-full h-full"
+              className={`${imageFocusSide} object-cover object-left relative left-0 w-full h-full`}
               alt={title || "[unknown]"}
             />
           ) : (
@@ -38,8 +47,8 @@ export function SmallCard({
         <div className="p-5 space-y-3">
           <h2 className="text-2xl font-bold">{title || "[unknown]"}</h2>
 
-          {children || description ? (
-            <p className="text-gray-500">{children || description}</p>
+          {children || blurb || description ? (
+            <p className="text-gray-500">{children || blurb || description}</p>
           ) : (
             ""
           )}

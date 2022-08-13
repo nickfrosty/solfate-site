@@ -9,10 +9,22 @@ export function ArticleMeta({ meta = null, className = "" }) {
       <p className="flexer space-x-2 tracking-wider text-gray-500">
         {meta?.draft === true && <FloatLabel overlay={false} />}
 
-        <span className="">
-          Posted on{" "}
-          {DateTime.fromISO(meta.createdAt).toFormat("MMM dd, yyyy").toString()}
-        </span>
+        {meta.updatedAt !== meta.createdAt ? (
+          <span className="">
+            Updated on{" "}
+            {DateTime.fromISO(meta.updatedAt)
+              .toFormat("MMM dd, yyyy")
+              .toString()}
+          </span>
+        ) : (
+          <span className="">
+            Posted on{" "}
+            {DateTime.fromISO(meta.createdAt)
+              .toFormat("MMM dd, yyyy")
+              .toString()}
+          </span>
+        )}
+
         {/* 
         <span className="block w-1 h-1 bg-gray-500 rounded-full"></span>
         <a

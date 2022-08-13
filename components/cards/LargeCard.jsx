@@ -4,21 +4,29 @@ import { ArrowRightIcon } from "@heroicons/react/solid";
 import { generateSlug } from "~/toad/core";
 import { FloatLabel } from "../content/FloatLabel";
 
-export function LargeCard({
-  title,
-  image = null,
-  baseHref = "",
-  href = "",
-  slug = "",
-  description = null,
-  oneliner = null,
-  draft = null,
-  children = null,
-  actionButton = null,
-  className = "",
-}) {
+export function LargeCard(meta) {
+  // extract the commonly used `meta` tags
+  let {
+    title,
+    image = null,
+    baseHref = "",
+    href = "",
+    slug = "",
+    description = null,
+    blurb = null,
+    draft = null,
+    children = null,
+    actionButton = null,
+    className = "",
+  } = meta;
+
   // construct the `href` location, when not provided
   if (!href) href = `${baseHref || ""}/${slug || generateSlug(title)}`;
+
+  // handle the `image_focus` option
+  const imageFocusSide = `object-${
+    meta?.image_focus?.toLowerCase() || "center"
+  }`;
 
   return (
     <Link href={href}>
@@ -35,7 +43,7 @@ export function LargeCard({
           {image ? (
             <img
               src={image}
-              className="object-cover object-left relative left-0 w-full h-full"
+              className={`${imageFocusSide} object-cover relative left-0 w-full h-full`}
               alt={title || "[unknown]"}
             />
           ) : (
@@ -44,13 +52,13 @@ export function LargeCard({
         </div>
         <div className="md:p-5 flex-grow p-8 space-y-4">
           <h2 className="text-3xl font-bold">{title || "[unknown]"}</h2>
-          {children || oneliner || description ? (
+          {children || blurb || description ? (
             <p
               className={`text-gray-500 ${
                 actionButton ? "line-clamp-4" : "line-clamp-6"
               }`}
             >
-              {(children && children) || oneliner || description}
+              {(children && children) || blurb || description}
             </p>
           ) : (
             ""
