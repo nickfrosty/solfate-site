@@ -24,7 +24,7 @@ export default function HomePage() {
     if (enabled) {
       navigator.clipboard.writeText(displayText);
       let tmp = displayText;
-      setDisplayText("Copied to clipboard!");
+      setDisplayText("Copied!");
       setEnabled(false);
       setTimeout(() => {
         setDisplayText(tmp);
@@ -47,8 +47,10 @@ export default function HomePage() {
           className="input mx-auto max-w-xs cursor-pointer"
           onClick={copyToClipboard}
         >
-          <p className="flexer justify-between space-x-5 text-xl">
-            <span className="block flex-grow mx-auto">{displayText}</span>
+          <p className="flexer justify-between space-x-5 text-base">
+            <span className="block flex-grow mx-auto font-mono">
+              {displayText}
+            </span>
             <DocumentDuplicateIcon className="icon-sm flex-shrink" />
           </p>
         </div>
@@ -61,15 +63,15 @@ export default function HomePage() {
               className="btn btn-indigo-outline block w-min whitespace-nowrap"
             >
               <span>View on Github</span>
-              <ArrowRightIcon className="icon-sm" />
+              {/* <ArrowRightIcon className="icon-sm" /> */}
             </a>
           </Link>
-          {/* <Link href="/cli">
+          <Link href="https://github.com/solfate/solfate/blob/master/cli/README.md">
             <a className="btn btn-indigo-outline block w-min whitespace-nowrap">
               <span>Read the Docs</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
-          </Link> */}
+          </Link>
         </div>
       </div>
 

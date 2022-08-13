@@ -12,31 +12,31 @@ import { LargeCard } from "~/components/cards/LargeCard";
 // construct the meta data for the page
 // const metaData = basicMeta({
 const metaData = {
-	title: "Building on Solana",
-	description:
-		"Crafting developer tooling and information resources for the Solana ecosystem.",
+  title: "Building on Solana",
+  description:
+    "Crafting developer tooling and information resources for the Solana ecosystem.",
 };
 
 export default function HomePage() {
-	return (
-		<DefaultLayout seo={metaData} className="md:space-y-16">
-			{/* Page heading */}
-			<div className="col-span-2 py-14 mx-auto space-y-8 max-w-2xl text-center">
-				<h1 className="space-y-3 text-5xl font-bold">
-					{/* Refining glass with <br />
+  return (
+    <DefaultLayout seo={metaData} className="md:space-y-16">
+      {/* Page heading */}
+      <div className="col-span-2 py-14 mx-auto space-y-8 max-w-2xl text-center">
+        <h1 className="space-y-3 text-5xl font-bold">
+          {/* Refining glass with <br />
 					Solana Solfate */}
-					<span className="block">Crafting on Solana</span>
-					<span className="block">
-						with <span className="shadow-orange">Solfate</span>
-					</span>
-				</h1>
+          <span className="block">Crafting on Solana</span>
+          <span className="block">
+            with <span className="shadow-orange">Solfate</span>
+          </span>
+        </h1>
 
-				<p className="mx-auto text-xl text-gray-500">
-					{/* Refining glass into the future with Solana Solfate */}a
-					public experiment of building into the Solana ecosystem
-				</p>
+        <p className="mx-auto text-xl text-gray-500">
+          {/* Refining glass into the future with Solana Solfate */}a public
+          experiment of building into the Solana ecosystem
+        </p>
 
-				{/* <div className="flex justify-center">
+        {/* <div className="flex justify-center">
 					<Link href="/extension">
 						<a className="btn btn-indigo block w-min whitespace-nowrap">
 							<span>Chrome Extension</span>
@@ -44,10 +44,10 @@ export default function HomePage() {
 						</a>
 					</Link>
 				</div> */}
-			</div>
+      </div>
 
-			{/*  */}
-			{/* <section className="md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4 grid gap-12">
+      {/*  */}
+      {/* <section className="md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4 grid gap-12">
 				<div className="md:col-span-2 md:mb-14 md:px-24 lg:px-0 lg:mb-0 space-y-3">
 					<h3 className="text-2xl font-bold">
 						Ready to start learning?
@@ -96,50 +96,51 @@ export default function HomePage() {
 				</div>
 			</section> */}
 
-			{/*  */}
-			<section className="side-heavy-cards">
-				{/* double-wide-cards  */}
-				{[
-					{
-						id: 1,
-						className: "col-span-2",
-						title: "Solana Faucet",
-						href: "/faucet",
-						description:
-							"Turn on the Solana faucet to get an airdrop of free SOL deposited to your testnet or devnet wallet instantly.",
-						actionButton: "Open the Faucet",
-					},
-					// {
-					// 	id: 1,
-					// 	className: "col-span-2",
-					// 	title: "Solfate Browser Extension",
-					// 	href: "/extension",
-					// 	description:
-					// 		"Explore the decentralized Solana web though the power of .sol domains and IPFS.",
-					// 	actionButton: "Get the extension",
-					// },
-					{
-						id: 2,
-						className: "col-span-3",
-						title: "Command Line Interface (CLI)",
-						href: "/cli",
-						image: "/img/cli/hot-reload.png",
-						description:
-							"Install the Solfate CLI to help build Solana programs faster and better.",
-						actionButton: "Install the CLI",
-					},
-					// {
-					// 	id: 3,
-					// 	title: "Setup your dev environment",
-					// 	// href: "/",
-					// 	description:
-					// 		"Get started in your Solana development journey by installing the Solana CLI, configuring VS code, and running a local validator.",
-					// 	actionButton: "Get setup",
-					// },
-				].map((item) => {
-					return <LargeCard key={item.id} {...item} />;
-				})}
-			</section>
-		</DefaultLayout>
-	);
+      {/*  */}
+      <section className="side-heavy-cards">
+        {/* double-wide-cards  */}
+        {[
+          {
+            id: 1,
+            className: "col-span-2",
+            title: "Solana Faucet",
+            href: "/faucet",
+            description:
+              "Turn on the Solana faucet to get an airdrop of free SOL deposited to your testnet or devnet wallet instantly.",
+            actionButton: "Open the Faucet",
+          },
+          // {
+          // 	id: 1,
+          // 	className: "col-span-2",
+          // 	title: "Solfate Browser Extension",
+          // 	href: "/extension",
+          // 	description:
+          // 		"Explore the decentralized Solana web though the power of .sol domains and IPFS.",
+          // 	actionButton: "Get the extension",
+          // },
+          {
+            id: 2,
+            className: "col-span-3",
+            title: "Command Line Interface (CLI)",
+            href: "/cli",
+            image: "/img/cli/hot-reload.png",
+            image_focus: "left",
+            description:
+              "Install the Solfate CLI to help build Solana programs faster and better.",
+            actionButton: "Install the CLI",
+          },
+          // {
+          // 	id: 3,
+          // 	title: "Setup your dev environment",
+          // 	// href: "/",
+          // 	description:
+          // 		"Get started in your Solana development journey by installing the Solana CLI, configuring VS code, and running a local validator.",
+          // 	actionButton: "Get setup",
+          // },
+        ].map((item) => {
+          return <LargeCard key={item.id} {...item} />;
+        })}
+      </section>
+    </DefaultLayout>
+  );
 }
