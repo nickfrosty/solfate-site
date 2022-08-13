@@ -14,8 +14,7 @@ const metaData = {
   description: "",
 };
 
-// export async function getStaticProps({ params }) {
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   if (process && process.env?.NODE_ENV !== "development")
     return { notFound: true };
 
