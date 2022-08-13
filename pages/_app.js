@@ -13,12 +13,19 @@ export default class MyApp extends App {
           title="Solfate"
           titleTemplate="Solfate - %s"
           defaultTitle="Solfate"
-          // openGraph={{
-          // 	type: "website",
-          // 	locale: "en_IE",
-          // 	url: "https://www.url.ie/",
-          // 	site_name: "SiteName",
-          // }}
+          openGraph={{
+            type: "website",
+            url: "https://solfate.com/",
+            site_name: "Solfate",
+            images: [
+              {
+                url: "https://solfate.com/icon.png",
+                width: 256,
+                height: 256,
+                alt: "Solfate Labs",
+              },
+            ],
+          }}
           twitter={{
             handle: "@SolfateLabs",
             site: "@SolfateLabs",
