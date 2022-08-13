@@ -1,52 +1,36 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
-import { HashtagIcon } from "@heroicons/react/solid";
-
 import { DateTime } from "luxon";
+import { FloatLabel } from "./FloatLabel";
+import { Tag } from "./Tag";
 
-export function ArticleMeta({
-  meta = null,
-  hrefTemplate = `/browse/{{tag}}`,
-  className = "",
-}) {
+export function ArticleMeta({ meta = null, className = "" }) {
   return (
     <section className={`${className} space-y-3`}>
       <p className="flexer space-x-2 tracking-wider text-gray-500">
-        {meta?.draft === true && (
-          <span className="tag bg-slate-500 text-white">draft article</span>
-        )}
+        {meta?.draft === true && <FloatLabel overlay={false} />}
+
         <span className="">
           Posted on{" "}
           {DateTime.fromISO(meta.createdAt).toFormat("MMM dd, yyyy").toString()}
         </span>
-        {/* <span className="block w-1 h-1 bg-gray-500 rounded-full"></span>
-        <a href="#" className="link">
+        {/* 
+        <span className="block w-1 h-1 bg-gray-500 rounded-full"></span>
+        <a
+          href="https://twitter.com/nickfrosty"
+          target="_blank"
+          rel="noreferrer"
+          className="link"
+        >
           Nick Frostbutter
         </a> */}
       </p>
 
       {/* Post tags */}
-      {false && meta?.tags && Array.isArray(meta.tags) ? (
+      {meta?.tags && Array.isArray(meta.tags) ? (
         <p className="flexer">
-          {meta.tags.map((tag) => {
-            // tag = tag.trim();
-
-            const href = hrefTemplate.replace(
-              `{{tag}}`,
-              encodeURIComponent(tag.toLowerCase()),
-            );
-
-            return (
-              <Link href={href} key={tag.id}>
-                <a>
-                  <span className="tag flexer w-min font-semibold whitespace-nowrap">
-                    <HashtagIcon className="mx-auto w-4 h-4" />
-                    <span>{tag}</span>
-                  </span>
-                </a>
-              </Link>
-            );
-          })}
+          {meta.tags.map((tag) => (
+            <Tag tag={tag} key={tag.id} />
+          ))}
         </p>
       ) : (
         <></>

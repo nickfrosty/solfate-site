@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { generateSlug } from "~/toad/core";
+import { FloatLabel } from "../content/FloatLabel";
 
 export function SmallCard({
   title,
@@ -19,13 +20,10 @@ export function SmallCard({
   return (
     <Link href={href || ""}>
       <a className={`p-0 card hover-outline ${className || ""}`}>
-        {/* <div className="flex-shrink-0 h-60 bg-gray-600"></div> */}
         <div className="block flex-shrink-0 w-full h-60 bg-gray-900">
           {/* TODO: onerror load a default image, or remove the image? */}
           {draft && draft === true && (
-            <span className="tag bg-slate-500 relative top-5 left-5 text-white">
-              draft article
-            </span>
+            <FloatLabel label={"draft"} overlay={true} />
           )}
           {image ? (
             <img src={image} className="" alt={title || "[unknown]"} />

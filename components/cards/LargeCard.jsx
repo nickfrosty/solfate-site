@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import { generateSlug } from "~/toad/core";
+import { FloatLabel } from "../content/FloatLabel";
 
 export function LargeCard({
   title,
@@ -28,10 +29,9 @@ export function LargeCard({
       >
         <div className="sm:max-h-72 md:max-h-80 md:w-1/2 pb-2/3 overflow-hidden flex-shrink-0 bg-gray-900">
           {draft && draft === true && (
-            <span className="tag bg-slate-500 relative top-5 left-5 text-white">
-              draft article
-            </span>
+            <FloatLabel label={"draft"} overlay={true} />
           )}
+
           {image ? (
             <img
               src={image}
