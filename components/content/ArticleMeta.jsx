@@ -41,7 +41,7 @@ export function ArticleMeta({ meta = null, className = "" }) {
       {meta?.tags && Array.isArray(meta.tags) ? (
         <p className="flexer">
           {meta.tags.map((tag) => (
-            <Tag tag={tag} key={tag.id} />
+            <Tag tag={tag} key={tag} />
           ))}
         </p>
       ) : (

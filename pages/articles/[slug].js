@@ -1,23 +1,34 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { generateStaticPaths, getDocBySlug } from "../../toad/core/index";
+import {
+  generateStaticPaths,
+  getDocBySlug,
+  getDocMetaBySlug,
+} from "../../toad/core/index";
 
 import Link from "next/link";
 import ArticleLayout from "~/layouts/ArticleLayout";
 
 // import { basicMeta } from "~/utils/seoMetaData";
-// import { AuthorCard } from "~/components/articles/AuthorCard";
+import { AuthorCard } from "~/components/content/AuthorCard";
 // import { RelatedArticles } from "~/components/content/RelatedArticles";
 
 import { ArticleMeta } from "~/components/content/ArticleMeta";
 import { Breadcrumbs } from "~/components/content/Breadcrumbs";
 import { ArticleContent } from "~/components/content/ArticleContent";
+import { NextPrevSection } from "~/components/content/NextPrevSection";
 
 // construct the meta data for the page
 // const metaData = basicMeta({
 const metaData = {
   title: "Articles",
   description: "",
+};
+
+// construct the parent link item for the breadcrumbs
+const parentPage = {
+  title: "Articles",
+  href: "/articles",
 };
 
 export async function getStaticPaths() {
@@ -34,24 +45,26 @@ export async function getStaticProps({ params }) {
   // give the 404 page when the post is not found
   if (!post) return { notFound: true };
 
+  let next = null,
+    prev = null;
+
+  // parse out the `next` and `prev` articles, when defined by the post's `meta`
+  if (post?.meta?.next_page)
+    next = await getDocMetaBySlug(post.meta.next_page, "articles");
+  if (post?.meta?.prev_page)
+    prev = await getDocMetaBySlug(post.meta.prev_page, "articles");
+
   return {
-    props: post,
+    props: { post, next, prev },
   };
 }
 
 /*
 
 */
-export default function SingleArticlePage({
-  meta = {},
-  content = null,
-  seo = {},
-}) {
-  // construct the parent link item for the breadcrumbs
-  const parentPage = {
-    title: "Articles",
-    href: "/articles",
-  };
+export default function SingleArticlePage({ post, next, prev }) {
+  // const { post, next, prev } = props
+  let { meta = {}, content = null, seo = {} } = post;
 
   // compute the link for the current page
   const href = `${parentPage?.href || ""}/${meta.slug}`;
@@ -74,12 +87,17 @@ export default function SingleArticlePage({
           </a>
         </Link>
 
-        <ArticleMeta meta={meta} hrefTemplate={`/articles/browse/{{tag}}`} />
+        <ArticleMeta
+          meta={meta}
+          hrefTemplate={`${parentPage?.href}/browse/{{tag}}`}
+        />
 
         <ArticleContent content={content} />
-
-        {/* <AuthorCard /> */}
       </main>
+
+      <NextPrevSection next={next} prev={prev} hrefBase={parentPage?.href} />
+
+      {/* <AuthorCard /> */}
 
       {/* <RelatedArticles /> */}
     </ArticleLayout>

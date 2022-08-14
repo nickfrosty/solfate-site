@@ -73,7 +73,7 @@ export function filterDocs(docs, filters, limit = 0) {
 }
 
 /**
- * Retreive a markdown document from the `content` directory, parsed and ready to go
+ * Retrieve a markdown document from the `content` directory, parsed and ready to go
  * @param {string} slug slug of the file name to locate
  * @param {string} basePath (optional) folder path inside of the `content` folder to search for the given slug
  * @returns
@@ -81,7 +81,11 @@ export function filterDocs(docs, filters, limit = 0) {
 export async function getDocBySlug(slug, basePath = "") {
   try {
     // remove file extension from the slug
+    if (!slug || typeof slug !== "string")
+      throw Error(`Slug is not a string: ${slug}`);
+
     slug = slug?.replace(/.md|.mdx|.html|.html$/, "") || false;
+    if (!slug) throw Error("No slug provided");
 
     // locate the document based on its `slug`
     const filePath = getFilePath({ slug, basePath });
@@ -89,12 +93,30 @@ export async function getDocBySlug(slug, basePath = "") {
 
     // load the doc and return it as requested
     const doc = await loadAndParseDoc(filePath);
+    // console.log("parsed", doc);
     if (
       !doc ||
       (doc?.meta?.draft === true && process.env?.NODE_ENV === "production")
     )
       return false;
     return doc;
+  } catch (err) {
+    console.warn("Unable to locate document:", slug);
+    console.warn(err);
+  }
+  return false;
+}
+
+/**
+ * Retrieve a markdown document's front matter meta, parsed and ready to go
+ * @param {string} slug slug of the file name to locate
+ * @param {string} basePath (optional) folder path inside of the `content` folder to search for the given slug
+ * @returns
+ */
+export async function getDocMetaBySlug(slug, basePath = "") {
+  try {
+    const doc = await getDocBySlug(slug, basePath);
+    return (doc && doc?.meta) || false;
   } catch (err) {
     console.warn("Unable to locate document:", slug);
     console.warn(err);
@@ -200,8 +222,8 @@ export async function loadAndParseDoc(filePath, metaOnly = false) {
     file = matter(file);
 
     // extract the desired attributes and values
-    // construct the parsed 'data' to return
-    const data = {
+    // construct the parsed 'doc' to return
+    const doc = {
       path: filePath,
       meta: file?.data || {},
       content: metaOnly ? null : file?.content,
@@ -209,22 +231,22 @@ export async function loadAndParseDoc(filePath, metaOnly = false) {
     };
 
     // enable the user to override the `updatedAt` date from the front matter
-    data.meta.createdAt = DateTime.fromJSDate(stats.birthtime).toString();
+    doc.meta.createdAt = DateTime.fromJSDate(stats.birthtime).toString();
 
-    if (data?.meta?.updatedAt) {
-      let tmp = new Date(data?.meta?.updatedAt);
+    if (doc?.meta?.updatedAt) {
+      let tmp = new Date(doc?.meta?.updatedAt);
 
       if (tmp instanceof Date && !isNaN(tmp).valueOf()) {
         // console.log("valid and parse");
-        data.updatedAt = DateTime.fromISO(tmp.toISOString()).toString();
+        doc.updatedAt = DateTime.fromISO(tmp.toISOString()).toString();
       }
       // else invalid date and keep it as the updated loaded from the file
     }
 
     // parse and set the `updatedAt` date
-    if (!data?.meta?.updatedAt) {
-      data.meta.updatedAt = DateTime.fromJSDate(stats.mtime).toString();
-      // console.log(data);
+    if (!doc?.meta?.updatedAt) {
+      doc.meta.updatedAt = DateTime.fromJSDate(stats.mtime).toString();
+      // console.log(doc);
     }
 
     // TODO: generate the SEO details?
@@ -233,12 +255,12 @@ export async function loadAndParseDoc(filePath, metaOnly = false) {
 
     // generate and store the slug
     // TODO: handle user specified slugs in the front matter
-    data.slug = generateSlug(data);
-    data.meta.slug = data.slug;
+    doc.slug = generateSlug(doc);
+    doc.meta.slug = doc.slug;
 
     // TODO: this does not parse MDX files, or actually check to make sure the file extension is .MD
 
-    return data;
+    return doc;
   } catch (err) {
     console.warn("Unable to parse file");
     // throw err;
@@ -284,7 +306,10 @@ export function generateSlug(item) {
   // TODO: fix this from being an issue...
 
   // strip the file extension
-  return slug?.replace(/.md|.mdx|.html|.html$/, "") || slug;
+  return (
+    (typeof slug === "string" && slug?.replace(/.md|.mdx|.html|.html$/, "")) ||
+    slug
+  );
 }
 
 /**

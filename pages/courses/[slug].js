@@ -6,7 +6,7 @@ import Link from "next/link";
 import CourseLayout from "~/layouts/CourseLayout";
 
 // import { basicMeta } from "~/utils/seoMetaData";
-// import { AuthorCard } from "~/components/articles/AuthorCard";
+// import { AuthorCard } from "~/components/content/AuthorCard";
 // import { RelatedArticles } from "~/components/content/RelatedArticles";
 
 import { ArticleMeta } from "~/components/content/ArticleMeta";
