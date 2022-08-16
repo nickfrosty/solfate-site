@@ -47,6 +47,20 @@ export default function HomePage() {
             </a>
           </Link>
         </div>
+
+        <p className="space-x-8">
+          <Link href="https://youtu.be/J11ybP3nZE8">
+            <a className="link" target="_blank">
+              <span>Watch a Demo Video</span>
+            </a>
+          </Link>
+
+          <Link href="https://youtu.be/1Y9wEsJ8_j0">
+            <a className="link" target="_blank">
+              <span>How to Manually Install</span>
+            </a>
+          </Link>
+        </p>
       </div>
 
       <section className="md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4 grid gap-12">
