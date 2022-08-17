@@ -1,0 +1,2 @@
+{"rule":"PREPOSITION_VERB","sentence":"^\\QPeriodically as your deploy/interact with Solana programs, you will need to fund your wallet with SOL (the native Solana token).\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QTo check the balance your CLI configured wallet address (aka the one you have set with your file system keyfile):\\E$"}

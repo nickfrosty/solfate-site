@@ -27,15 +27,17 @@ To setup and install Solana on Linux, you will need to install the following:
 - the Anchor framework (not truly required, but highly recommended!)
 - Bonus: [Solfate CLI](/cli)
 
-> > Note: You may run into compiler or builder errors through out your setup process, depending on what libraries and dependencies your Linux system already has installed.
+<div class="msg warn text">
+You may run into compiler or builder errors throughout your setup process, depending on what libraries and dependencies your Linux system already has installed.
+</div>
 
 ## Install NodeJS and Yarn
 
-Let's face it, the world of web3 and blockchain is being build with Javascript based applications. Of which, NodeJS and the NPM package registry are at the forefront of.
+Let's face it, the world of web3 and blockchain is being build with JavaScript based applications. Of which, NodeJS and the NPM package registry are at the forefront of.
 
-So just [install NodeJS](https://nodejs.org) (if you are one of those random crypto curious developers that does not already have it installed). On Linux/Ubuntu, I recommend installing NodeJs using [Node Version Manager](https://github.com/nvm-sh/nvm) (aka NVM). It makes updating Node versions as simple as it can be!
+So just [install NodeJS](https://nodejs.org) (if you are one of those random crypto curious developers that does not already have it installed). On Linux/Ubuntu, I recommend installing NodeJS using [Node Version Manager](https://github.com/nvm-sh/nvm) (aka NVM). It makes updating Node versions as simple as it can be!
 
-Next, I strongly recommend installing the [Yarn package manager](https://www.npmjs.com/package/yarn). Loads of people are using yarn in the Solana ecosystem (including me!):
+Next, I strongly recommend installing the [Yarn package manager](https://www.npmjs.com/package/yarn). Loads of people are using yarn in the Solana ecosystem (including me and the Anchor team!):
 
 ```bash
 npm i -g yarn
@@ -43,7 +45,7 @@ npm i -g yarn
 
 ## Install Linux Libraries and Packages
 
-To get this Solana party started, make sure your Linux system is up to date:
+To get this Solana party started, make sure your Linux system is up-to-date:
 
 ```bash
 sudo apt-get update && sudo apt-get upgrade
@@ -57,9 +59,12 @@ Installing the following packages should cover most cases for Ubuntu or Debian b
 sudo apt-get install -y pkg-config build-essential libudev-dev libssl-dev
 ```
 
-> > Note: I currently use [Parrot OS Home](https://parrotlinux.org/download/?version=home) edition (Debian and _apt_) as my daily driver, and these packages were also needed to get started in Solana development.
 
-People often run into various errors while setting up the assorted Solana development tooling on Linux based operating system like Ubuntu or Parrot OS (which is what I like to use). This is usually because your system is missing some of the various dependencies. On the bright side, if you run into any problems while installing or building Solana, Anchor, and/or Solana Programs, your terminal output is usually descriptive enough to tell you which package/dependency you are missing. Beautiful!
+<div class="msg note text">
+I used to use <a href="https://parrotlinux.org/download/?version=home">Parrot OS Home</a> edition (Debian and <em>apt</em>) as my daily driver, and these packages were also needed to get started in Solana development.
+</div>
+
+People often run into various errors while setting up the assorted Solana development tooling on Linux based operating system like Ubuntu or Parrot OS (which is what I like to use). This is usually because your system is missing some various dependencies. On the bright side, if you run into any problems while installing or building Solana, Anchor, and/or Solana Programs, your terminal output is usually descriptive enough to tell you which package/dependency you are missing. Beautiful!
 
 ## Install Rust and Cargo
 
@@ -67,7 +72,10 @@ People often run into various errors while setting up the assorted Solana develo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-> > > Note: This Rustup install command comes directly from the [Rustup.rs](https://rustup.rs/) website.
+
+<div class="msg note text">
+This Rustup install command comes directly from the <a href="https://rustup.rs/">Rustup.rs</a> website.
+</div>
 
 ## Install the Solana CLI
 
@@ -75,13 +83,19 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
 ```
 
-> > > Note: This installation command for the Solana CLI tool suite comes directly from the Official [Solana Docs](https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool).
+
+<div class="msg note text">
+This installation command for the Solana CLI tool suite comes directly from the Official <a href="https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool">Solana Docs</a>.
+</div>
 
 ## Install Anchor Lang for Solana
 
 Anchor is the most popular framework for building Solana Programs. It is an open source project that can help to simplify your programs, on top of making them more sure.
 
-> > Note: The Anchor team recommends [installing Anchor](https://www.anchor-lang.com/docs/installation) using the Anchor Version Manager tool, AVM, so that is what we shall use here! This process will build AVM from source and can take a bit of time, depending on your computer's hardware.
+
+<div class="msg note text">
+The Anchor team recommends <a href="https://www.anchor-lang.com/docs/installation">installing Anchor</a> using the Anchor Version Manager tool, AVM, so that is what we shall use here! This process will build AVM from source and can take a bit of time, depending on your computer's hardware.
+</div>
 
 Once you have Cargo installed, you can install AVM with the following command:
 
@@ -131,7 +145,7 @@ solana config set --url testnet --keypair ~/.config/solana/demo-wallet.json
 
 ### Verify your config settings
 
-Read your Solana CLI configuration settings to verify your wallet is correctly set and you are on the correct network:
+Read your Solana CLI configuration settings to verify your wallet is correctly set, and you are on the correct network:
 
 ```bash
 solana config get
@@ -173,7 +187,7 @@ Plus, the Solfate CLI lets you save a config file in your project's repo to more
 
 ## What's next?
 
-Now that you have all the required Solana developer tooling installed on you local environment, you are ready to start creating your first Solana programs!
+Now that you have all the required Solana developer tooling installed on your local environment, you are ready to start creating your first Solana programs!
 
 [Introduction to the Solana CLI](./intro-to-solana-cli) - learn more about the important commands and how to navigate the Solana CLI
 

@@ -1,6 +1,6 @@
 ---
 title: Introduction to the Solana CLI
-featured: true
+# featured: true
 description:
 blurb: Learn the basics and how to get around in the Solana CLI
 keywords:
@@ -26,7 +26,7 @@ It is very powerful and very important to understand a few commands to do some s
 
 In order to deploy Solana programs to the blockchain (either a local validator or a remote RPC), you will need to have a Solana wallet created. For simplicity, we will create a [file system wallet](https://docs.solana.com/wallet-guide/file-system-wallet) that will store our private key in a file on your computer. This way, we can easily tell the Solana CLI and/or Anchor CLI to use this wallet to deploy our Solana programs.
 
-The default file system wallet is usually located at "~/.config/solana/id.json". When you create new file system wallets, you can specify any specific file location with the "_--outfile /path/to/file_" flag.
+The default file system wallet is usually located at *`~/.config/solana/id.json`*. When you create new file system wallets, you can specify any specific file location with the "_--outfile /path/to/file_" flag.
 
 To create a new Solana wallet:
 
@@ -69,7 +69,7 @@ The VERY important settings are the "_RPC url_" and the "_keypair file_".
 
 When you want to change your Solana network settings or change your default wallet key file, you will need to update your config settings with the Solana CLI.
 
-When setting your RPC url (aka changing your Solana network), you can either use the network short name (like "mainnet", "testnet", etc) or the full URL for an active RPC node:
+When setting your RPC url (aka changing your Solana network), you can either use the network short name (like "mainnet", "testnet", etc.) or the full URL for an active RPC node:
 
 ```bash
 solana config set --url testnet
@@ -103,7 +103,7 @@ solana balance WALLET_ADDRESS_HERE
 
 With your new wallet setup, and selected to the correct RPC network, you will need to fund your wallet with SOL. This SOL will be used to deploy programs to the blockchain, as well as pay for rent and [transactions](https://docs.solana.com/transaction_fees) while you are developing programs.
 
-periodically as your deploy/interact with Solana programs, you will need to fund your wallet with SOL (the native Solana token).
+Periodically as your deploy/interact with Solana programs, you will need to fund your wallet with SOL (the native Solana token).
 
 You can fund your account using two methods:
 

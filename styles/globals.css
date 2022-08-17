@@ -206,6 +206,7 @@ body {
   /* @apply text-2xl; */
   @apply bg-slate-800 border-slate-700;
   @apply my-5;
+  @apply text-white;
 }
 .msg p {
   @apply m-0 !important;
