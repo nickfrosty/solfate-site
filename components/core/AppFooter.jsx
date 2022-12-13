@@ -1,8 +1,11 @@
 import { HeartIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import FooterLearnSection from "./footer/FooterLearnSection";
+import FooterProductsSection from "./footer/FooterProductsSection";
 import FooterResourcesSection from "./footer/FooterResourcesSection";
-import FooterUsefulSection from "./footer/FooterUsefulSection";
+import FooterUtilitySection from "./footer/FooterUtilitySection";
+
+import styles from "~/styles/footer.module.css";
+import { NICK, TWITTER } from "~/constants";
 
 export default function AppFooter() {
   // define the sizes of the two section of the footer
@@ -13,70 +16,89 @@ export default function AppFooter() {
   // const linkSectionSize = "md:w-3/5";
 
   return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <div className="lg:text-left flex flex-wrap text-left">
-          <div className={`${trademarkSize} mb-4 w-full`}>
-            <div className="flex justify-between items-center">
-              <Link href="/">
-                <a className="inline-block py-2 text-3xl font-bold text-white">
-                  Solfate
-                </a>
-              </Link>
-              <div className="md:hidden block">
-                <a
-                  href="https://twitter.com/SolfateLabs"
-                  className="btn btn-sm btn-twitter px-4"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  @SolfateLabs
-                </a>
-              </div>
-            </div>
-            <p className="block mt-0 mb-2 text-lg text-gray-600">
-              Copyright &copy; {new Date().getFullYear()}
-              {/* Solfate Labs */}
-            </p>
-
-            <p className="flexer block mt-0 mb-2 space-x-2 text-sm text-gray-600">
-              <HeartIcon className="icon-xs text-red-500" />
-              <span>
-                by{" "}
-                <a
-                  href="https://frostbutter.com"
-                  className="link-muted"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Nick Frostbutter
-                </a>
-              </span>
-            </p>
-
-            <div className="md:inline-block hidden">
+    <footer className={styles.footer}>
+      <section className={`${styles.inner} container`}>
+        <div className={`mb-4 space-y-4 w-full text-white ${trademarkSize}`}>
+          <div className="flex justify-between items-center">
+            <Link href="/">
+              <a className="inline-block py-2 text-3xl font-bold">Solfate</a>
+            </Link>
+            <div className="block md:hidden">
               <a
-                href="https://twitter.com/SolfateLabs"
-                className="btn btn-sm btn-twitter px-4"
+                href={TWITTER.url}
+                className="px-4 btn btn-sm btn-twitter btn-shadow"
                 target="_blank"
                 rel="noreferrer"
               >
-                @SolfateLabs
+                {TWITTER.handle}
               </a>
             </div>
           </div>
 
-          <div className={`${linkSectionSize} w-full`}>
-            <div className="items-top flex flex-wrap mb-6">
-              {/* <FooterLearnSection columns={3} /> */}
+          <p className="block mt-0 text-lg">
+            Solfate is a public experiment into building on Solana. Primarily
+            focused on building useful and utilitarian tools for the masses.
+          </p>
 
-              <FooterUsefulSection columns={2} />
-
-              {/* <FooterResourcesSection columns={3} /> */}
-            </div>
+          <div className="hidden md:inline-block">
+            <a
+              href={TWITTER.url}
+              className="px-4 btn btn-twitter btn-shadow"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {TWITTER.handle}
+            </a>
           </div>
         </div>
-      </div>
+
+        <div className={`w-full ${linkSectionSize}`}>
+          <div className="flex flex-wrap mb-6 items-top">
+            {/* <FooterProductsSection columns={3} /> */}
+
+            <FooterUtilitySection
+              className={styles["two-column"]}
+              columns={2}
+            />
+
+            {/* <FooterResourcesSection columns={3} /> */}
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.inner} container items-center`}>
+        <section className="space-y-1">
+          <p>
+            Copyright &copy; {new Date().getFullYear()}
+            {` `}
+            Solfate Labs
+          </p>
+
+          <p className="block mt-0 mb-2 space-x-2 text-sm flexer">
+            <HeartIcon className="text-red-500 icon-sm" />
+            <span>
+              by{" "}
+              <a
+                href={NICK.website}
+                className={styles.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {NICK.name}
+              </a>
+            </span>
+          </p>
+        </section>
+
+        <ul className={"flex space-x-3"}>
+          <li>
+            <Link href="/legal/privacy">Privacy Policy</Link>
+          </li>
+          <li>
+            <Link href="/legal/terms">Terms of Use</Link>
+          </li>
+        </ul>
+      </section>
     </footer>
   );
 }

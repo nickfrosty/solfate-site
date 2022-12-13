@@ -1,0 +1,50 @@
+/*
+	Navigation / header styles
+*/
+
+.nav {
+  /* @apply sticky top-0 z-10; */
+
+  @apply w-full flex justify-between items-center h-16;
+  /* @apply border-b border-gray-800; */
+  @apply md:px-8;
+  /* @apply fixed top-0 z-20 bg-color-dark; */
+  /* @apply border-b border-gray-400 shadow-md md:shadow-none md:border-0; */
+}
+
+.inner {
+  /* @apply container-inner; */
+  @apply w-full;
+  @apply flex justify-between items-center mx-auto;
+  @apply space-y-0 space-x-5 px-4 md:py-2;
+}
+
+.nav a {
+  @apply text-black no-underline hover:no-underline;
+}
+
+.link {
+  @apply flex items-center p-4 md:px-6;
+  @apply transition-colors duration-150 ease-in-out;
+  @apply space-x-2 text-lg font-semibold;
+  @apply border-l-4 md:border-l-0 md:border-b-2 border-transparent;
+  @apply tracking-wide no-underline;
+  /* @apply text-white; */
+  /* focus:outline-none focus:shadow-outline */
+}
+
+.nav .nav-link.active {
+  /* @apply text-yellow-500; */
+  @apply text-white;
+  @apply border-yellow-500;
+  /* @apply bg-purple-200; */
+  /* @apply text-purple-500; */
+  /* @apply text-white bg-indigo-700; */
+}
+.nav .nav-link.inactive {
+  /* @apply hover:underline; */
+  @apply text-gray-400 hover:text-white;
+  @apply hover:border-yellow-500;
+  /* @apply hover:bg-purple-300; */
+  /* @apply hover:bg-indigo-700; */
+}

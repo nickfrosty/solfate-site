@@ -17,7 +17,7 @@
 */
 body {
   @apply scroller;
-  @apply text-gray-300 bg-black;
+  @apply text-black bg-[#f1f6f1];
   @apply tracking-wide;
   @apply items-center;
   /* @apply text-lg; */
@@ -326,12 +326,13 @@ body {
   @apply items-center leading-normal transition appearance-none cursor-pointer;
   /* @apply focus:outline-none; */
   /* focus:border-gray-700; */
+  @apply whitespace-nowrap;
   @apply tracking-normal rounded-lg;
   @apply px-5 py-2;
   @apply flex space-x-2;
   @apply font-semibold;
-  @apply hover:no-underline;
   @apply border border-transparent;
+  @apply hover:no-underline;
 }
 .btn-sm {
   @apply px-3 py-2;
@@ -346,9 +347,22 @@ body {
   @apply mt-2 md:mt-0;
 }
 
+.btn-shadow {
+  @apply border-2 border-black;
+  @apply shadow-black;
+}
+.btn-shadow:hover {
+  @apply shadow-none translate-x-1 translate-y-1;
+}
+
 .btn-default {
-  @apply text-black hover:bg-yellow-500 focus:bg-yellow-500;
-  @apply border-2 border-black bg-color-light;
+  @apply bg-white text-black;
+  /* @apply text-black hover:bg-yellow-500 focus:bg-yellow-500; */
+}
+.btn-default:hover {
+  /* -webkit-transform: translate(4px, 4px);
+  -ms-transform: translate(4px, 4px);
+  transform: translate(4px, 4px); */
 }
 
 .btn-default-dark {
@@ -548,88 +562,6 @@ body {
 /*
 	Footer specific stylying
 */
-
-.footer {
-  @apply relative pt-4 pb-4;
-  /* @apply bg-gray-100; */
-  @apply border-t border-gray-800;
-}
-.footer .footer-inner {
-  @apply container px-5 mx-auto;
-}
-
-.footer a {
-  /* @apply text-gray-500; */
-}
-
-.simple-footer {
-  @apply mt-2 space-x-2 w-full text-base text-center;
-}
-
-footer .title {
-  @apply block mb-2 text-sm font-semibold uppercase;
-  /* @apply text-gray-500; */
-}
-footer .link {
-  @apply pb-2 text-sm font-semibold hover:underline;
-  /* @apply text-gray-600 hover:text-gray-900; */
-}
-
-footer .three-column {
-  @apply w-1/2 px-4 mt-5 md:w-1/3 lg:w-4/12;
-}
-footer .two-column {
-  @apply w-1/2 px-0 md:px-4 mt-5;
-}
-
-/*
-	Main Nav classes - .app-nav
-*/
-
-.app-nav {
-  @apply sticky top-0 z-10;
-  @apply w-full flex justify-between items-center h-16;
-  @apply bg-black border-b border-gray-800;
-  @apply md:px-8;
-  /* @apply fixed top-0 z-20 bg-color-dark; */
-  /* @apply border-b border-gray-400 shadow-md md:shadow-none md:border-0; */
-}
-
-.app-nav .nav-inner {
-  @apply w-full container-inner;
-  /* @apply container; */
-  @apply flex justify-between items-center mx-auto;
-  @apply space-y-0 space-x-5 px-4 md:py-2;
-}
-
-.app-nav a {
-  @apply text-white  no-underline;
-}
-
-.app-nav .nav-link.default {
-  @apply flex items-center p-4 md:px-6;
-  @apply transition-colors duration-150 ease-in-out;
-  @apply space-x-2 text-lg font-semibold;
-  @apply border-l-4 md:border-l-0 md:border-b-2 border-transparent;
-  @apply tracking-wide no-underline;
-  /* @apply text-white; */
-  /* focus:outline-none focus:shadow-outline */
-}
-.app-nav .nav-link.active {
-  /* @apply text-yellow-500; */
-  @apply text-white;
-  @apply border-yellow-500;
-  /* @apply bg-purple-200; */
-  /* @apply text-purple-500; */
-  /* @apply text-white bg-indigo-700; */
-}
-.app-nav .nav-link.inactive {
-  /* @apply hover:underline; */
-  @apply text-gray-400 hover:text-white;
-  @apply hover:border-yellow-500;
-  /* @apply hover:bg-purple-300; */
-  /* @apply hover:bg-indigo-700; */
-}
 
 /*
 	Auth page formats

@@ -3,72 +3,55 @@ import { useState } from "react";
 import AppLogo from "./AppLogo";
 import AppNav from "./AppNav";
 
-// import { mapGetters, mapMutations } from "vuex";
-// import Burger from "../utils/Burger";
-
-// import Burger from "./misc/Burger.vue";
-// import AppUserDropdown from "./AppUserDropdown.vue";
+import styles from "~/styles/nav.module.css";
+// import Link from "next/link";
 
 export default function AppHeader() {
-	const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(false);
 
-	return (
-		<nav id="app-nav" className="app-nav">
-			<div className="nav-inner">
-				<div className="md:flex md:mr-2 md:justify-between md:space-x-8 inline-block flex-1 items-center mr-0">
-					<AppLogo className="pr-8" image={true} />
-					{/* <AppLogo :burger="false" className="pr-8" :image="true" /> */}
+  return (
+    <nav className={styles.nav}>
+      <div className={styles.inner}>
+        <div className="inline-block flex-1 items-center mr-0 md:flex md:mr-2 md:justify-between md:space-x-8">
+          <AppLogo className="pr-8" image={true} />
 
-					<AppNav
-						className={`md:flex md:bg-transparent hidden mx-auto w-full`}
-					/>
+          <AppNav
+            className={`hidden mx-auto w-full md:flex md:bg-transparent`}
+          />
 
-					{menu ? (
-						<AppNav
-							className={`md:hidden md:bg-transparent mx-auto w-full border-b shadow-lg border-gray-800 ${
-								menu ? "fixed left-0 bg-black" : "hidden"
-							}`}
-						/>
-					) : (
-						<></>
-					)}
-				</div>
+          {menu ? (
+            <AppNav
+              className={`md:hidden md:bg-transparent mx-auto w-full border-b shadow-lg border-gray-800 ${
+                menu ? "fixed left-0 bg-black" : "hidden"
+              }`}
+            />
+          ) : (
+            <></>
+          )}
+        </div>
 
-				<div className="flex justify-between items-center">
-					{/* <nuxt-link
-						to="/templates"
-						className="btn btn-default md:inline-block hidden flex-shrink"
-						>
-						v-if="$auth.loggedIn"
-						account area
-					</nuxt-link> */}
+        <div className="flex justify-between items-center">
+          <button
+            className="icon-md md:hidden"
+            onClick={(e) => {
+              // alert("derp");
+              setMenu(!menu);
+            }}
+          >
+            <MenuIcon className="w-full" />
+          </button>
+        </div>
 
-					<button
-						className="icon-md md:hidden"
-						onClick={(e) => {
-							// alert("derp");
-							setMenu(!menu);
-						}}
-					>
-						<MenuIcon className="w-full" />
-					</button>
-
-					{/* <AppUserDropdown
-                        v-if="$auth.loggedIn"
-                        className="md:ml-2 md:inline-block hidden"
-                    /> */}
-				</div>
-
-				<div className="md:flex hidden justify-between space-x-2">
-					{/* <Link href="/signin">
-						<a className="btn">Sign In</a>
-					</Link> */}
-					{/* <button className="btn btn-indigo-outline whitespace-nowrap">
-						<span className="">Connect</span>
-						<span className="lg:inline-block hidden">Wallet</span>
-					</button> */}
-				</div>
-			</div>
-		</nav>
-	);
+        <div className="hidden justify-between space-x-2 md:flex">
+          {/* <Link href="/signin">
+            <a className="btn">Sign In</a>
+          </Link> */}
+          <button className="btn btn-default btn-shadow">
+            <span>Connect</span>
+            <span className="hidden lg:inline-block">Wallet</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
 }

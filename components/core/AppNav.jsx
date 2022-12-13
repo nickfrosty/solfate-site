@@ -8,14 +8,14 @@ export default function AppNav({ className }) {
       <NavLink href="/cli">CLI</NavLink>
       {/* <NavLink href="/products">Products</NavLink> */}
 
-      {process && process.env?.NODE_ENV === "development" ? (
+      {/* {process && process.env?.NODE_ENV === "development" ? (
         <>
           <NavLink href="/articles">Articles</NavLink>
           <NavLink href="/courses">Courses</NavLink>
         </>
       ) : (
         ""
-      )}
+      )} */}
     </nav>
   );
 }
