@@ -68,7 +68,7 @@ export default function SingleArticlePage({
       <main className="space-y-5">
         <Link href={href}>
           <a>
-            <h1 className="heading heading-xl hover:underline text-yellow-400">
+            <h1 className="text-2xl text-yellow-400 hover:underline">
               {meta?.title}
             </h1>
           </a>

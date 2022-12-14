@@ -134,6 +134,11 @@ body {
   @apply hidden lg:block;
 }
 
+.text-highlight {
+  @apply font-bold shadow-orange;
+  @apply text-indigo-600;
+}
+
 /* .link {
 	@apply outline;
 } */
@@ -154,32 +159,6 @@ body {
 }
 .icon-lg {
   @apply w-9 h-9;
-}
-
-/*
-
-*/
-.card {
-  @apply w-full block rounded-xl overflow-hidden;
-  @apply border border-gray-800;
-}
-
-.card-error {
-  @apply border-red-600;
-}
-
-.hover-outline {
-  @apply hover:outline hover:outline-offset-4 hover:outline-2 hover:outline-yellow-500 hover:border-transparent;
-}
-.double-wide-cards {
-  @apply grid gap-5 grid-cols-1 lg:grid-cols-2;
-}
-.side-heavy-cards {
-  @apply grid gap-5 grid-cols-1 lg:grid-cols-5;
-}
-.card-listing {
-  @apply grid gap-5 grid-cols-1;
-  @apply sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
 }
 
 /* 
@@ -269,17 +248,16 @@ body {
   @apply space-y-4 text-lg text-center;
   /* @apply sm:p-6 xl:p-8 2xl:col-span-2; */
 }
-.heading {
-  @apply text-xl font-bold leading-none tracking-wide;
-}
-.heading-md {
-  @apply text-2xl;
-}
-.heading-lg {
-  @apply text-3xl;
-}
-.heading-xl {
-  @apply text-5xl;
+
+/* Generic styles for primary components */
+.heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold leading-none tracking-wide;
 }
 
 .label {
@@ -304,11 +282,9 @@ body {
   @apply scroller;
   @apply block px-4 py-3 w-full leading-5 appearance-none;
   @apply transition duration-150 ease-in-out;
-  @apply rounded-md border shadow-sm;
-  @apply text-gray-100 bg-gray-800 border-gray-600;
-  @apply focus:outline-none focus:border-yellow-600;
-  /* @apply text-gray-100 bg-gray-700 border-gray-600;
-	@apply focus:outline-none focus:border-indigo-400; */
+  @apply rounded-md border;
+  @apply text-black bg-white border-gray-600;
+  /* @apply dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600; */
 }
 .btn.disabled,
 .input.disabled {
@@ -324,16 +300,24 @@ body {
 
 .btn {
   @apply items-center leading-normal transition appearance-none cursor-pointer;
-  /* @apply focus:outline-none; */
-  /* focus:border-gray-700; */
-  @apply whitespace-nowrap;
-  @apply tracking-normal rounded-lg;
+  @apply whitespace-nowrap rounded-xl font-semibold;
   @apply px-5 py-2;
   @apply flex space-x-2;
-  @apply font-semibold;
-  @apply border border-transparent;
   @apply hover:no-underline;
+
+  /* default color scheme */
+  @apply bg-white text-black;
+
+  /* shadow effects */
+  /* @apply border border-transparent; */
+  @apply border-2 border-black;
+  @apply shadow-black;
 }
+.btn:hover {
+  @apply shadow-none translate-x-1 translate-y-1;
+}
+
+/*  */
 .btn-sm {
   @apply px-3 py-2;
 }
@@ -345,14 +329,6 @@ body {
 }
 .btn-toggle {
   @apply mt-2 md:mt-0;
-}
-
-.btn-shadow {
-  @apply border-2 border-black;
-  @apply shadow-black;
-}
-.btn-shadow:hover {
-  @apply shadow-none translate-x-1 translate-y-1;
 }
 
 .btn-default {
@@ -375,10 +351,10 @@ body {
   @apply bg-gray-200 cursor-default hover:bg-gray-200;
 }
 .btn-gray {
-  @apply text-white bg-gray-700 hover:bg-indigo-600;
+  @apply text-white bg-gray-700 hover:bg-indigo-500;
 }
 .btn-gray-outline {
-  @apply border border-gray-700 hover:bg-indigo-600 hover:text-white hover:border-indigo-900 focus:border-gray-400;
+  @apply border border-gray-700 hover:bg-indigo-500 hover:text-white hover:border-indigo-900 focus:border-gray-400;
 }
 .btn-red {
   @apply text-white bg-red-600 hover:bg-red-900;
@@ -415,24 +391,24 @@ body {
   @apply font-semibold rounded-full;
 }
 .btn-blue-indigo {
-  @apply text-white bg-blue-500 hover:bg-indigo-600;
+  @apply text-white bg-blue-500 hover:bg-indigo-500;
 }
 .btn-blue-yellow {
   @apply text-white bg-blue-500 hover:bg-yellow-500;
 }
 .btn-indigo {
-  @apply text-white enabled:hover:text-white  bg-indigo-600 enabled:hover:bg-indigo-700;
-  @apply enabled:hover:outline enabled:hover:outline-offset-4 enabled:hover:outline-2 enabled:hover:outline-indigo-600 enabled:hover:border-transparent;
+  @apply text-white enabled:hover:text-white bg-indigo-500;
+  /* @apply enabled:hover:outline enabled:hover:outline-offset-4 enabled:hover:outline-2 enabled:hover:outline-indigo-600 enabled:hover:border-transparent; */
 
   /* enabled:hover: bg-gray-700; */
 }
 .btn-indigo-outline-dark {
-  @apply bg-gray-900 border border-indigo-700 enabled:hover:bg-indigo-600 enabled:hover:text-white focus:border-gray-400;
+  @apply bg-gray-900 border-indigo-700 enabled:hover:bg-indigo-500 enabled:hover:text-white focus:border-gray-400;
 }
 .btn-indigo-outline {
-  @apply border border-indigo-700 enabled:hover:bg-indigo-600 enabled:hover:text-white focus:border-gray-400;
+  @apply border-indigo-700 enabled:hover:bg-indigo-500 enabled:hover:text-white focus:border-gray-400;
   @apply enabled:hover:text-white;
-  /* @apply text-white bg-indigo-600 enabled:hover:bg-indigo-700; */
+  /* @apply text-white bg-indigo-500 enabled:hover:bg-indigo-600; */
   /* enabled:hover: bg-gray-700; */
 }
 .btn-yellow,
