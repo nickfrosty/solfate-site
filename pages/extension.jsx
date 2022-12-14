@@ -33,15 +33,15 @@ export default function HomePage() {
         </p>
 
         <div className="flex justify-center space-x-5">
-          <Link href="/extension">
-            <a className="btn btn-indigo-outline disabled block w-min whitespace-nowrap">
-              <span>Chrome WebStore Comming Soon</span>
-              {/* <ArrowRightIcon className="icon-sm" /> */}
+          {/* <Link href="/extension">
+            <a className="block w-min btn disabled">
+              <span>Chrome WebStore Coming Soon</span>
+              <ArrowRightIcon className="icon-sm" />
             </a>
-          </Link>
+          </Link> */}
 
           <Link href="https://github.com/solfate/extension">
-            <a className="btn btn-indigo-outline block w-min whitespace-nowrap">
+            <a className="block w-min btn btn-indigo">
               <span>View on GitHub</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
@@ -50,21 +50,21 @@ export default function HomePage() {
 
         <p className="space-x-8">
           <Link href="https://youtu.be/J11ybP3nZE8">
-            <a className="link" target="_blank">
+            <a className="" target="_blank">
               <span>Watch a Demo Video</span>
             </a>
           </Link>
 
           <Link href="https://youtu.be/1Y9wEsJ8_j0">
-            <a className="link" target="_blank">
+            <a className="" target="_blank">
               <span>How to Manually Install</span>
             </a>
           </Link>
         </p>
       </div>
 
-      <section className="md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4 grid gap-12">
-        <div className="md:col-span-2 md:mb-14 lg:mb-0 md:px-24 lg:px-0 space-y-3">
+      <section className="grid gap-12 md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-3 md:col-span-2 md:mb-14 lg:mb-0 md:px-24 lg:px-0">
           <h3 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
             Solana Profile Pages
           </h3>
@@ -74,14 +74,14 @@ export default function HomePage() {
             blockchain using the Solana Name Service and IPFS.
           </p>
           {/* <Link href="/extension">
-						<a className="btn btn-indigo block w-min whitespace-nowrap">
+						<a className="block w-min btn btn-indigo">
 							<span>View Example Profile Page</span>
 							<ArrowRightIcon className="icon-sm" />
 						</a>
 					</Link> */}
         </div>
 
-        <div className="md:col-span-1 space-y-4">
+        <div className="space-y-4 md:col-span-1">
           <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
             Resolve .sol Domains
           </h2>
@@ -90,12 +90,12 @@ export default function HomePage() {
             address using the Solana Name Service (SNS).
           </p>
 
-          {/* <a href="" className="link flexer text-lg tracking-wide">
+          {/* <a href="" className="text-lg tracking-wide link flexer">
 						<span className="">Learn more</span>
 						<ArrowRightIcon className="icon-sm" />
 					</a> */}
         </div>
-        <div className="md:col-span-1 space-y-4">
+        <div className="space-y-4 md:col-span-1">
           <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
             IPFS Explorer
           </h2>
@@ -104,7 +104,7 @@ export default function HomePage() {
             the InterPlanetary File System (IPFS).
           </p>
 
-          {/* <a href="" className="link flexer text-lg tracking-wide">
+          {/* <a href="" className="text-lg tracking-wide link flexer">
 						<span className="">Learn more</span>
 						<ArrowRightIcon className="icon-sm" />
 					</a> */}

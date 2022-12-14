@@ -1,8 +1,8 @@
 import NavLink from "./header/NavLink";
 
-export default function AppNav({ className }) {
+export default function AppNav({ className = "" }) {
   return (
-    <nav className={`${className || ""}`}>
+    <nav className={className}>
       <NavLink href="/faucet">Faucet</NavLink>
       <NavLink href="/extension">Extension</NavLink>
       <NavLink href="/cli">CLI</NavLink>

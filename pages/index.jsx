@@ -38,7 +38,7 @@ export default function HomePage() {
 
         {/* <div className="flex justify-center">
 					<Link href="/extension">
-						<a className="btn btn-indigo block w-min whitespace-nowrap">
+						<a className="block w-min btn btn-indigo">
 							<span>Chrome Extension</span>
 							<ArrowRightIcon className="icon-sm" />
 						</a>
@@ -47,8 +47,8 @@ export default function HomePage() {
       </div>
 
       {/*  */}
-      {/* <section className="md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4 grid gap-12">
-				<div className="md:col-span-2 md:mb-14 md:px-24 lg:px-0 lg:mb-0 space-y-3">
+      {/* <section className="grid gap-12 md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
+				<div className="space-y-3 md:col-span-2 md:mb-14 md:px-24 lg:px-0 lg:mb-0">
 					<h3 className="text-2xl font-bold">
 						Ready to start learning?
 					</h3>
@@ -58,14 +58,14 @@ export default function HomePage() {
 						the Solana runtime and creatign your first dApp.
 					</p>
 					<Link href="/courses">
-						<a className="btn btn-indigo block w-min whitespace-nowrap">
+						<a className="block w-min btn btn-indigo">
 							<span>Explore the Courses</span>
 							<ArrowRightIcon className="icon-sm" />
 						</a>
 					</Link>
 				</div>
 
-				<div className="md:col-span-1 space-y-4">
+				<div className="space-y-4 md:col-span-1">
 					<h4 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
 						Solana Fundamentals
 					</h4>
@@ -74,13 +74,13 @@ export default function HomePage() {
 						how data is stored and accounts interact.
 					</p>
 
-					<a href="" className="link flexer text-lg tracking-wide">
+					<a href="" className="text-lg tracking-wide link flexer">
 						<span className="">Start learning</span>
 						<ArrowRightIcon className="icon-sm" />
 					</a>
 				</div>
 
-				<div className="md:col-span-1 space-y-4">
+				<div className="space-y-4 md:col-span-1">
 					<h4 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
 						Setup your Environment
 					</h4>
@@ -89,7 +89,7 @@ export default function HomePage() {
 						first on-chain Solana program with Rust.
 					</p>
 
-					<a href="" className="link flexer text-lg tracking-wide">
+					<a href="" className="text-lg tracking-wide link flexer">
 						<span className="">Get setup</span>
 						<ArrowRightIcon className="icon-sm" />
 					</a>

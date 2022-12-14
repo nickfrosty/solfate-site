@@ -35,7 +35,7 @@ export function LargeCard(meta) {
           className || ""
         }`}
       >
-        <div className="sm:max-h-72 md:max-h-80 md:w-1/2 pb-2/3 overflow-hidden flex-shrink-0 bg-gray-900">
+        <div className="overflow-hidden flex-shrink-0 bg-gray-900 sm:max-h-72 md:max-h-80 md:w-1/2 pb-2/3">
           {draft && draft === true && (
             <FloatLabel label={"draft"} overlay={true} />
           )}
@@ -43,14 +43,14 @@ export function LargeCard(meta) {
           {image ? (
             <img
               src={image}
-              className={`${imageFocusSide} object-cover relative left-0 w-full h-full`}
+              className={`object-cover relative left-0 w-full h-full ${imageFocusSide}`}
               alt={title || "[unknown]"}
             />
           ) : (
             ""
           )}
         </div>
-        <div className="md:p-5 flex-grow p-8 space-y-4">
+        <div className="flex-grow p-8 space-y-4 md:p-5">
           <h2 className="text-3xl font-bold">{title || "[unknown]"}</h2>
           {children || blurb || description ? (
             <p
@@ -66,7 +66,7 @@ export function LargeCard(meta) {
 
           {actionButton ? (
             <Link href={actionButton?.href || href || ""} passHref>
-              <div className="btn btn-indigo inline-block w-min whitespace-nowrap">
+              <div className="inline-block w-min btn btn-indigo">
                 <span>
                   {actionButton?.label ||
                     (typeof actionButton === "string" && actionButton) ||

@@ -73,7 +73,7 @@ body {
   /* @apply bg-gray-900 border border-gray-800; */
 }
 
-/* a, */
+main a,
 .summary a,
 .link {
   /* @apply focus:outline-none; */
@@ -81,8 +81,8 @@ body {
   /* @apply focus:border-yellow-500;
 	@apply hover:text-yellow-500; */
   @apply font-semibold;
-  @apply text-indigo-500 hover:text-yellow-500;
-  /* @apply text-indigo-500 hover:text-blue-500; */
+  @apply text-indigo-500;
+  /* hover:text-yellow-500; */
 }
 
 .link-muted {
@@ -288,8 +288,10 @@ h6 {
 }
 .btn.disabled,
 .input.disabled {
-  @apply bg-gray-900 cursor-default text-gray-700;
+  @apply bg-slate-200 cursor-default text-gray-700;
   @apply border-gray-800 !important;
+  @apply translate-x-0 translate-y-0 !important;
+  @apply shadow-none;
   /* @apply hover:bg-gray-200 hover:text-black; */
 }
 
