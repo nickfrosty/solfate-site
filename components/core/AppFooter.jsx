@@ -90,7 +90,7 @@ export default function AppFooter() {
           </p>
         </section>
 
-        <ul className={"flex space-x-3"}>
+        <ul className={styles["simple-links"]}>
           <li>
             <Link href="/legal/privacy">Privacy Policy</Link>
           </li>
