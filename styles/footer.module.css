@@ -10,8 +10,9 @@
 
 .inner {
   /* @apply container; */
-  @apply px-5 mx-auto;
+  @apply p-5 mx-auto;
   @apply flex text-left lg:text-left;
+  @apply space-y-0;
 }
 
 .footer a {
@@ -46,7 +47,7 @@
   /* @apply text-gray-600 hover:text-gray-900; */
 
   @apply text-lg tracking-wider;
-  @apply block mb-2 font-semibold;
+  @apply block mb-2;
   @apply text-white;
 }
 .link:hover {

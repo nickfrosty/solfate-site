@@ -17,7 +17,7 @@ export default function AppFooter() {
 
   return (
     <footer className={styles.footer}>
-      <section className={`${styles.inner} container`}>
+      <section className={`container ${styles.inner}`}>
         <div className={`mb-4 space-y-4 w-full text-white ${trademarkSize}`}>
           <div className="flex justify-between items-center">
             <Link href="/">
@@ -36,8 +36,9 @@ export default function AppFooter() {
           </div>
 
           <p className="block mt-0 text-lg">
-            Solfate is a public experiment into building on Solana. Primarily
-            focused on building useful and utilitarian tools for the masses.
+            A public experiment of building into the Solana blockchain
+            ecosystem. Solfate is primarily focused on building useful tools and
+            utilities for the masses.
           </p>
 
           <div className="hidden md:inline-block">

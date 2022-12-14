@@ -27,7 +27,7 @@ export default function HomePage() {
 					Solana Solfate */}
           <span className="block">Crafting on Solana</span>
           <span className="block">
-            with <span className="shadow-orange">Solfate</span>
+            with <span className="shadow-orange-lg">Solfate</span>
           </span>
         </h1>
 
