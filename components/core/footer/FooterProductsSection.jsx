@@ -8,10 +8,20 @@ export default function FooterProductsSection({ className }) {
 
       <ul className={styles.list}>
         <li>
-          <Link href="/courses">
-            <a className={styles.link}>Coming Soon</a>
+          <Link href="/cli">
+            <a className={styles.link}>Solfate CLI</a>
           </Link>
         </li>
+        <li>
+          <Link href="/extension">
+            <a className={styles.link}>Browser Extension</a>
+          </Link>
+        </li>
+        {/* <li>
+          <Link href="/products/dnl.link">
+            <a className={styles.link}>dnl.link</a>
+          </Link>
+        </li> */}
       </ul>
     </section>
   );

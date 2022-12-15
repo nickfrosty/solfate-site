@@ -13,13 +13,13 @@ export default function FooterUtilitySection({ className }) {
           </Link>
         </li>
         <li>
-          <Link href="/extension">
-            <a className={styles.link}>Extension</a>
+          <Link href="/royalty">
+            <a className={styles.link}>Royalty Checker</a>
           </Link>
         </li>
         <li>
-          <Link href="/cli">
-            <a className={styles.link}>CLI</a>
+          <Link href="/fees">
+            <a className={styles.link}>Fee Redeemer</a>
           </Link>
         </li>
       </ul>

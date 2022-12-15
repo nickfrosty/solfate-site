@@ -1,24 +1,17 @@
-import { HeartIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-// import FooterProductsSection from "./footer/FooterProductsSection";
+import { HeartIcon } from "@heroicons/react/solid";
 // import FooterResourcesSection from "./footer/FooterResourcesSection";
-import FooterUtilitySection from "./footer/FooterUtilitySection";
+import FooterProductsSection from "~/components/core/footer/FooterProductsSection";
+import FooterUtilitySection from "~/components/core/footer/FooterUtilitySection";
 
 import styles from "~/styles/footer.module.css";
 import { NICK, TWITTER } from "~/constants";
 
 export default function AppFooter() {
-  // define the sizes of the two section of the footer
-  const trademarkSize = "md:w-1/2";
-  const linkSectionSize = "md:w-1/2";
-
-  // const trademarkSize = "md:w-2/5";
-  // const linkSectionSize = "md:w-3/5";
-
   return (
     <footer className={styles.footer}>
-      <section className={`container ${styles.inner}`}>
-        <div className={`mb-4 space-y-4 w-full text-white ${trademarkSize}`}>
+      <section className={`container ${styles.inner} ${styles["two-column"]}`}>
+        <div className={`mb-4 space-y-4 w-full text-white`}>
           <div className="flex justify-between items-center">
             <Link href="/">
               <a className="inline-block py-2 text-3xl font-bold">Solfate</a>
@@ -53,35 +46,30 @@ export default function AppFooter() {
           </div>
         </div>
 
-        <div className={`w-full ${linkSectionSize}`}>
-          <div className="flex flex-wrap mb-6 items-top">
-            {/* <FooterProductsSection columns={3} /> */}
+        <nav className={`pt-8 ${styles["two-column"]}`}>
+          <FooterUtilitySection />
 
-            <FooterUtilitySection
-              className={styles["two-column"]}
-              columns={2}
-            />
+          <FooterProductsSection />
 
-            {/* <FooterResourcesSection columns={3} /> */}
-          </div>
-        </div>
+          {/* <FooterResourcesSection className={styles["two-column"]} /> */}
+        </nav>
       </section>
 
-      <section className={`${styles.inner} container items-center`}>
-        <section className="space-y-1">
+      <section className={`container ${styles.footing}`}>
+        <section className={styles.copyright}>
           <p>
             Copyright &copy; {new Date().getFullYear()}
             {` `}
             Solfate Labs
           </p>
 
-          <p className="block mt-0 mb-2 space-x-1 text-sm flexer">
+          <p className="inline-flex mt-0 mb-2 space-x-1 text-sm">
             <HeartIcon className="text-red-400 icon-sm" />
             <span>by</span>
             <a
               href={NICK.website}
               // className={styles.link}
-              className={"underline"}
+              className={"text-black underline"}
               target="_blank"
               rel="noreferrer"
             >
@@ -90,14 +78,14 @@ export default function AppFooter() {
           </p>
         </section>
 
-        <ul className={styles["simple-links"]}>
+        {/* <ul className={styles["simple-links"]}>
           <li>
             <Link href="/legal/privacy">Privacy Policy</Link>
           </li>
           <li>
             <Link href="/legal/terms">Terms of Use</Link>
           </li>
-        </ul>
+        </ul> */}
       </section>
     </footer>
   );
