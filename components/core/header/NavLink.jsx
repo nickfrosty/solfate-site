@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -19,7 +20,7 @@ export default function NavLink({ icon, href, title = "", children }) {
           isCurrent ? styles.activeLink : styles.inactiveLink,
         )}
       >
-        <span className="">{children}</span>
+        {children}
       </a>
     </Link>
   );

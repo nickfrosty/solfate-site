@@ -10,7 +10,10 @@ export default function AboutBlocks() {
     <section className="py-8 bg-white">
       <section className="container grid gap-14 md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4 md:col-span-2 md:mb-14 md:px-24 lg:px-0 lg:mb-0">
-          <h3 className="text-2xl font-bold">Open source with an open mind</h3>
+          <h3 className="text-2xl font-bold">
+            Open source,
+            <br className="md:hidden" /> with an open mind
+          </h3>
           <p className="text-lg text-gray-500">
             Solfate is a public experiment of building into the Solana
             blockchain ecosystem. Solfate is primarily focused on building
