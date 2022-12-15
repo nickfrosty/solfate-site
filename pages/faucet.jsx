@@ -123,7 +123,19 @@ export default function FaucetPage() {
     <Layout seo={metaData} className="container">
       {/* Page heading */}
       <main className="col-span-2 mx-auto space-y-8 max-w-2xl text-center md:py-14">
-        <h1 className="text-3xl font-bold md:text-5xl">🚿 Solana Faucet 🚿</h1>
+        <h1 className="justify-around space-x-5 text-3xl font-bold md:text-5xl flexer">
+          <img
+            src="/icons/shower.svg"
+            alt="Solana Faucet"
+            className="scale-x-flip icon-xl"
+          />
+          <span>Solana Faucet</span>
+          <img
+            src="/icons/shower.svg"
+            alt="Solana Faucet"
+            className="icon-xl"
+          />
+        </h1>
 
         <p className="mx-auto text-xl text-gray-700">
           Open the Solana faucet to get SOL deposited to your

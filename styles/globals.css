@@ -164,6 +164,12 @@ body {
 .icon-lg {
   @apply w-9 h-9;
 }
+.icon-xl {
+  @apply w-16 h-16;
+}
+.icon-2xl {
+  @apply w-20 h-20;
+}
 
 /* 
 
@@ -314,7 +320,7 @@ h6 {
   @apply items-center leading-normal transition appearance-none cursor-pointer;
   @apply whitespace-nowrap rounded-xl font-semibold;
   @apply px-5 py-2;
-  @apply flex space-x-2;
+  /* @apply flex space-x-2; */
   @apply hover:no-underline;
 
   /* default color scheme */
@@ -325,6 +331,11 @@ h6 {
   @apply border-2 border-black;
   @apply shadow-black;
 }
+.btn-flex {
+  @apply btn;
+  @apply flexer space-x-2;
+}
+.btn-flex:hover,
 .btn:hover {
   @apply shadow-none translate-x-1 translate-y-1;
 }
@@ -595,4 +606,12 @@ h6 {
   @apply absolute left-0 mb-2 w-6 h-6 cursor-pointer;
   @apply transition duration-100 ease-linear transform;
   @apply bg-white rounded-full border-2;
+}
+
+.flip-x {
+  --transform-scale-x: "-1";
+}
+
+.flip-y {
+  --transform-scale-y: "-1";
 }

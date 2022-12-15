@@ -197,6 +197,9 @@ module.exports = {
       auto: "auto",
     }),
     extend: {
+      scale: {
+        flip: "-1",
+      },
       animation: {
         "spin-slow": "spin 3s linear infinite",
       },

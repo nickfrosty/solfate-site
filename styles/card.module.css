@@ -3,8 +3,9 @@
 */
 
 .card {
-  @apply w-full block rounded-xl overflow-hidden;
+  @apply w-full block rounded-xl;
   @apply border border-gray-800;
+  /* @apply overflow-hidden; */
 }
 .shadow {
   @apply border-2 border-black;

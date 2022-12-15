@@ -44,9 +44,9 @@ export default function AppHeader() {
 
         <div className="hidden justify-between space-x-2 md:flex">
           {/* <Link href="/signin">
-            <a className="btn">Sign In</a>
+            <a className="btn-flex">Sign In</a>
           </Link> */}
-          <button className="btn btn-default btn-shadow">
+          <button className="btn-flex btn-shadow">
             <span>Connect</span>
             <span className="hidden lg:inline-block">Wallet</span>
           </button>
