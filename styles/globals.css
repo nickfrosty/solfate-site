@@ -21,7 +21,7 @@ html {
 */
 body {
   @apply scroller;
-  @apply text-black bg-[#f1f6f1];
+  @apply text-black bg-color-light;
   @apply tracking-wide;
   @apply items-center;
   /* @apply text-lg; */

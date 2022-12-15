@@ -2,8 +2,31 @@
 	Navigation / header styles
 */
 
+/* Desktop (aka non-mobile specific styles) */
+.desktopMenu {
+  @apply hidden mx-auto w-full md:flex md:bg-transparent;
+}
+.desktopActionMenu {
+  @apply hidden justify-between space-x-2 md:flex;
+}
+
+/* Mobile specific styles */
+.mobileMenu {
+  @apply md:hidden md:bg-transparent mx-auto w-full border-b shadow-lg bg-color-light border-gray-800;
+}
+.mobileActionMenu {
+  @apply flex justify-between items-center md:hidden;
+}
+.dropdownActive {
+  @apply fixed left-0;
+}
+.dropdownInactive {
+  @apply hidden;
+}
+
 .nav {
-  /* @apply sticky top-0 z-10; */
+  @apply sticky top-0 z-10;
+  @apply bg-color-light;
 
   @apply w-full flex justify-between items-center h-16;
   /* @apply border-b border-gray-800; */
@@ -17,6 +40,9 @@
   @apply w-full;
   @apply flex justify-between items-center mx-auto;
   @apply space-y-0 space-x-5 px-4 md:py-2;
+}
+.linksListing {
+  @apply inline-block flex-1 items-center mr-0 md:flex md:mr-2 md:justify-between md:space-x-8;
 }
 
 .nav a {

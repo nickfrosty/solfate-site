@@ -12,40 +12,27 @@ export default function AppHeader() {
   return (
     <nav className={styles.nav}>
       <div className={styles.inner}>
-        <div className="inline-block flex-1 items-center mr-0 md:flex md:mr-2 md:justify-between md:space-x-8">
+        <div className={styles.linksListing}>
           <AppLogo className="pr-8" image={true} />
 
-          <AppNav
-            className={`hidden mx-auto w-full md:flex md:bg-transparent`}
-          />
+          <AppNav className={styles.desktopMenu} />
 
-          {menu ? (
+          {menu && (
             <AppNav
-              className={`md:hidden md:bg-transparent mx-auto w-full border-b shadow-lg border-gray-800 ${
-                menu ? "fixed left-0 bg-black" : "hidden"
+              className={`${styles.mobileMenu} ${
+                menu ? styles.dropdownActive : styles.dropdownInactive
               }`}
             />
-          ) : (
-            <></>
           )}
         </div>
 
-        <div className="flex justify-between items-center">
-          <button
-            className="icon-md md:hidden"
-            onClick={(e) => {
-              // alert("derp");
-              setMenu(!menu);
-            }}
-          >
+        <div className={styles.mobileActionMenu}>
+          <button className="icon-lg" onClick={(e) => setMenu(!menu)}>
             <MenuIcon className="w-full" />
           </button>
         </div>
 
-        <div className="hidden justify-between space-x-2 md:flex">
-          {/* <Link href="/signin">
-            <a className="btn-flex">Sign In</a>
-          </Link> */}
+        <div className={styles.desktopActionMenu}>
           <button className="btn-flex btn-shadow">
             <span>Connect</span>
             <span className="hidden lg:inline-block">Wallet</span>
