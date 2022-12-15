@@ -24,6 +24,8 @@
 }
 
 .title {
+  /* @apply border-l-4 border-yellow-500 pl-5 py-2; */
+  /* @apply shadow-orange-lg; */
   @apply text-2xl tracking-wider;
   @apply block font-semibold;
   @apply mb-2;
