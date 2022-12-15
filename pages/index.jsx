@@ -5,8 +5,8 @@ import { basicMeta } from "~/utils/seoMetaData";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import { LargeCard } from "~/components/cards/LargeCard";
 
-import Starter from "~/components/Starter";
 import UtilityListingCards from "~/components/UtilityListingCards";
+import AboutBlocks from "~/components/AboutBlocks";
 
 // import Image from "next/image";
 // import WaitlistForm from "~/components/waitlist/WaitlistForm";
@@ -39,16 +39,16 @@ export default function Page() {
         </p>
 
         <div className="flex justify-center">
-          <Link href="/extension">
+          <Link href="#utility">
             <a className="block w-min btn-flex btn-indigo">
-              <span>Explore Solfate</span>
+              <span>Explore Utilities</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
           </Link>
         </div>
       </div>
 
-      <Starter />
+      <AboutBlocks />
 
       <UtilityListingCards />
 

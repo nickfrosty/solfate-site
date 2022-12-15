@@ -6,8 +6,13 @@ import styles from "~/styles/card.module.css";
 
 export default function UtilityListingCards() {
   return (
-    <section className="py-8 text-white bg-indigo-500">
-      <section className="container grid gap-12 md:grid-cols-3">
+    <section id="utility" className="py-8 text-white bg-indigo-500">
+      <section className="my-8 space-y-3 text-center">
+        <h2 className="text-5xl">Ecosystem Utilities</h2>
+        {/* <p className=""></p> */}
+      </section>
+
+      <section className="container grid gap-8 gap-y-16 md:grid-cols-3">
         <CardBox
           icon={"/icons/crown.svg"}
           title={"Royalty Checker"}
@@ -28,7 +33,7 @@ export default function UtilityListingCards() {
         </CardBox>
 
         <CardBox
-          icon={"/icons/coin.svg"}
+          icon={"/icons/money-bag.svg"}
           title={"Fee Redeemer"}
           href={"/fees"}
           ctaText={"Get free money"}
@@ -36,6 +41,25 @@ export default function UtilityListingCards() {
           Reclaim your wallet&apos;s rent and storage fees directly from the
           blockchain.
         </CardBox>
+
+        {/* <CardBox
+          icon={"/icons/snapshot.svg"}
+          title={"Holder Snapshot"}
+          href={"/snapshot"}
+          ctaText={"Gather holders"}
+        >
+          Generate an up-to-date list of all the holders for an NFT collection.
+        </CardBox>
+
+        <CardBox
+          icon={"/icons/coin.svg"}
+          title={"Token Generator"}
+          href={"/tokens"}
+          ctaText={"Create a Token"}
+        >
+          Easy to use interface to create Solana SPL tokens, and airdrop it to
+          anyone.
+        </CardBox> */}
       </section>
     </section>
   );

@@ -15,3 +15,5 @@ export const NICK = {
   twitterUrl: "https://twitter.com/nickfrosty",
   website: "https://nick.af",
 };
+
+export const GITHUB = "https://github.com/solfate";
