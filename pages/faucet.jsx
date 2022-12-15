@@ -120,10 +120,10 @@ export default function Page() {
   }
 
   return (
-    <Layout seo={metaData} className="container">
+    <Layout seo={metaData} className="container space-y-6">
       {/* Page heading */}
       <main className="col-span-2 mx-auto space-y-8 max-w-2xl text-center md:py-14">
-        <h1 className="justify-around space-x-5 text-3xl font-bold md:text-5xl flexer">
+        <h1 className="justify-around space-x-5 text-4xl font-bold md:text-5xl flexer">
           <img
             src="/icons/shower.svg"
             alt="Solana Faucet"
@@ -168,7 +168,7 @@ export default function Page() {
           airdrop <span className="text-highlight">1 sol</span> on
         </p>
 
-        <div className="flex justify-center space-x-8">
+        <div className="grid grid-cols-2 gap-3 justify-center md:flex md:space-x-6">
           <button
             disabled={loading}
             className={`btn btn-lg btn-shadow btn-default ${
@@ -177,14 +177,16 @@ export default function Page() {
           >
             Testnet
           </button>
+
           <button
             disabled={loading}
-            className={`btn btn-lg btn-shadow btn-indigo ${
+            className={`row-start-1 col-span-2 btn btn-lg btn-shadow btn-indigo ${
               loading ? "disabled" : ""}`}
             onClick={() => airdropSol("devnet")}
           >
             Devnet
           </button>
+
           <button
             disabled={loading}
             className={`btn btn-lg btn-shadow btn-default ${
@@ -199,10 +201,8 @@ export default function Page() {
       </main>
 
       <section className="mx-auto space-y-3 max-w-2xl">
-        {error ? (
+        {error && (
           <ErrorCard title="Solana Faucet Airdrop Failed" msg={error} />
-        ) : (
-          <></>
         )}
 
         {transactions.map((tx) => {

@@ -7,7 +7,7 @@ export function ErrorCard({
   msg = "An unknown error occurred. Please try again.",
 }) {
   return (
-    <div className={`${styles.card} ${styles.error}`}>
+    <div className={`${styles.card} ${styles.error} text-left`}>
       <div className="icon-lg">
         <ExclamationIcon className="" />
       </div>
