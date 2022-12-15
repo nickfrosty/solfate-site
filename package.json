@@ -2,6 +2,9 @@
   "name": "@solfate/website",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "dev": "next dev",
     "export": "next export",
