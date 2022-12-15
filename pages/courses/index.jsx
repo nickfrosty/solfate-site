@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import DefaultLayout from "~/layouts/default";
+import Layout from "~/layouts/default";
 import { basicMeta } from "~/utils/seoMetaData";
 import { LargeCard } from "~/components/cards/LargeCard";
 import { SmallCard } from "~/components/cards/SmallCard";
@@ -37,7 +37,7 @@ export async function getStaticProps({ params }) {
 
 export default function CoursesIndex({ posts, featured }) {
   return (
-    <DefaultLayout seo={metaData}>
+    <Layout seo={metaData} className="container">
       {featured && featured?.length ? (
         <section className="double-wide-cards">
           {featured.map((item) => {
@@ -66,6 +66,6 @@ export default function CoursesIndex({ posts, featured }) {
             );
           })}
       </section>
-    </DefaultLayout>
+    </Layout>
   );
 }

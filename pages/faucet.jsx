@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import DefaultLayout from "~/layouts/default";
+import Layout from "~/layouts/default";
 import { basicMeta } from "~/utils/seoMetaData";
 import { DocumentDuplicateIcon } from "@heroicons/react/solid";
 import { useState, useEffect } from "react";
@@ -120,7 +120,7 @@ export default function FaucetPage() {
   }
 
   return (
-    <DefaultLayout seo={metaData} className="">
+    <Layout seo={metaData} className="container">
       {/* Page heading */}
       <main className="col-span-2 mx-auto space-y-8 max-w-2xl text-center md:py-14">
         <h1 className="text-3xl font-bold md:text-5xl">🚿 Solana Faucet 🚿</h1>
@@ -237,6 +237,6 @@ export default function FaucetPage() {
           );
         })}
       </section>
-    </DefaultLayout>
+    </Layout>
   );
 }

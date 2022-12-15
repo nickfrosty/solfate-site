@@ -75,19 +75,18 @@ export default function AppFooter() {
             Solfate Labs
           </p>
 
-          <p className="block mt-0 mb-2 space-x-2 text-sm flexer">
-            <HeartIcon className="text-red-500 icon-sm" />
-            <span>
-              by{" "}
-              <a
-                href={NICK.website}
-                className={styles.link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {NICK.name}
-              </a>
-            </span>
+          <p className="block mt-0 mb-2 space-x-1 text-sm flexer">
+            <HeartIcon className="text-red-400 icon-sm" />
+            <span>by</span>
+            <a
+              href={NICK.website}
+              // className={styles.link}
+              className={"underline"}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {NICK.name}
+            </a>
           </p>
         </section>
 

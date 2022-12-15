@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import DefaultLayout from "~/layouts/default";
+import Layout from "~/layouts/default";
 
 export default function Page() {
   const size = 75;

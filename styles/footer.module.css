@@ -11,7 +11,7 @@
 .inner {
   /* @apply container; */
   @apply p-5 mx-auto;
-  @apply flex text-left lg:text-left;
+  @apply md:flex text-left lg:text-left;
   @apply space-y-0;
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import DefaultLayout from "~/layouts/default";
+import Layout from "~/layouts/default";
 import { NextSeo } from "next-seo";
 import { basicMeta } from "~/utils/seoMetaData";
 import { ArrowRightIcon, DocumentDuplicateIcon } from "@heroicons/react/solid";
@@ -34,7 +34,7 @@ export default function HomePage() {
   };
 
   return (
-    <DefaultLayout seo={metaData} className="md:space-y-16">
+    <Layout seo={metaData} className="container md:space-y-16">
       {/* Page heading */}
       <div className="col-span-2 py-14 mx-auto space-y-8 max-w-2xl text-center">
         <h1 className="text-5xl heading">Solfate CLI</h1>
@@ -137,6 +137,6 @@ export default function HomePage() {
 					</a>
 				</div>
 			</section> */}
-    </DefaultLayout>
+    </Layout>
   );
 }

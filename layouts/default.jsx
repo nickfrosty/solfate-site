@@ -9,7 +9,7 @@ export default function Layout({ seo = {}, children, className = "" }) {
 
       <AppHeader />
 
-      <main className={`container min-h-screen ${className}`}>{children}</main>
+      <main className={`min-h-screen ${className}`}>{children}</main>
 
       <AppFooter />
     </>

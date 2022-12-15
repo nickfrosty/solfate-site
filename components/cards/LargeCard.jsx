@@ -4,6 +4,8 @@ import { ArrowRightIcon } from "@heroicons/react/solid";
 import { generateSlug } from "~/toad/core";
 import { FloatLabel } from "../content/FloatLabel";
 
+import styles from "~/styles/card.module.css";
+
 export function LargeCard(meta) {
   // extract the commonly used `meta` tags
   let {
@@ -31,9 +33,9 @@ export function LargeCard(meta) {
   return (
     <Link href={href}>
       <a
-        className={`md:flex justify-between p-0 card hover-outline ${
-          className || ""
-        }`}
+        className={`${styles.card} ${
+          styles.shadow
+        } md:flex justify-between p-0 hover-outline ${className || ""}`}
       >
         <div className="overflow-hidden flex-shrink-0 bg-gray-900 sm:max-h-72 md:max-h-80 md:w-1/2 pb-2/3">
           {draft && draft === true && (
