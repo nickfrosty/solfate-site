@@ -56,14 +56,14 @@
   @apply border-l-4 md:border-l-0 md:border-b-2 border-transparent;
   @apply tracking-wide no-underline;
   /* @apply text-white; */
-  /* @apply hover:text-indigo-500; */
+  @apply hover:text-indigo-500;
   /* focus:outline-none focus:shadow-outline */
 }
 
 .activeLink {
   /* @apply text-yellow-500; */
   @apply text-indigo-500;
-  @apply border-yellow-500;
+  /* @apply border-yellow-500; */
   /* @apply bg-purple-200; */
   /* @apply text-purple-500; */
   /* @apply text-white bg-indigo-700; */
@@ -72,7 +72,7 @@
   /* @apply hover:underline; */
   /* @apply text-gray-400 hover:text-white; */
   @apply hover:text-indigo-500;
-  @apply hover:border-yellow-500;
+  /* @apply hover:border-yellow-500; */
   /* @apply hover:bg-purple-300; */
   /* @apply hover:bg-indigo-700; */
 }
