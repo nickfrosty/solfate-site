@@ -48,7 +48,7 @@ export default function Page() {
           </Link>
         </div>
 
-        <p className="space-x-8">
+        <p className="grid gap-3 text-center md:gap-8 md:grid-cols-2">
           <Link href="https://youtu.be/J11ybP3nZE8">
             <a className="link" target="_blank">
               <span>Watch a Demo Video</span>
