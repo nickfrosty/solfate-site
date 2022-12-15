@@ -55,19 +55,19 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="flex justify-center space-x-8">
+        <div className="grid gap-4 text-center md:grid-cols-2">
           <Link href="https://github.com/solfate/solfate">
             <a
               target="_blank"
               rel="noreferrer"
-              className="block w-min btn-flex"
+              className="block mx-auto w-min btn-flex"
             >
               <span>View on Github</span>
               {/* <ArrowRightIcon className="icon-sm" /> */}
             </a>
           </Link>
           <Link href="https://github.com/solfate/solfate/blob/master/cli/README.md">
-            <a className="block w-min btn-flex btn-indigo">
+            <a className="block mx-auto w-min btn-flex btn-indigo">
               <span>Read the Docs</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
