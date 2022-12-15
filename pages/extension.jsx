@@ -13,7 +13,7 @@ const metaData = {
     "Explore the decentralized Solana web though the power of .sol domains and IPFS.",
 };
 
-export default function HomePage() {
+export default function Page() {
   return (
     <Layout seo={metaData} className="container md:space-y-16">
       {/* Page heading */}
@@ -34,14 +34,14 @@ export default function HomePage() {
 
         <div className="flex justify-center space-x-5">
           {/* <Link href="/extension">
-            <a className="block w-min btn disabled">
+            <a className="block w-min btn-flex disabled">
               <span>Chrome WebStore Coming Soon</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
           </Link> */}
 
           <Link href="https://github.com/solfate/extension">
-            <a className="block w-min btn btn-indigo">
+            <a className="block w-min btn-flex btn-indigo">
               <span>View on GitHub</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
@@ -50,13 +50,13 @@ export default function HomePage() {
 
         <p className="space-x-8">
           <Link href="https://youtu.be/J11ybP3nZE8">
-            <a className="" target="_blank">
+            <a className="link" target="_blank">
               <span>Watch a Demo Video</span>
             </a>
           </Link>
 
           <Link href="https://youtu.be/1Y9wEsJ8_j0">
-            <a className="" target="_blank">
+            <a className="link" target="_blank">
               <span>How to Manually Install</span>
             </a>
           </Link>
@@ -65,7 +65,7 @@ export default function HomePage() {
 
       <section className="grid gap-12 md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3 md:col-span-2 md:mb-14 lg:mb-0 md:px-24 lg:px-0">
-          <h3 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
+          <h3 className="pl-4 text-2xl font-bold border-l-4 border-indigo-500">
             Solana Profile Pages
           </h3>
           <p className="text-lg text-gray-500">
@@ -82,7 +82,7 @@ export default function HomePage() {
         </div>
 
         <div className="space-y-4 md:col-span-1">
-          <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
+          <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-500">
             Resolve .sol Domains
           </h2>
           <p className="text-gray-500">
@@ -96,7 +96,7 @@ export default function HomePage() {
 					</a> */}
         </div>
         <div className="space-y-4 md:col-span-1">
-          <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
+          <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-500">
             IPFS Explorer
           </h2>
           <p className="text-gray-500">

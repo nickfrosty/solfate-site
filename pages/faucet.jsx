@@ -15,7 +15,7 @@ const metaData = {
     "Turn on the Solana faucet to get an airdrop of free SOL deposited to your testnet or devnet wallet instantly.",
 };
 
-export default function FaucetPage() {
+export default function Page() {
   const depositAmount = 1; // airdrop only works with 1 sol?
 
   const [address, setAddress] = useState("");
