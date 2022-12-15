@@ -127,9 +127,9 @@ export default function Page() {
 
   return (
     <div className="flex">
-      {Object.entries(colors).map(([item]) => {
+      {Object.entries(colors).map(([item, index]) => {
         return (
-          <div>
+          <div key={index}>
             <p>{item}:</p>
             {Object.entries(colors[item]).map(([shade, color]) => {
               return (

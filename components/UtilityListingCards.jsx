@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import styles from "~/styles/card.module.css";
@@ -31,7 +33,7 @@ export default function UtilityListingCards() {
           href={"/fees"}
           ctaText={"Get free money"}
         >
-          Reclaim your wallet's rent and storage fees directly from the
+          Reclaim your wallet&apos;s rent and storage fees directly from the
           blockchain.
         </CardBox>
       </section>
