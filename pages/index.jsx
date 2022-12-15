@@ -8,9 +8,6 @@ import { LargeCard } from "~/components/cards/LargeCard";
 import UtilityListingCards from "~/components/UtilityListingCards";
 import AboutBlocks from "~/components/AboutBlocks";
 
-// import Image from "next/image";
-// import WaitlistForm from "~/components/waitlist/WaitlistForm";
-
 // construct the meta data for the page
 // const metaData = basicMeta({
 const metaData = {

@@ -1,7 +1,7 @@
 import { HeartIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import FooterProductsSection from "./footer/FooterProductsSection";
-import FooterResourcesSection from "./footer/FooterResourcesSection";
+// import FooterProductsSection from "./footer/FooterProductsSection";
+// import FooterResourcesSection from "./footer/FooterResourcesSection";
 import FooterUtilitySection from "./footer/FooterUtilitySection";
 
 import styles from "~/styles/footer.module.css";

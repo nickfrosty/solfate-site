@@ -14,7 +14,7 @@ export default function AboutBlocks() {
           <p className="text-lg text-gray-500">
             Solfate is a public experiment of building into the Solana
             blockchain ecosystem. Solfate is primarily focused on building
-            useful tools and utilities for the masses. All open source.
+            useful tools and utilities for the masses.
           </p>
 
           <Link href={GITHUB}>
@@ -34,10 +34,12 @@ export default function AboutBlocks() {
             in the Solana ecosystem.
           </p>
 
-          <a href="" className="text-lg tracking-wide link flexer">
-            <span className="">Explore Utilities</span>
-            <ArrowRightIcon className="icon-sm" />
-          </a>
+          <Link href="/#utility">
+            <a className="text-lg tracking-wide link flexer">
+              <span className="">Explore Utilities</span>
+              <ArrowRightIcon className="icon-sm" />
+            </a>
+          </Link>
         </div>
 
         <div className="space-y-4 md:col-span-1">
@@ -49,10 +51,12 @@ export default function AboutBlocks() {
             available to the masses.
           </p>
 
-          <a href="" className="text-lg tracking-wide link flexer">
-            <span className="">Explore Products</span>
-            <ArrowRightIcon className="icon-sm" />
-          </a>
+          <Link href="/#products">
+            <a className="text-lg tracking-wide link flexer">
+              <span className="">Explore Products</span>
+              <ArrowRightIcon className="icon-sm" />
+            </a>
+          </Link>
         </div>
       </section>
     </section>
