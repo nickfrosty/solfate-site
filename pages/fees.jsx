@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Layout from "~/layouts/default";
-import Link from "next/link";
 
 // construct the meta data for the page
 const metaData = {
@@ -21,8 +20,8 @@ export default function Page() {
           It's basically free money...that was always yours!
         </p>
 
-        <button className="btn" onClick={() => alert("coming soon")}>
-          Soon, tm
+        <button className="btn" onClick={() => alert("Promise")}>
+          Soon&trade;
         </button>
       </div>
     </Layout>
