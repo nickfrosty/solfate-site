@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import Layout from "~/layouts/default";
-import { NextSeo } from "next-seo";
-import { basicMeta } from "~/utils/seoMetaData";
-import { ArrowRightIcon, DocumentDuplicateIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import { LargeCard } from "~/components/cards/LargeCard";
+import Layout from "~/layouts/default";
 import { useState } from "react";
+// import { basicMeta } from "~/utils/seoMetaData";
+import { ArrowRightIcon, DocumentDuplicateIcon } from "@heroicons/react/solid";
 
 // construct the meta data for the page
 // const metaData = basicMeta({

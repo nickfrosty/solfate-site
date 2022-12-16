@@ -3,7 +3,6 @@ import Layout from "~/layouts/default";
 import Link from "next/link";
 import { basicMeta } from "~/utils/seoMetaData";
 import { ArrowRightIcon } from "@heroicons/react/solid";
-import { LargeCard } from "~/components/cards/LargeCard";
 
 import UtilityListingCards from "~/components/UtilityListingCards";
 import AboutBlocks from "~/components/AboutBlocks";
@@ -48,51 +47,6 @@ export default function Page() {
       <AboutBlocks />
 
       <UtilityListingCards />
-
-      {/*  */}
-      {/* <section className="grid-5">
-        {[
-          {
-            id: 1,
-            className: "col-span-2",
-            title: "Solana Faucet",
-            href: "/faucet",
-            description:
-              "Turn on the Solana faucet to get an airdrop of free SOL deposited to your testnet or devnet wallet instantly.",
-            actionButton: "Open the Faucet",
-          },
-          // {
-          // 	id: 1,
-          // 	className: "col-span-2",
-          // 	title: "Solfate Browser Extension",
-          // 	href: "/extension",
-          // 	description:
-          // 		"Explore the decentralized Solana web though the power of .sol domains and IPFS.",
-          // 	actionButton: "Get the extension",
-          // },
-          {
-            id: 2,
-            // className: "col-span-3",
-            title: "Command Line Interface (CLI)",
-            href: "/cli",
-            image: "/img/cli/hot-reload.png",
-            image_focus: "left",
-            description:
-              "Install the Solfate CLI to help build Solana programs faster and better.",
-            actionButton: "Install the CLI",
-          },
-          // {
-          // 	id: 3,
-          // 	title: "Setup your dev environment",
-          // 	// href: "/",
-          // 	description:
-          // 		"Get started in your Solana development journey by installing the Solana CLI, configuring VS code, and running a local validator.",
-          // 	actionButton: "Get setup",
-          // },
-        ].map((item) => {
-          return <LargeCard key={item.id} {...item} />;
-        })}
-      </section> */}
     </Layout>
   );
 }
