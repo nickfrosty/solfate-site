@@ -33,8 +33,8 @@ export default function AboutBlocks() {
             Utilities
           </h4>
           <p className="text-gray-500">
-            A collection of assorted "mini tools" that help creators and builder
-            in the Solana ecosystem.
+            A collection of assorted &quot;mini tools&quot; that help creators
+            and builder in the Solana ecosystem.
           </p>
 
           <Link href="/#utility">

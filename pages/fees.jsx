@@ -17,7 +17,7 @@ export default function Page() {
         <p className="mx-auto max-w-3xl text-xl text-gray-500">
           Reclaim your wallet&apos;s rent and storage fees directly from the
           blockchain. <br />
-          It's basically free money...that was always yours!
+          It&apos;s basically free money...that was always yours!
         </p>
 
         <button className="btn" onClick={() => alert("Promise")}>
