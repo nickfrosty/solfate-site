@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/solid";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import styles from "~/styles/card.module.css";
 
 export default function UtilityListingCards() {

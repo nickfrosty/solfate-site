@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.6",
-    "@heroicons/react": "^1.0.6",
+    "@heroicons/react": "^2.0.13",
     "@solana/web3.js": "^1.70.1",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.8",

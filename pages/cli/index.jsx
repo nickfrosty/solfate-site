@@ -3,7 +3,10 @@ import Link from "next/link";
 import Layout from "~/layouts/default";
 import { useState } from "react";
 // import { basicMeta } from "~/utils/seoMetaData";
-import { ArrowRightIcon, DocumentDuplicateIcon } from "@heroicons/react/solid";
+import {
+  ArrowRightIcon,
+  DocumentDuplicateIcon,
+} from "@heroicons/react/24/solid";
 
 // construct the meta data for the page
 // const metaData = basicMeta({

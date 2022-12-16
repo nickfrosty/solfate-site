@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
-import { DocumentDuplicateIcon } from "@heroicons/react/solid";
+import { DocumentDuplicateIcon } from "@heroicons/react/24/solid";
 import styles from "~/styles/card.module.css";
 
 export default function AirdropCard({

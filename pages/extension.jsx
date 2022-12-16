@@ -2,7 +2,7 @@
 import Layout from "~/layouts/default";
 import { NextSeo } from "next-seo";
 import { basicMeta } from "~/utils/seoMetaData";
-import { ArrowRightIcon } from "@heroicons/react/solid";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 // construct the meta data for the page

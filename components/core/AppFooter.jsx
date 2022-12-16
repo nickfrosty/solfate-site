@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HeartIcon } from "@heroicons/react/solid";
+import { HeartIcon } from "@heroicons/react/24/solid";
 // import FooterResourcesSection from "./footer/FooterResourcesSection";
 import FooterProductsSection from "~/components/core/footer/FooterProductsSection";
 import FooterUtilitySection from "~/components/core/footer/FooterUtilitySection";

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/solid";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { GITHUB } from "~/constants";
 
 // import styles from "~/styles/footer.module.css";

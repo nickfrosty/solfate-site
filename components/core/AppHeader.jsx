@@ -1,4 +1,4 @@
-import { MenuIcon } from "@heroicons/react/solid";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import AppLogo from "./AppLogo";
 import AppNav from "./AppNav";
@@ -28,7 +28,7 @@ export default function AppHeader() {
 
         <div className={styles.mobileActionMenu}>
           <button className="icon-lg" onClick={(e) => setMenu(!menu)}>
-            <MenuIcon className="w-full" />
+            <Bars3Icon className="w-full" />
           </button>
         </div>
 

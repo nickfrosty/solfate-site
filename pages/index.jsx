@@ -2,7 +2,7 @@
 import Layout from "~/layouts/default";
 import Link from "next/link";
 import { basicMeta } from "~/utils/seoMetaData";
-import { ArrowRightIcon } from "@heroicons/react/solid";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 import UtilityListingCards from "~/components/UtilityListingCards";
 import AboutBlocks from "~/components/AboutBlocks";

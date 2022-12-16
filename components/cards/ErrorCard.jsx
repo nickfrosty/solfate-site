@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { ExclamationIcon } from "@heroicons/react/solid";
+import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 import styles from "~/styles/card.module.css";
 
 export default function ErrorCard({
@@ -9,7 +9,7 @@ export default function ErrorCard({
   return (
     <div className={`${styles.card} ${styles.error} text-left`}>
       <div className="icon-lg">
-        <ExclamationIcon className="" />
+        <ExclamationTriangleIcon className="" />
       </div>
 
       <div className="space-y-2">
