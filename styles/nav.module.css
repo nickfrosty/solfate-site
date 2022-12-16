@@ -1,0 +1,78 @@
+/*
+	Navigation / header styles
+*/
+
+/* Desktop (aka non-mobile specific styles) */
+.desktopMenu {
+  @apply hidden mx-auto w-full md:flex md:bg-transparent;
+}
+.desktopActionMenu {
+  @apply hidden justify-between space-x-2 md:flex;
+}
+
+/* Mobile specific styles */
+.mobileMenu {
+  @apply md:hidden md:bg-transparent mx-auto w-full border-b shadow-lg bg-color-light border-gray-800;
+}
+.mobileActionMenu {
+  @apply flex justify-between items-center md:hidden;
+}
+.dropdownActive {
+  @apply fixed left-0;
+}
+.dropdownInactive {
+  @apply hidden;
+}
+
+.nav {
+  @apply sticky top-0 z-10;
+  @apply bg-color-light;
+
+  @apply w-full flex justify-between items-center h-16;
+  /* @apply border-b border-gray-800; */
+  @apply md:px-8;
+  /* @apply fixed top-0 z-20 bg-color-dark; */
+  /* @apply border-b border-gray-400 shadow-md md:shadow-none md:border-0; */
+}
+
+.inner {
+  /* @apply container-inner; */
+  @apply w-full;
+  @apply flex justify-between items-center mx-auto;
+  @apply space-y-0 space-x-5 px-4 md:py-2;
+}
+.linksListing {
+  @apply inline-block flex-1 items-center mr-0 md:flex md:mr-2 md:justify-between md:space-x-8;
+}
+
+.nav a {
+  @apply text-black no-underline hover:no-underline;
+}
+
+.link {
+  @apply flex space-x-2 items-center p-4 md:px-6;
+  @apply transition-colors duration-150 ease-in-out;
+  @apply text-lg font-semibold;
+  @apply border-l-4 md:border-l-0 md:border-b-2 border-transparent;
+  @apply tracking-wide no-underline;
+  /* @apply text-white; */
+  @apply hover:text-indigo-500;
+  /* focus:outline-none focus:shadow-outline */
+}
+
+.activeLink {
+  /* @apply text-yellow-500; */
+  @apply text-indigo-500;
+  /* @apply border-yellow-500; */
+  /* @apply bg-purple-200; */
+  /* @apply text-purple-500; */
+  /* @apply text-white bg-indigo-700; */
+}
+.inactiveLink {
+  /* @apply hover:underline; */
+  /* @apply text-gray-400 hover:text-white; */
+  @apply hover:text-indigo-500;
+  /* @apply hover:border-yellow-500; */
+  /* @apply hover:bg-purple-300; */
+  /* @apply hover:bg-indigo-700; */
+}

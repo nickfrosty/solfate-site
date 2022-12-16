@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import DefaultLayout from "~/layouts/default";
+import Layout from "~/layouts/default";
 import { NextSeo } from "next-seo";
 import { basicMeta } from "~/utils/seoMetaData";
 import { ArrowRightIcon } from "@heroicons/react/solid";
@@ -13,9 +13,9 @@ const metaData = {
     "Explore the decentralized Solana web though the power of .sol domains and IPFS.",
 };
 
-export default function HomePage() {
+export default function Page() {
   return (
-    <DefaultLayout seo={metaData} className="md:space-y-16">
+    <Layout seo={metaData} className="container md:space-y-16">
       {/* Page heading */}
       <div className="col-span-2 py-14 mx-auto space-y-8 max-w-2xl text-center">
         <h1 className="text-5xl font-bold">
@@ -33,22 +33,22 @@ export default function HomePage() {
         </p>
 
         <div className="flex justify-center space-x-5">
-          <Link href="/extension">
-            <a className="btn btn-indigo-outline disabled block w-min whitespace-nowrap">
-              <span>Chrome WebStore Comming Soon</span>
-              {/* <ArrowRightIcon className="icon-sm" /> */}
+          {/* <Link href="/extension">
+            <a className="block w-min btn-flex disabled">
+              <span>Chrome WebStore Coming Soon</span>
+              <ArrowRightIcon className="icon-sm" />
             </a>
-          </Link>
+          </Link> */}
 
           <Link href="https://github.com/solfate/extension">
-            <a className="btn btn-indigo-outline block w-min whitespace-nowrap">
+            <a className="block w-min btn-flex btn-indigo">
               <span>View on GitHub</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
           </Link>
         </div>
 
-        <p className="space-x-8">
+        <p className="grid gap-3 text-center md:gap-8 md:grid-cols-2">
           <Link href="https://youtu.be/J11ybP3nZE8">
             <a className="link" target="_blank">
               <span>Watch a Demo Video</span>
@@ -63,9 +63,9 @@ export default function HomePage() {
         </p>
       </div>
 
-      <section className="md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4 grid gap-12">
-        <div className="md:col-span-2 md:mb-14 lg:mb-0 md:px-24 lg:px-0 space-y-3">
-          <h3 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
+      <section className="grid gap-12 md:gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-3 md:col-span-2 md:mb-14 lg:mb-0 md:px-24 lg:px-0">
+          <h3 className="pl-4 text-2xl font-bold border-l-4 border-indigo-500">
             Solana Profile Pages
           </h3>
           <p className="text-lg text-gray-500">
@@ -74,15 +74,15 @@ export default function HomePage() {
             blockchain using the Solana Name Service and IPFS.
           </p>
           {/* <Link href="/extension">
-						<a className="btn btn-indigo block w-min whitespace-nowrap">
+						<a className="block w-min btn btn-indigo">
 							<span>View Example Profile Page</span>
 							<ArrowRightIcon className="icon-sm" />
 						</a>
 					</Link> */}
         </div>
 
-        <div className="md:col-span-1 space-y-4">
-          <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
+        <div className="space-y-4 md:col-span-1">
+          <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-500">
             Resolve .sol Domains
           </h2>
           <p className="text-gray-500">
@@ -90,13 +90,13 @@ export default function HomePage() {
             address using the Solana Name Service (SNS).
           </p>
 
-          {/* <a href="" className="link flexer text-lg tracking-wide">
+          {/* <a href="" className="text-lg tracking-wide link flexer">
 						<span className="">Learn more</span>
 						<ArrowRightIcon className="icon-sm" />
 					</a> */}
         </div>
-        <div className="md:col-span-1 space-y-4">
-          <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-600">
+        <div className="space-y-4 md:col-span-1">
+          <h2 className="pl-4 text-2xl font-bold border-l-4 border-indigo-500">
             IPFS Explorer
           </h2>
           <p className="text-gray-500">
@@ -104,12 +104,12 @@ export default function HomePage() {
             the InterPlanetary File System (IPFS).
           </p>
 
-          {/* <a href="" className="link flexer text-lg tracking-wide">
+          {/* <a href="" className="text-lg tracking-wide link flexer">
 						<span className="">Learn more</span>
 						<ArrowRightIcon className="icon-sm" />
 					</a> */}
         </div>
       </section>
-    </DefaultLayout>
+    </Layout>
   );
 }
