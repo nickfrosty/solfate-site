@@ -2,7 +2,7 @@
 import { ExclamationIcon } from "@heroicons/react/solid";
 import styles from "~/styles/card.module.css";
 
-export function ErrorCard({
+export default function ErrorCard({
   title = "An error occurred!",
   msg = "An unknown error occurred. Please try again.",
 }) {

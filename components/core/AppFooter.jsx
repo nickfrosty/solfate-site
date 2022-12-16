@@ -19,7 +19,7 @@ export default function AppFooter() {
             <div className="block md:hidden">
               <a
                 href={TWITTER.url}
-                className="px-4 btn btn-sm btn-twitter btn-shadow"
+                className="px-4 btn btn-sm btn-twitter"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -37,7 +37,7 @@ export default function AppFooter() {
           <div className="hidden md:inline-block">
             <a
               href={TWITTER.url}
-              className="px-4 btn btn-twitter btn-shadow"
+              className="px-4 btn btn-twitter"
               target="_blank"
               rel="noreferrer"
             >

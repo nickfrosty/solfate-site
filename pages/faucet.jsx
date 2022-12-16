@@ -1,11 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import Layout from "~/layouts/default";
+import { useState } from "react";
 import { basicMeta } from "~/utils/seoMetaData";
-import { DocumentDuplicateIcon } from "@heroicons/react/solid";
-import { useState, useEffect } from "react";
 
-import * as web3 from "@solana/web3.js";
-import { ErrorCard } from "~/components/cards/ErrorCard";
+import {
+  Connection,
+  PublicKey,
+  LAMPORTS_PER_SOL,
+  clusterApiUrl,
+} from "@solana/web3.js";
+import ErrorCard from "~/components/cards/ErrorCard";
+import AirdropCard from "~/components/cards/AirdropCard";
 
 // construct the meta data for the page
 // const metaData = basicMeta({
@@ -16,39 +21,13 @@ const metaData = {
 };
 
 export default function Page() {
-  const depositAmount = 1; // airdrop only works with 1 sol?
-
   const [address, setAddress] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [transactions, setTransactions] = useState([]);
 
-  // state used for the copy to clipboard section
-  const [enabled, setEnabled] = useState(true);
-  const [displayText, setDisplayText] = useState("");
-
-  // useEffect(() => {
-  // 	console.log(transactions);
-  // }, [transactions]);
-
   /*
-    Simple function to copy the `displayText` to the clipboard and show a UI change
-  */
-  const copyToClipboard = (text) => {
-    if (enabled) {
-      navigator.clipboard.writeText(displayText);
-      let tmp = displayText;
-      setDisplayText("Copied to clipboard!");
-      setEnabled(false);
-      setTimeout(() => {
-        setDisplayText(tmp);
-        setEnabled(true);
-      }, 700);
-    }
-  };
-
-  /*
-		Function to airdrop to the entered wallet address and selected network
+		Function to airdrop to the entered wallet address and selected cluster
 	*/
   async function airdropSol(network) {
     setLoading(true);
@@ -57,36 +36,35 @@ export default function Page() {
 
     // init a blank signature
     let signature = "";
-    let networkURL = "";
-
-    // process the accepted networks
-    switch (network.toLowerCase()) {
-      case "devnet":
-        networkURL = "https://api.devnet.solana.com";
-        break;
-      case "testnet":
-        networkURL = "https://api.testnet.solana.com";
-        break;
-      case "mainnet":
-        alert("Ha, you wish!");
-        return;
-      default:
-        alert("Unknown Solana network!");
-        return;
-    }
+    let networkURL = () => {
+      // process the accepted networks
+      switch (network.toLowerCase()) {
+        case "devnet":
+          return clusterApiUrl("devnet");
+        case "testnet":
+          return clusterApiUrl("testnet");
+        case "mainnet":
+          alert("Ha, you wish!");
+          return;
+        default:
+          alert("Unknown Solana network!");
+          return;
+      }
+    };
 
     try {
-      // create a new connect
-      const connection = new web3.Connection(networkURL);
+      // create a new cluster Connection
+      const connection = new Connection(networkURL());
 
       // create an Public key from the string address
-      const publicKey = new web3.PublicKey(address);
+      const publicKey = new PublicKey(address.toString().trim());
 
       // if (!publicKey) throw Error("Request for airdrop failed");
 
       signature = await connection
-        .requestAirdrop(publicKey, web3.LAMPORTS_PER_SOL * depositAmount)
+        .requestAirdrop(publicKey, LAMPORTS_PER_SOL)
         .catch((err) => {
+          console.log(err);
           throw Error("Request for airdrop failed");
         });
 
@@ -99,8 +77,12 @@ export default function Page() {
       const data = { network, address, signature };
 
       // update the state to notify the user of the confirmed
-      setTransactions([data]);
-      setDisplayText(signature);
+      setTransactions(() => {
+        // clear the error
+        setError("");
+        // store the transaction
+        return [data];
+      });
 
       // setTransactions((prev) => {
       // 	prev.unshift(data);
@@ -108,20 +90,17 @@ export default function Page() {
       // 	return prev;
       // });
 
-      // console.log("Airdrop successful:", signature);
+      console.log("Airdrop successful:", signature);
     } catch (err) {
-      // notify({ type: 'error', message: `Airdrop failed!`, description: error?.message, txid: signature });
       console.warn("error:", `Airdrop failed! ${err?.message}`, signature);
       setError(err?.message);
     }
 
-    // alert("airdrop");
     setLoading(false);
   }
 
   return (
     <Layout seo={metaData} className="container space-y-6">
-      {/* Page heading */}
       <main className="col-span-2 mx-auto space-y-8 max-w-2xl text-center md:py-14">
         <h1 className="justify-around space-x-5 text-4xl font-bold md:text-5xl flexer">
           <img
@@ -145,22 +124,17 @@ export default function Page() {
         </p>
 
         <div className="block relative">
-          {loading ? (
-            <div className="absolute right-3 bottom-3 loader"></div>
-          ) : (
-            ""
-          )}
+          {loading && <div className="absolute right-3 bottom-3 loader"></div>}
+
           <input
             type="text"
+            value={address}
             required={true}
             disabled={loading}
+            placeholder="Enter a Solana wallet address"
             className={`input text-lg tracking-wide text-center ${
               loading ? "disabled" : ""}`}
-            placeholder="Enter a Solana wallet address"
-            value={address}
-            onChange={(e) => {
-              setAddress(e?.target?.value || "");
-            }}
+            onChange={(e) => setAddress(e?.target?.value || "")}
           />
         </div>
 
@@ -171,8 +145,7 @@ export default function Page() {
         <div className="grid grid-cols-2 gap-3 justify-center md:flex md:space-x-6">
           <button
             disabled={loading}
-            className={`btn btn-lg btn-shadow btn-default ${
-              loading ? "disabled" : ""}`}
+            className={`btn btn-lg btn-default ${loading ? "disabled" : ""}`}
             onClick={() => airdropSol("testnet")}
           >
             Testnet
@@ -180,7 +153,7 @@ export default function Page() {
 
           <button
             disabled={loading}
-            className={`row-start-1 col-span-2 btn btn-lg btn-shadow btn-indigo ${
+            className={`row-start-1 col-span-2 btn btn-lg btn-indigo ${
               loading ? "disabled" : ""}`}
             onClick={() => airdropSol("devnet")}
           >
@@ -189,11 +162,8 @@ export default function Page() {
 
           <button
             disabled={loading}
-            className={`btn btn-lg btn-shadow btn-default ${
-              loading ? "disabled" : ""}`}
-            onClick={() => {
-              alert("Ha, you wish :)");
-            }}
+            className={`btn btn-lg btn-default ${loading ? "disabled" : ""}`}
+            onClick={() => alert("Ha, you wish ;)")}
           >
             Mainnet?
           </button>
@@ -205,49 +175,9 @@ export default function Page() {
           <ErrorCard title="Solana Faucet Airdrop Failed" msg={error} />
         )}
 
-        {transactions.map((tx) => {
-          return (
-            <div className="p-6 space-y-2 card" key={tx.id}>
-              <h4 className="heading">
-                <span className="">Transaction confirmed</span>
-                <span className="hidden md:inline-block">on </span>
-                {/* <span>{depositAmount} SOL deposited</span> */}
-                <span className="hidden text-indigo-600 shadow-orange md:inline-block">
-                  {tx.network}
-                </span>
-              </h4>
-              <div
-                className="space-x-2 text-gray-700 cursor-pointer flexer"
-                onClick={copyToClipboard}
-              >
-                <p className="w-full truncate">{displayText}</p>
-                <DocumentDuplicateIcon className="icon-md" />
-              </div>
-              <p className="space-x-3 text-sm text-gray-700">
-                <a
-                  href={`https://explorer.solana.com/tx/${tx.signature}?cluster=${tx.network}`}
-                  className="link"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Solana Explorer
-                </a>
-                <span>&#8226;</span>
-                {/* <a href={``} className="link">
-										Solscan
-								</a> */}
-                <a
-                  href={`https://solana.fm/tx/5p491a3wtWftBFyEprRsPHYRBqzoE1xkWiNQ6nx8q4h6KmWgVG9c9a3nehkM4NsbYY8CBT6dNzGK4KZcfadMT94m?cluster=${tx.network}-solana`}
-                  className="link"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Solana.fm
-                </a>
-              </p>
-            </div>
-          );
-        })}
+        {transactions.map((tx, id) => (
+          <AirdropCard tx={tx} key={id} />
+        ))}
       </section>
     </Layout>
   );

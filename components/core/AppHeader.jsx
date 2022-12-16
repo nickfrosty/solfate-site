@@ -33,10 +33,7 @@ export default function AppHeader() {
         </div>
 
         <div className={styles.desktopActionMenu}>
-          <button
-            className="btn-flex btn-shadow"
-            onClick={() => alert("Soon™")}
-          >
+          <button className="btn-flex" onClick={() => alert("Soon™")}>
             <span>Connect</span>
             <span className="hidden lg:inline-block">Wallet</span>
           </button>

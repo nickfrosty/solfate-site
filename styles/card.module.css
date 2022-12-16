@@ -11,6 +11,9 @@
   @apply border-2 border-black;
   @apply shadow-black;
 }
+.shadow-card {
+  @apply card shadow;
+}
 
 .hover-outline {
   @apply hover:outline hover:outline-offset-4 hover:outline-2 hover:outline-yellow-500 hover:border-transparent;
