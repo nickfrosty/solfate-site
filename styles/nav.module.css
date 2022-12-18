@@ -26,6 +26,7 @@
 
 .nav {
   @apply sticky top-0 z-10;
+  @apply lg:relative;
   @apply bg-color-light;
 
   @apply w-full flex justify-between items-center h-16;

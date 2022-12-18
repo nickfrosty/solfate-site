@@ -3,8 +3,8 @@ import { useState } from "react";
 import AppLogo from "./AppLogo";
 import AppNav from "./AppNav";
 
+import { SelectAndConnectWalletButton } from "~/components/SelectAndConnectButton";
 import styles from "~/styles/nav.module.css";
-// import Link from "next/link";
 
 export default function AppHeader() {
   const [menu, setMenu] = useState(false);
@@ -33,10 +33,7 @@ export default function AppHeader() {
         </div>
 
         <div className={styles.desktopActionMenu}>
-          <button className="btn-flex" onClick={() => alert("Soon™")}>
-            <span>Connect</span>
-            <span className="hidden lg:inline-block">Wallet</span>
-          </button>
+          <SelectAndConnectWalletButton />
         </div>
       </div>
     </nav>
