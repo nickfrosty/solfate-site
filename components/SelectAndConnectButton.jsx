@@ -10,7 +10,7 @@ export const SelectAndConnectWalletButton = ({ onUseWalletClick }) => {
   useEffect(() => {
     if (!publicKey && wallet) {
       try {
-        connect();
+        // connect();
       } catch (err) {
         console.log("Error connecting to the wallet: ", err.message);
       }
