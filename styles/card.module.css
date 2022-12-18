@@ -4,7 +4,7 @@
 
 .card {
   @apply w-full block rounded-xl;
-  @apply border border-gray-800;
+  @apply border border-transparent;
   /* @apply overflow-hidden; */
 }
 .shadow {
@@ -13,6 +13,7 @@
 }
 .shadow-card {
   @apply card shadow;
+  @apply bg-white;
 }
 
 .hover-outline {

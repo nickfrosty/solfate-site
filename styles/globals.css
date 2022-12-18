@@ -68,19 +68,6 @@ body {
   @apply block px-10 md:max-h-76 md:px-0;
 }
 
-/* Define custom tailwind components */
-.dropdown-menu {
-  @apply transition-all duration-300 transform origin-top-right scale-95 -translate-y-2;
-  @apply text-gray-700;
-  /* @apply text-gray-100; */
-}
-.dropdown-inner {
-  @apply whitespace-nowrap min-w-56;
-  @apply absolute right-0 mt-2 rounded-md origin-top-right outline-none;
-  @apply bg-white border border-gray-300;
-  /* @apply bg-gray-900 border border-gray-800; */
-}
-
 /* main a, */
 .summary a,
 .link {
@@ -344,7 +331,16 @@ h6 {
   @apply shadow-none translate-x-1 translate-y-1;
 }
 
+.btn-simple {
+  @apply btn;
+  @apply shadow-none translate-x-0 translate-y-0 border !important;
+}
+
 /*  */
+.btn-xs {
+  @apply px-2 py-1;
+  @apply font-normal;
+}
 .btn-sm {
   @apply px-3 py-2;
 }
@@ -433,7 +429,8 @@ h6 {
   @apply bg-gray-900 border-indigo-700 enabled:hover:bg-indigo-500 enabled:hover:text-white focus:border-gray-400;
 }
 .btn-indigo-outline {
-  @apply border-indigo-700 enabled:hover:bg-indigo-500 enabled:hover:text-white focus:border-gray-400;
+  @apply border-indigo-700 enabled:hover:bg-indigo-500;
+  @apply enabled:hover:text-white focus:border-gray-400;
   @apply enabled:hover:text-white;
   /* @apply text-white bg-indigo-500 enabled:hover:bg-indigo-600; */
   /* enabled:hover: bg-gray-700; */
@@ -619,3 +616,24 @@ h6 {
 .flip-y {
   --transform-scale-y: "-1";
 }
+
+.table {
+  @apply w-full !important;
+  /* @apply block; */
+  @apply border-indigo-400 !important;
+}
+.table thead td {
+  @apply bg-indigo-400 text-white;
+  @apply px-5 py-2;
+  @apply text-xl;
+}
+.table tbody td {
+  /* @apply bg-white; */
+  @apply px-5 py-2;
+}
+
+/* @layer utilities { */
+.table tbody tr:nth-child(even) {
+  @apply bg-indigo-50;
+}
+/* } */
