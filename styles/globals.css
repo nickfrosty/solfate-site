@@ -57,6 +57,12 @@ body {
   @apply container-spacing;
 }
 
+.container-prose {
+  @apply container-inner;
+  @apply max-w-4xl py-6 !important;
+  @apply container-spacing;
+}
+
 .focus-area {
   @apply container-inner;
   @apply w-full items-center text-center md:text-left;
@@ -179,10 +185,17 @@ body {
 
 */
 .tag {
-  @apply px-3 py-1 rounded-xl mr-3 cursor-pointer;
-  @apply border border-gray-800;
+  @apply px-3 py-1 ml-1 mr-2 rounded-lg;
+  @apply text-base tracking-wide font-mono;
+  @apply border border-indigo-600;
   @apply bg-transparent;
-  @apply hover:border-gray-500;
+}
+
+.tag-link {
+  @apply tag;
+  @apply cursor-pointer;
+  @apply hover:text-white;
+  @apply hover:bg-indigo-600 hover:border-indigo-600 !important;
 }
 
 .inline-code {

@@ -31,3 +31,8 @@
   @apply border-red-600 bg-red-500 text-white;
   @apply items-center space-x-5 flex;
 }
+
+.minor {
+  /* @apply font-mono; */
+  @apply text-gray-500;
+}
