@@ -3,7 +3,7 @@ import { useState } from "react";
 import AppLogo from "./AppLogo";
 import AppNav from "./AppNav";
 
-import { SelectAndConnectWalletButton } from "~/components/SelectAndConnectButton";
+// import { SelectAndConnectWalletButton } from "~/components/SelectAndConnectButton";
 import styles from "~/styles/nav.module.css";
 
 export default function AppHeader() {
@@ -32,9 +32,9 @@ export default function AppHeader() {
           </button>
         </div>
 
-        <div className={styles.desktopActionMenu}>
+        {/* <div className={styles.desktopActionMenu}>
           <SelectAndConnectWalletButton />
-        </div>
+        </div> */}
       </div>
     </nav>
   );

@@ -186,7 +186,7 @@ body {
 */
 .tag {
   @apply px-3 py-1 ml-1 mr-2 rounded-lg;
-  @apply text-base tracking-wide font-mono;
+  @apply text-sm tracking-wide font-mono;
   @apply border border-indigo-600;
   @apply bg-transparent;
 }

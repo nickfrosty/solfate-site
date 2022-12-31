@@ -3,6 +3,7 @@ import NavLink from "./header/NavLink";
 export default function AppNav({ className = "" }) {
   return (
     <nav className={className}>
+      <NavLink href="/podcast">Podcast</NavLink>
       {/* <NavLink href="/royalty">
         <img
           src={"/icons/crown.svg"}
