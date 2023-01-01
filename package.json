@@ -9,8 +9,10 @@
     "dev": "next dev",
     "export": "next export",
     "build": "next build",
+    "generate": "next build && yarn podcast:rss && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "podcast:rss": "node scripts/generatePodcastRss.js"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.6",
@@ -43,6 +45,7 @@
     "autoprefixer": "^10.4.13",
     "eslint": "8.29.0",
     "eslint-config-next": "12.2.3",
+    "podcast": "^2.0.1",
     "postcss": "^8.4.20",
     "postcss-nesting": "^10.2.0",
     "tailwindcss": "^3.2.4"

@@ -15,6 +15,7 @@ test-ledger
 
 # production
 /build
+/public/podcast/rss.xml
 
 # misc
 .DS_Store
