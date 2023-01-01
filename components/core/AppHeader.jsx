@@ -1,4 +1,5 @@
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+import { Bars3Icon, MicrophoneIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import AppLogo from "./AppLogo";
 import AppNav from "./AppNav";
@@ -27,6 +28,12 @@ export default function AppHeader() {
         </div>
 
         <div className={styles.mobileActionMenu}>
+          <Link href="/podcast">
+            <a className="icon-md">
+              <MicrophoneIcon className="w-full" />
+            </a>
+          </Link>
+
           <button className="icon-lg" onClick={(e) => setMenu(!menu)}>
             <Bars3Icon className="w-full" />
           </button>
