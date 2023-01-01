@@ -16,6 +16,7 @@
 }
 .mobileActionMenu {
   @apply flex justify-between items-center md:hidden;
+  @apply space-x-4;
 }
 .dropdownActive {
   @apply fixed left-0;

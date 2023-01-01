@@ -351,6 +351,7 @@ h6 {
 .btn-flex {
   @apply btn;
   @apply flexer space-x-2;
+  @apply inline-flex !important;
 }
 .btn-flex:hover,
 .btn:hover {

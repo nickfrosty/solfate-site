@@ -2,7 +2,7 @@
 import Layout from "~/layouts/default";
 import Link from "next/link";
 import { basicMeta } from "~/utils/seoMetaData";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon, BeakerIcon } from "@heroicons/react/24/solid";
 
 import UtilityListingCards from "~/components/UtilityListingCards";
 import AboutBlocks from "~/components/AboutBlocks";
@@ -34,10 +34,17 @@ export default function Page() {
           experiment of building into the Solana ecosystem
         </p>
 
-        <div className="flex justify-center">
+        <div className="justify-center mx-auto space-y-3 w-full md:space-y-0 md:space-x-6 md:flex">
           <Link href="#utility">
-            <a className="block w-min btn-flex btn-indigo">
+            <a className="w-min btn-flex">
+              <BeakerIcon className="icon-sm" />
               <span>Explore Utilities</span>
+            </a>
+          </Link>
+
+          <Link href="/podcast">
+            <a className="w-min btn-flex btn-indigo">
+              <span>Listen to the Podcast</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
           </Link>

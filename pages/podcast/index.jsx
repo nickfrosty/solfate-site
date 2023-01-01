@@ -19,7 +19,7 @@ const metaData = {
 };
 
 export async function getStaticProps() {
-  let episodes = await getDocsByPath("podcast");
+  let episodes = await getDocsByPath("podcast/episodes");
 
   // extract the `featured` posts
   const featured = filterDocs(episodes, { featured: true }, 2);
@@ -46,7 +46,7 @@ export default function Page({ episodes, featured }) {
   return (
     <Layout seo={metaData} className="container space-y-16 md:space-y-24">
       <section className="col-span-2 mx-auto space-y-8 max-w-2xl text-center">
-        <h1 className="text-6xl">
+        <h1 className="text-5xl">
           Solfate <span className="shadow-orange-lg">Podcast</span>
         </h1>
 
