@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { RSS_PLATFORMS } from "~/lib/podcast";
 
-export default function RssLinks() {
+export default function RssLinks({ className = "" }) {
   return (
-    <span className="space-x-3 flexer">
+    <span className={`space-x-3 flexer ${className}`}>
       {RSS_PLATFORMS.map((item, index) => (
         <a
           key={index}
