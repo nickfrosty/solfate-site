@@ -1,13 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import Layout from "~/layouts/default";
 import Link from "next/link";
-import { basicMeta } from "~/utils/seoMetaData";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
-import UtilityListingCards from "~/components/UtilityListingCards";
-
 // construct the meta data for the page
-// const metaData = basicMeta({
 const metaData = {
   title: "Page Not Found",
   description: "This page was not found. Keep on looking I guess.",
@@ -33,10 +29,6 @@ export default function Page() {
           </Link>
         </div>
       </div>
-
-      {/* <AboutBlocks /> */}
-
-      <UtilityListingCards />
     </Layout>
   );
 }
