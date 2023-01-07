@@ -6,6 +6,8 @@ import FooterUtilitySection from "~/components/core/footer/FooterUtilitySection"
 
 import styles from "~/styles/footer.module.css";
 import { NICK, TWITTER } from "~/lib/constants";
+import { PODCAST_HOSTS } from "~/lib/podcast";
+import FooterPodcastSection from "./footer/FooterPodcastSection";
 
 export default function AppFooter() {
   return (
@@ -29,27 +31,31 @@ export default function AppFooter() {
           </div>
 
           <p className="block mt-0 text-lg">
-            A public experiment of building into the Solana blockchain
-            ecosystem. Solfate is primarily focused on building useful tools and
-            utilities for the masses.
+            Solfate is an audio commentary from two developers building into the
+            Solana blockchain's ecosystem. It&apos;s a public experiment.
           </p>
 
-          <div className="hidden md:inline-block">
-            <a
-              href={TWITTER.url}
-              className="px-4 btn btn-twitter"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {TWITTER.handle}
-            </a>
+          <div className="hidden space-x-4 md:inline-block">
+            {PODCAST_HOSTS.map((person, index) => (
+              <a
+                key={index}
+                href={person.twitter}
+                className="px-4 btn btn-twitter"
+                target="_blank"
+                rel="noreferrer"
+              >
+                @{person.twitter}
+              </a>
+            ))}
           </div>
         </div>
 
-        <nav className={`pt-8 ${styles["two-column"]}`}>
+        <nav className={`${styles["two-column"]}`}>
+          <FooterPodcastSection />
+
           <FooterUtilitySection />
 
-          <FooterProductsSection />
+          {/* <FooterProductsSection /> */}
 
           {/* <FooterResourcesSection className={styles["two-column"]} /> */}
         </nav>
