@@ -58,7 +58,7 @@ export default function Page({ episodes, featured }) {
           .
         </p>
 
-        <div className="flex justify-center items-center space-x-5">
+        <div className="block justify-center items-center space-y-4 md:flex md:space-x-5 md:space-y-0">
           <Link href={`/podcast`}>
             <a className="block w-min btn-flex btn">
               <Bars3CenterLeftIcon className="icon-sm" />
