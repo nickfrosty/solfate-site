@@ -9,7 +9,7 @@ import { GITHUB } from "~/lib/constants";
 export default function PodcastHosts({}) {
   return (
     <section className="py-8 bg-white">
-      <section className="container grid gap-14 md:gap-8 lg:gap-5 md:grid-cols-2">
+      <section className="container grid gap-14 md:grid-cols-2">
         {/* <div className="space-y-4 md:col-span-2 md:mb-14 md:px-24 lg:px-0 lg:mb-0">
           <h3 className="text-2xl font-bold">
             Open source,
