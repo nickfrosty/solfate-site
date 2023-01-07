@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { PODCAST_HOSTS } from "~/lib/constants";
+import { PODCAST_HOSTS } from "~/lib/podcast";
 
 export default function PodcastHosts({}) {
   return (
@@ -25,7 +25,7 @@ export default function PodcastHosts({}) {
 export function SocialLinks({ person, className = "" }) {
   return (
     <div className={`space-x-2 ${className}`}>
-      {person?.twitter !== "" && (
+      {person?.twitter && (
         <a
           href={`https://twitter.com/${person.twitter}`}
           target="_blank"
@@ -41,7 +41,7 @@ export function SocialLinks({ person, className = "" }) {
         </a>
       )}
 
-      {person?.github !== "" && (
+      {person?.github && (
         <a
           href={`https://github.com/${person.github}`}
           target="_blank"
@@ -57,7 +57,7 @@ export function SocialLinks({ person, className = "" }) {
         </a>
       )}
 
-      {person?.website !== "" && (
+      {person?.website && (
         <a
           href={person.website}
           target="_blank"
