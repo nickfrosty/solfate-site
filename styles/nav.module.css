@@ -48,7 +48,7 @@
 }
 
 .nav a {
-  @apply text-black no-underline hover:no-underline;
+  @apply no-underline hover:no-underline;
 }
 
 .link {

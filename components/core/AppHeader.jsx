@@ -6,6 +6,7 @@ import AppNav from "./AppNav";
 
 // import { SelectAndConnectWalletButton } from "~/components/SelectAndConnectButton";
 import styles from "~/styles/nav.module.css";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function AppHeader() {
   const [menu, setMenu] = useState(false);
@@ -38,6 +39,15 @@ export default function AppHeader() {
             <Bars3Icon className="w-full" />
           </button>
         </div>
+
+        {/* <div className={styles.desktopActionMenu}>
+          <Link href={`/podcast`}>
+            <a className="block w-min btn-flex">
+              <span>Podcast</span>
+              <ArrowRightIcon className="icon-sm" />
+            </a>
+          </Link>
+        </div> */}
 
         {/* <div className={styles.desktopActionMenu}>
           <SelectAndConnectWalletButton />
