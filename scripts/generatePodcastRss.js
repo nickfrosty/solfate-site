@@ -16,6 +16,12 @@ const {
   sortByPriorityDate,
 } = require("zumo");
 
+// define the site's address
+const SITE_ADDRESS =
+  process.env?.NODE_ENV?.toLowerCase() === "production"
+    ? "https://solfate.com"
+    : "https://podcast.solfate.pages.dev";
+
 // define the base path to save the generated RSS files
 const rssBasePath = `./public/podcast/`;
 
@@ -24,20 +30,15 @@ const config = {
   siteName: "Solfate Labs",
   owner: "Nick Frostbutter",
   email: "podcast@solfate.com",
-  siteUrl: "https://solfate.com",
-  link: "https://solfate.com/podcast",
-  feedUrl: "https://solfate.com/podcast/rss.xml",
-  coverImageUrl: "https://solfate.com/podcast/cover.png",
+  siteUrl: SITE_ADDRESS,
+  link: `${SITE_ADDRESS}/podcast`,
+  feedUrl: `${SITE_ADDRESS}/podcast/rss.xml`,
+  coverImageUrl: `${SITE_ADDRESS}/media/podcast/cover1.jpg`,
 
   // meta info
   title: "Solfate Podcast",
-  description: "Audio commentary from two developers building on Solana.",
-};
-
-// define the public owner
-const owner = {
-  name: "Nick Frostbutter",
-  email: "podcast@solfate.com",
+  description:
+    "Audio commentary from two developers building on Solana, Nick (@nickfrosty) and James (@jamesrp13).",
 };
 
 const feedOptions = {
@@ -54,16 +55,19 @@ const feedOptions = {
   siteUrl: config.siteUrl,
   imageUrl: config.coverImageUrl,
   docs: config.link,
-  author: owner.name,
-  managingEditor: owner.name,
-  webMaster: owner.name,
+  author: config.owner,
+  managingEditor: config.owner,
+  webMaster: config.owner,
   language: "en",
-  pubDate: "May 20, 2012 04:00:00 GMT",
+  // pubDate: "", // when not defined, it will use the build date
   ttl: 60,
   itunesAuthor: config.siteName,
   itunesSubtitle: config.description,
   itunesSummary: config.description,
-  itunesOwner: owner,
+  itunesOwner: {
+    name: config.owner,
+    email: config.email,
+  },
   itunesExplicit: false,
 
   // categories: ["Category 1", "Category 2", "Category 3"],
@@ -86,7 +90,6 @@ const feedOptions = {
       metaOnly: false,
       hideDrafts: true,
     }),
-    // tokenHelper.getUserToken(username),
   ]);
 
   // construct the base podcast RSS feed
@@ -142,7 +145,7 @@ const feedOptions = {
         author: "Guest Author", // optional - defaults to feed author property
         // enclosure: { url: "...", file: "path-to-file" }, // optional enclosure
 
-        itunesAuthor: owner.name,
+        itunesAuthor: config.owner,
         itunesExplicit: false,
         itunesSubtitle: post.meta.description,
         itunesSummary: post.meta.description,
