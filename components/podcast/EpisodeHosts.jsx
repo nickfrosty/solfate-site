@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import clsx from "clsx";
 // import Link from "next/link";
-import { PODCAST_HOSTS } from "~/constants";
+import { PODCAST_HOSTS } from "~/lib/constants";
 
 import styles from "~/styles/card.module.css";
 import { SocialLinks } from "~/components/podcast/PodcastHosts";

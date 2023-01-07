@@ -5,7 +5,7 @@ import FooterProductsSection from "~/components/core/footer/FooterProductsSectio
 import FooterUtilitySection from "~/components/core/footer/FooterUtilitySection";
 
 import styles from "~/styles/footer.module.css";
-import { NICK, TWITTER } from "~/constants";
+import { NICK, TWITTER } from "~/lib/constants";
 
 export default function AppFooter() {
   return (

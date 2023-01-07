@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { PODCAST_HOSTS } from "~/constants";
+import { PODCAST_HOSTS } from "~/lib/constants";
 
 export default function PodcastHosts({}) {
   return (
