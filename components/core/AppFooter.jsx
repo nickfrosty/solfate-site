@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { HeartIcon } from "@heroicons/react/24/solid";
-// import FooterResourcesSection from "./footer/FooterResourcesSection";
-import FooterProductsSection from "~/components/core/footer/FooterProductsSection";
-import FooterUtilitySection from "~/components/core/footer/FooterUtilitySection";
 
 import styles from "~/styles/footer.module.css";
 import { NICK, TWITTER } from "~/lib/constants";
 import { PODCAST_HOSTS } from "~/lib/podcast";
+
+// import FooterResourcesSection from "./footer/FooterResourcesSection";
+// import FooterProductsSection from "~/components/core/footer/FooterProductsSection";
+import FooterUtilitySection from "~/components/core/footer/FooterUtilitySection";
 import FooterPodcastSection from "./footer/FooterPodcastSection";
 
 export default function AppFooter() {
@@ -32,7 +33,7 @@ export default function AppFooter() {
 
           <p className="block mt-0 text-lg">
             Solfate is an audio commentary from two developers building into the
-            Solana blockchain's ecosystem. It&apos;s a public experiment.
+            Solana blockchain&apos;s ecosystem. It&apos;s a public experiment.
           </p>
 
           <div className="hidden space-x-4 md:inline-block">
