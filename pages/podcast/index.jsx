@@ -12,8 +12,9 @@ import RssLinks from "~/components/podcast/RssLinks";
 
 // construct the meta data for the page
 const metaData = {
-  title: "Podcast",
-  description: "Audio commentary from two developers building on Solana.",
+  title: "Browse Podcast Episodes",
+  description:
+    "Audio commentary from two developers building on Solana, Nick (@nickfrosty) and James (@jamesrp13).",
 };
 
 export async function getStaticProps() {
@@ -64,7 +65,7 @@ export default function Page({ episodes, featured }) {
         <div className="flex justify-center items-center space-x-5">
           <RssLinks />
 
-          <Link href={`/podcast/0`}>
+          <Link href={`/podcast/${episodes?.[0].slug || "0"}`}>
             <a className="block w-min btn-flex btn-indigo">
               <span>Listen Now</span>
               <ArrowRightIcon className="icon-sm" />
@@ -73,7 +74,7 @@ export default function Page({ episodes, featured }) {
         </div>
       </section>
 
-      <PodcastHosts />
+      {/* <PodcastHosts /> */}
 
       <section className="mx-auto space-y-6 max-w-3xl">
         {episodes?.length > 0 &&

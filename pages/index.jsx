@@ -1,59 +1,90 @@
 /* eslint-disable @next/next/no-img-element */
 import Layout from "~/layouts/default";
 import Link from "next/link";
-import { basicMeta } from "~/utils/seoMetaData";
-import { ArrowRightIcon, BeakerIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon, Bars3CenterLeftIcon } from "@heroicons/react/24/solid";
+import { getDocsByPath, filterDocs } from "zumo";
 
-import UtilityListingCards from "~/components/UtilityListingCards";
-import AboutBlocks from "~/components/AboutBlocks";
+import PodcastHosts from "~/components/podcast/PodcastHosts";
+import RssLinks from "~/components/podcast/RssLinks";
+import PodcastEpisodesBlock from "~/components/podcast/PodcastEpisodesBlock";
 
 // construct the meta data for the page
-// const metaData = basicMeta({
 const metaData = {
   title: "Building on Solana",
   description:
-    "Crafting developer tooling and information resources for the Solana ecosystem.",
+    "Audio commentary from two developers building on Solana, Nick (@nickfrosty) and James (@jamesrp13).",
 };
 
-export default function Page() {
+export async function getStaticProps() {
+  let episodes = await getDocsByPath("podcast/episodes");
+
+  // extract the `featured` posts
+  const featured = filterDocs(episodes, { featured: true }, 2);
+
+  // remove the `featured` from the `episodes`
+  if (Array.isArray(featured))
+    episodes = episodes?.filter(
+      (item) =>
+        item.slug !==
+        featured.filter((ft) => ft.slug === item?.slug)?.[0]?.meta.slug,
+    );
+
+  // give the 404 page when the post is not found
+  // if (!episodes || !episodes?.length) return { notFound: true };
+
+  return {
+    props: { episodes, featured },
+  };
+}
+
+export default function Page({ episodes, featured }) {
   return (
     <Layout seo={metaData} className="">
-      {/* Page heading */}
-      <div className="container col-span-2 my-16 space-y-8 max-w-2xl text-center">
-        <h1 className="space-y-3 text-5xl font-bold">
-          {/* Refining glass with <br />
-					Solana Solfate */}
-          <span className="block">Crafting on Solana</span>
-          <span className="block">
-            with <span className="shadow-orange-lg">Solfate</span>
-          </span>
+      <section className="container col-span-2 mx-auto my-16 space-y-10 max-w-2xl text-center">
+        <h1 className="text-5xl">
+          Solfate <span className="shadow-orange-lg">Podcast</span>
         </h1>
 
         <p className="mx-auto text-xl text-gray-500">
-          {/* Refining glass into the future with Solana Solfate */}a public
-          experiment of building into the Solana ecosystem
+          Audio commentary from two developers building on{" "}
+          <a
+            href="https://solana.com"
+            className="link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Solana
+          </a>
+          .
         </p>
 
-        <div className="justify-center mx-auto space-y-3 w-full md:space-y-0 md:space-x-6 md:flex">
-          <Link href="#utility">
-            <a className="w-min btn-flex">
-              <BeakerIcon className="icon-sm" />
-              <span>Explore Utilities</span>
+        <div className="flex justify-center items-center space-x-5">
+          <Link href={`/podcast`}>
+            <a className="block w-min btn-flex btn">
+              <Bars3CenterLeftIcon className="icon-sm" />
+              <span>Browse Episodes</span>
             </a>
           </Link>
 
-          <Link href="/podcast">
-            <a className="w-min btn-flex btn-indigo">
-              <span>Listen to the Podcast</span>
+          <Link href={`/podcast/0`}>
+            <a className="block w-min btn-flex btn-indigo">
+              <span>Listen Now</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
           </Link>
         </div>
-      </div>
 
-      <AboutBlocks />
+        <div className="flex justify-center items-center space-x-5">
+          <RssLinks />
+        </div>
+      </section>
 
-      <UtilityListingCards />
+      <PodcastHosts />
+
+      <PodcastEpisodesBlock
+        title="Recent Episodes"
+        episodes={episodes?.slice(0, 2)}
+      />
     </Layout>
   );
 }
