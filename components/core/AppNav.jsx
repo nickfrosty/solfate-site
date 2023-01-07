@@ -28,7 +28,7 @@ export default function AppNav({ className = "" }) {
         /> */}
         Faucet
       </NavLink>
-      <NavLink href="/extension">Extension</NavLink>
+      {/* <NavLink href="/extension">Extension</NavLink> */}
     </nav>
   );
 }
