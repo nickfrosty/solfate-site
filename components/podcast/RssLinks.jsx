@@ -1,27 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-
-const platforms = [
-  {
-    label: "RSS feed",
-    href: "/podcast/rss.xml",
-    icon: "/icons/rss.svg",
-  },
-  {
-    label: "Apple Podcast",
-    href: "/podcast/rss.xml",
-    icon: "/icons/apple.svg",
-  },
-  {
-    label: "Spotify",
-    href: "/podcast/rss.xml",
-    icon: "/icons/spotify.svg",
-  },
-];
+import { RSS_PLATFORMS } from "~/lib/podcast";
 
 export default function RssLinks() {
   return (
     <span className="space-x-3 flexer">
-      {platforms.map((item, index) => (
+      {RSS_PLATFORMS.map((item, index) => (
         <a
           key={index}
           href={item.href}

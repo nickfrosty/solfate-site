@@ -3,14 +3,12 @@ import Layout from "~/layouts/default";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { INITIAL_EPISODES_PER_PAGE } from "~/lib/podcast";
 
 import { getDocsByPath, filterDocs } from "zumo";
 import PodcastHosts from "~/components/podcast/PodcastHosts";
 import PodcastEpisodeCard from "~/components/podcast/PodcastEpisodeCard";
 import RssLinks from "~/components/podcast/RssLinks";
-
-//name is a name. define it for use
-const INITIAL_EPISODES_PER_PAGE = 5;
 
 // construct the meta data for the page
 const metaData = {
