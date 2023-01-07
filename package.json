@@ -25,8 +25,6 @@
     "@solana/wallet-adapter-react-ui": "^0.9.25",
     "@solana/wallet-adapter-wallets": "^0.19.9",
     "@solana/web3.js": "^1.70.1",
-    "@tailwindcss/line-clamp": "^0.4.2",
-    "@tailwindcss/typography": "^0.5.8",
     "clsx": "^1.2.1",
     "luxon": "^3.1.1",
     "next": "12.2.3",
@@ -38,7 +36,7 @@
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
     "slugify": "^1.6.5",
-    "tailwind-scrollbar": "^2.0.1",
+    "tailwind-scrollbar": "^2.1.0",
     "zumo": "^0.0.11"
   },
   "devDependencies": {
@@ -48,6 +46,8 @@
     "podcast": "^2.0.1",
     "postcss": "^8.4.20",
     "postcss-nesting": "^10.2.0",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.8"
   }
 }
