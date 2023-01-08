@@ -125,6 +125,8 @@ const feedOptions = {
       // TODO: convert the content into html, from the provided markdown
       content = post.content;
 
+      // TODO: auto add the "about the hosts" section to the bottom of the content for the RSS fees
+
       // construct a RSS item to add to the feed
       feed.addItem({
         itunesNewFeedUrl: config.feedUrl,
@@ -175,3 +177,22 @@ const feedOptions = {
 
   console.log("New podcast feed generated!");
 })();
+
+/*
+
+## Find us online
+
+Show notes on Solfate.com: https://solfate.com/podcast/xxxx
+
+Nick
+
+- follow on twitter: [@nickfrosty](https://twitter.com/nickfrosty)
+- follow on github: [github.com/nickfrosty](https://github.com/nickfrosty)
+- website: [https://nick.af](nick.af)
+
+James
+
+- follow on twitter: [@jamesrp13](https://twitter.com/jamesrp13)
+- follow on github: [github.com/jamesrp13](https://github.com/jamesrp13)
+
+*/
