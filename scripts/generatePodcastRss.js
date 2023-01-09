@@ -54,6 +54,7 @@ const feedOptions = {
   // author,
 
   feedUrl: config.feedUrl,
+  link: config.feedUrl,
   siteUrl: config.siteUrl,
   imageUrl: config.coverImageUrl,
   docs: config.link,
@@ -71,19 +72,37 @@ const feedOptions = {
     email: config.email,
   },
   itunesExplicit: false,
-
-  // categories: ["Category 1", "Category 2", "Category 3"],
-  // itunesCategory: [
-  //   {
-  //     text: "Entertainment",
-  //     subcats: [
-  //       {
-  //         text: "Television",
-  //       },
-  //     ],
-  //   },
-  // ],
   itunesImage: config.imageUrl,
+
+  categories: ["Technology", "Business", "Entrepreneurship", "Investing"],
+  itunesCategory: [
+    {
+      text: "Technology",
+    },
+  ],
+  itunesCategory: [
+    {
+      text: "Business",
+      subcats: [
+        {
+          text: "Entrepreneurship",
+        },
+        {
+          text: "Investing",
+        },
+      ],
+    },
+  ],
+  itunesCategory: [
+    {
+      text: "News",
+      subcats: [
+        {
+          text: "Tech News",
+        },
+      ],
+    },
+  ],
 };
 
 (async () => {

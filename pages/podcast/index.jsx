@@ -67,7 +67,7 @@ export default function Page({ episodes, featured }) {
 
           <Link href={`/podcast/${episodes?.[0].slug || "0"}`}>
             <a className="block w-min btn-flex btn-indigo">
-              <span>Listen Now</span>
+              <span>Latest Episode</span>
               <ArrowRightIcon className="icon-sm" />
             </a>
           </Link>
