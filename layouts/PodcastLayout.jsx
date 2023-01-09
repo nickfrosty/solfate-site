@@ -12,13 +12,39 @@ export default function PodcastLayout({ config, post, next, prev }) {
   // TODO: support setting a canonical tag, likely via a util function to standardize the data
 
   // extract the used elements from the `post`
-  let { meta = {}, content = null, seo = {} } = post;
+  let { meta = {}, content = null } = post;
 
   // compute the page's `href` based on the template
   const href = parseTemplate(config.hrefTemplate, {
     baseHref: config.baseHref,
     slug: post.slug,
   });
+
+  // define the site's address for use in social feeds
+  const SITE_ADDRESS =
+    process?.env?.NODE_ENV?.toLowerCase() === "production"
+      ? "https://solfate.com"
+      : "https://podcast.solfate.pages.dev";
+
+  // define the seo settings to display the audio on social
+  const seo = {
+    twitter: {
+      cardType: "summary_large_image",
+    },
+    openGraph: {
+      type: "website",
+      url: `${SITE_ADDRESS}${href}`,
+      // site_name: "Solfate",
+      images: [
+        {
+          url: `${SITE_ADDRESS}/media/podcast/cover1.jpg`,
+          width: 800,
+          height: 800,
+          alt: "Solfate Labs",
+        },
+      ],
+    },
+  };
 
   return (
     <Layout seo={{ ...meta, ...seo }} className={``}>
