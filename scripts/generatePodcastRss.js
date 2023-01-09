@@ -10,6 +10,8 @@ const { Podcast } = require("podcast");
 // import  { DateTime } = require("luxon");
 const { writeFileSync, mkdirSync, statSync } = require("fs");
 
+const path = require("path");
+
 const {
   getDateByPriority,
   getDocsByPath,
@@ -71,16 +73,16 @@ const feedOptions = {
   itunesExplicit: false,
 
   // categories: ["Category 1", "Category 2", "Category 3"],
-  itunesCategory: [
-    {
-      text: "Entertainment",
-      subcats: [
-        {
-          text: "Television",
-        },
-      ],
-    },
-  ],
+  // itunesCategory: [
+  //   {
+  //     text: "Entertainment",
+  //     subcats: [
+  //       {
+  //         text: "Television",
+  //       },
+  //     ],
+  //   },
+  // ],
   itunesImage: config.imageUrl,
 };
 
@@ -127,6 +129,10 @@ const feedOptions = {
 
       // TODO: auto add the "about the hosts" section to the bottom of the content for the RSS fees
 
+      // TODO: fetch the audio file details for generating the enclosure
+      // const audioFile = path.join(process.cwd(), post.meta.audio);
+      // console.log(audioFile);
+
       // construct a RSS item to add to the feed
       feed.addItem({
         itunesNewFeedUrl: config.feedUrl,
@@ -143,15 +149,19 @@ const feedOptions = {
         description: post.meta.description,
         content,
 
+        // TODO: itunes categories
         // categories: ["Category 1", "Category 2", "Category 3", "Category 4"], // optional - array of item categories
-        author: "Guest Author", // optional - defaults to feed author property
-        // enclosure: { url: "...", file: "path-to-file" }, // optional enclosure
+        // author: "Guest Author", // optional - defaults to feed author property
+        enclosure: {
+          url: `${SITE_ADDRESS}${post.meta.audio}`,
+          // file: audioFile,
+        },
 
         itunesAuthor: config.owner,
         itunesExplicit: false,
         itunesSubtitle: post.meta.description,
         itunesSummary: post.meta.description,
-        itunesDuration: 12345,
+        // itunesDuration: 12345, // TODO: calculate duration
       });
     });
 
