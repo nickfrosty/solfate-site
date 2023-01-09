@@ -28,9 +28,9 @@ export default function PodcastLayout({ config, post, next, prev }) {
 
   // define the seo settings to display the audio on social
   const seo = {
-    twitter: {
-      cardType: "summary_large_image",
-    },
+    // twitter: {
+    //   cardType: "summary_large_image",
+    // },
     openGraph: {
       type: "website",
       url: `${SITE_ADDRESS}${href}`,

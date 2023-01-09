@@ -82,11 +82,6 @@ const feedOptions = {
   categories: ["Technology", "Business", "Entrepreneurship", "Investing"],
   itunesCategory: [
     {
-      text: "Technology",
-    },
-  ],
-  itunesCategory: [
-    {
       text: "Business",
       subcats: [
         {
@@ -101,6 +96,11 @@ const feedOptions = {
   itunesCategory: [
     {
       text: "News",
+    },
+  ],
+  itunesCategory: [
+    {
+      text: "Technology",
     },
   ],
 };
