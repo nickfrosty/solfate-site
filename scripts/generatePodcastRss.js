@@ -44,6 +44,11 @@ const config = {
 };
 
 const feedOptions = {
+  namespace: {
+    iTunes: true,
+    simpleChapters: true,
+    podcast: true,
+  },
   title: config.title,
   description: config.description,
   // id: author.website,
@@ -59,8 +64,8 @@ const feedOptions = {
   imageUrl: config.coverImageUrl,
   docs: config.link,
   author: config.owner,
-  managingEditor: config.owner,
-  webMaster: config.owner,
+  managingEditor: config.email,
+  webMaster: config.email,
   language: "en",
   // pubDate: "", // when not defined, it will use the build date
   ttl: 60,
@@ -96,11 +101,6 @@ const feedOptions = {
   itunesCategory: [
     {
       text: "News",
-      subcats: [
-        {
-          text: "Tech News",
-        },
-      ],
     },
   ],
 };
