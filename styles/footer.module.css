@@ -59,7 +59,7 @@
 }
 
 .footing {
-  @apply text-slate-700 items-center;
+  @apply text-slate-800 items-center;
   @apply text-center md:text-left;
   @apply md:flex;
 }
