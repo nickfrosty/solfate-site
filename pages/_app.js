@@ -33,7 +33,7 @@ export default class MyApp extends App {
             site_name: "Solfate",
             images: [
               {
-                url: "https://solfate.com/icon.png",
+                url: "https://solfate.com/media/podcast/cover1-small.jpg",
                 width: 256,
                 height: 256,
                 alt: "Solfate Labs",
