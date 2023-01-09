@@ -75,6 +75,17 @@ export default function PodcastLayout({ config, post, next, prev }) {
           <></>
         )}
 
+        {meta?.transistorUrl && meta?.transistorUrl && (
+          <iframe
+            width="100%"
+            height="180"
+            frameborder="no"
+            scrolling="no"
+            seamless
+            src={meta.transistorUrl}
+          ></iframe>
+        )}
+
         {/* <p className="text-xl md:text-2xl">{meta.description}</p> */}
 
         <EpisodeHosts guests={post.meta?.guests} />
