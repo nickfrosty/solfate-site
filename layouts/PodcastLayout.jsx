@@ -27,24 +27,25 @@ export default function PodcastLayout({ config, post, next, prev }) {
       : "https://podcast.solfate.pages.dev";
 
   // define the seo settings to display the audio on social
-  const seo = {
-    // twitter: {
-    //   cardType: "summary_large_image",
-    // },
-    openGraph: {
-      type: "website",
-      url: `${SITE_ADDRESS}${href}`,
-      // site_name: "Solfate",
-      images: [
-        {
-          url: `${SITE_ADDRESS}/media/podcast/cover1.jpg`,
-          width: 800,
-          height: 800,
-          alt: "Solfate Labs",
-        },
-      ],
-    },
-  };
+  const seo = {};
+  // const seo = {
+  //   // twitter: {
+  //   //   cardType: "summary_large_image",
+  //   // },
+  //   openGraph: {
+  //     type: "website",
+  //     url: `${SITE_ADDRESS}${href}`,
+  //     // site_name: "Solfate",
+  //     images: [
+  //       {
+  //         url: `${SITE_ADDRESS}/media/podcast/cover0.jpg`,
+  //         width: 800,
+  //         height: 800,
+  //         alt: "Solfate Labs",
+  //       },
+  //     ],
+  //   },
+  // };
 
   return (
     <Layout seo={{ ...meta, ...seo }} className={``}>

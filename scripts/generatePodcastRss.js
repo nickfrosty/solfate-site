@@ -35,7 +35,7 @@ const config = {
   siteUrl: SITE_ADDRESS,
   link: `${SITE_ADDRESS}/podcast`,
   feedUrl: `${SITE_ADDRESS}/podcast/rss.xml`,
-  coverImageUrl: `${SITE_ADDRESS}/media/podcast/cover1.jpg`,
+  coverImageUrl: `${SITE_ADDRESS}/media/podcast/cover0.jpg`,
 
   // meta info
   title: "Solfate Podcast",
