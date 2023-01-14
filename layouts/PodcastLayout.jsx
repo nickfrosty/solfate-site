@@ -27,8 +27,12 @@ export default function PodcastLayout({ config, post, next, prev }) {
       : "https://podcast.solfate.pages.dev";
 
   // define the seo settings to display the audio on social
-  const seo = {};
-  // const seo = {
+  const seo = {
+    openGraph: { title: post.meta.title },
+  };
+
+  // if (post.meta.image)
+  //  seo = {
   //   // twitter: {
   //   //   cardType: "summary_large_image",
   //   // },
@@ -36,6 +40,7 @@ export default function PodcastLayout({ config, post, next, prev }) {
   //     type: "website",
   //     url: `${SITE_ADDRESS}${href}`,
   //     // site_name: "Solfate",
+  //     title: post.meta.title
   //     images: [
   //       {
   //         url: `${SITE_ADDRESS}/media/podcast/cover0.jpg`,
@@ -66,14 +71,12 @@ export default function PodcastLayout({ config, post, next, prev }) {
           />
         </section>
 
-        {meta?.tags ? (
+        {meta?.tags?.length > 0 && (
           <div className="justify-between mt-5 flexer">
             <div className="line-clamp-1">
-              <TagListing tags={meta.tags} />
+              <TagListing tags={meta.tags} maxTagCount={5} />
             </div>
           </div>
-        ) : (
-          <></>
         )}
 
         {meta?.transistorUrl && meta?.transistorUrl && (
