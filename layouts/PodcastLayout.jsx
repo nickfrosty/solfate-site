@@ -26,9 +26,17 @@ export default function PodcastLayout({ config, post, next, prev }) {
       ? "https://solfate.com"
       : "https://podcast.solfate.pages.dev";
 
+  const title = () => {
+    let title = post.meta.title;
+
+    if (post.meta.ep) title = `ep${post.meta.ep}: ${title}`;
+
+    return title;
+  };
+
   // define the seo settings to display the audio on social
   const seo = {
-    openGraph: { title: post.meta.title },
+    openGraph: { title: title() },
   };
 
   // if (post.meta.image)
@@ -40,7 +48,7 @@ export default function PodcastLayout({ config, post, next, prev }) {
   //     type: "website",
   //     url: `${SITE_ADDRESS}${href}`,
   //     // site_name: "Solfate",
-  //     title: post.meta.title
+  //     title: title(),
   //     images: [
   //       {
   //         url: `${SITE_ADDRESS}/media/podcast/cover0.jpg`,
