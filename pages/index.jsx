@@ -40,8 +40,8 @@ export async function getStaticProps() {
 export default function Page({ episodes, featured }) {
   return (
     <Layout seo={metaData} className="">
-      <section className="container col-span-2 mx-auto my-16 space-y-10 max-w-2xl text-center">
-        <h1 className="text-5xl">
+      <section className="container max-w-2xl col-span-2 mx-auto my-16 space-y-10 text-center">
+        <h1 className="text-6xl">
           Solfate <span className="shadow-orange-lg">Podcast</span>
         </h1>
 
@@ -58,7 +58,7 @@ export default function Page({ episodes, featured }) {
           .
         </p>
 
-        <div className="block justify-center items-center space-y-4 md:flex md:space-x-5 md:space-y-0">
+        <div className="items-center justify-center block space-y-4 md:flex md:space-x-5 md:space-y-0">
           <Link href={`/podcast`}>
             <a className="block w-min btn-flex btn">
               <Bars3CenterLeftIcon className="icon-sm" />
@@ -74,7 +74,7 @@ export default function Page({ episodes, featured }) {
           </Link>
         </div>
 
-        <div className="flex justify-center items-center space-x-5">
+        <div className="flex items-center justify-center space-x-5">
           <RssLinks />
         </div>
       </section>
