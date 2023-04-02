@@ -23,7 +23,7 @@ export default function FooterResourcesSection({ className }) {
           </Link>
         </li>
         <li>
-          <Link href="https://twitter.com/SolfateLabs">
+          <Link href="https://twitter.com/SolfatePod">
             <a className={styles.link} target="_blank">
               Contact Us
             </a>

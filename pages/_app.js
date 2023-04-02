@@ -41,8 +41,8 @@ export default class MyApp extends App {
             ],
           }}
           twitter={{
-            handle: "@SolfateLabs",
-            site: "@SolfateLabs",
+            handle: "@SolfatePod",
+            site: "@SolfatePod",
             cardType: "summary",
             // cardType: "summary_large_image",
           }}
