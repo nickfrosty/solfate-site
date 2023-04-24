@@ -2,11 +2,7 @@ module.exports = {
   // mode: "jit",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "media",
-  plugins: [
-    require("tailwind-scrollbar"),
-    require("@tailwindcss/line-clamp"),
-    require("@tailwindcss/typography"),
-  ],
+  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/typography")],
   theme: {
     borderColor: (theme) => ({
       ...theme("colors"),
