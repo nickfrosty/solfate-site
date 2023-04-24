@@ -21,16 +21,15 @@ export default function NavLink({
   const isCurrent = router.pathname?.startsWith(href) || false;
 
   return (
-    <Link href={href}>
-      <a
-        title={title}
-        className={clsx(
-          styles.link,
-          isCurrent ? styles.activeLink : styles.inactiveLink,
-        )}
-      >
-        {children}
-      </a>
+    <Link
+      href={href}
+      title={title}
+      className={clsx(
+        styles.link,
+        isCurrent ? styles.activeLink : styles.inactiveLink,
+      )}
+    >
+      {children}
     </Link>
   );
 }

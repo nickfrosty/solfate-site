@@ -96,11 +96,9 @@ function CardBox({
         <h4 className="text-3xl">{title}</h4>
         <p className="my-5">{children}</p>
 
-        <Link href={href}>
-          <a className="space-x-2 place-content-end link flexer">
-            <span>{ctaText || "Explore"}</span>
-            <ArrowRightIcon className="icon-sm" />
-          </a>
+        <Link href={href} className="space-x-2 place-content-end link flexer">
+          <span>{ctaText || "Explore"}</span>
+          <ArrowRightIcon className="icon-sm" />
         </Link>
       </div>
     </div>

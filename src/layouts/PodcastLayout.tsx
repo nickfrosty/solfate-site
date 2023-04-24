@@ -73,10 +73,8 @@ export default function PodcastLayout({
       <section className="space-y-8 container-prose">
         <section className="space-y-3">
           <h1 className="">
-            <Link href={href}>
-              <a className="text-4xl shadow-orange-lg">
-                {meta?.title || "Podcast Episode"}
-              </a>
+            <Link href={href} className="text-4xl shadow-orange-lg">
+              {meta?.title || "Podcast Episode"}
             </Link>
           </h1>
 

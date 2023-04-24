@@ -71,11 +71,12 @@ export default function Page({ episodes, featured }: PageProps) {
         <div className="flex items-center justify-center space-x-5">
           <RssLinks />
 
-          <Link href={`/podcast/${episodes?.[0].slug || "0"}`}>
-            <a className="block w-min btn-flex btn-indigo">
-              <span>Latest Episode</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link
+            href={`/podcast/${episodes?.[0].slug || "0"}`}
+            className="block w-min btn-flex btn-indigo"
+          >
+            <span>Latest Episode</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div>
       </section>

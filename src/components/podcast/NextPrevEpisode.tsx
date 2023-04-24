@@ -14,14 +14,16 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
   return (
     <section className="grid w-full gap-8 md:grid-cols-2">
       {prev !== undefined && prev?.slug ? (
-        <Link href={`${hrefBase}/${prev.slug}`}>
-          <a className="w-full space-y-2 place-self-start btn btn-indigo">
-            <span className="space-x-6 flexer">
-              <ArrowLeftIcon className="w-4 h-4 text-white" />
+        <Link
+          href={`${hrefBase}/${prev.slug}`}
+          className="w-full space-y-2 place-self-start btn btn-indigo"
+        >
+          <span className="space-x-6 flexer">
+            <ArrowLeftIcon className="w-4 h-4 text-white" />
 
-              <span className="line-clamp-1">Previous Episode</span>
+            <span className="line-clamp-1">Previous Episode</span>
 
-              {/* <span className="space-x-6 flexer">
+            {/* <span className="space-x-6 flexer">
                 <span className="space-x-2 md:mt-0 flexer">
                   <MicrophoneIcon className="icon-sm" />
                   <span>{`Ep ${parseInt(
@@ -34,22 +36,23 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
                   <DisplayDate {...(prev?.meta || {})} />
                 </span>
               </span> */}
-            </span>
+          </span>
 
-            {/* <span className="block line-clamp-1">
+          {/* <span className="block line-clamp-1">
               {prev?.meta?.title || "Previous Episode"}
             </span> */}
-          </a>
         </Link>
       ) : (
         <div></div>
       )}
 
       {next !== undefined && next?.slug ? (
-        <Link href={`${hrefBase}/${next.slug}`}>
-          <a className="w-full space-y-2 place-self-start btn btn-indigo">
-            <span className="justify-between space-x-6 flexer">
-              {/* <span className="space-x-6 flexer">
+        <Link
+          href={`${hrefBase}/${next.slug}`}
+          className="w-full space-y-2 place-self-start btn btn-indigo"
+        >
+          <span className="justify-between space-x-6 flexer">
+            {/* <span className="space-x-6 flexer">
                 <span className="space-x-2 md:mt-0 flexer">
                   <MicrophoneIcon className="icon-sm" />
                   <span>{`Ep ${parseInt(
@@ -62,14 +65,13 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
                   <DisplayDate {...(next?.meta || {})} />
                 </span>
               </span> */}
-              <span className="line-clamp-1">Next Episode</span>
+            <span className="line-clamp-1">Next Episode</span>
 
-              <ArrowRightIcon className="w-4 h-4 text-white" />
-            </span>
-            {/* <span className="block line-clamp-1">
+            <ArrowRightIcon className="w-4 h-4 text-white" />
+          </span>
+          {/* <span className="block line-clamp-1">
               {next?.meta?.title || "Next Episode"}
             </span> */}
-          </a>
         </Link>
       ) : (
         <div></div>

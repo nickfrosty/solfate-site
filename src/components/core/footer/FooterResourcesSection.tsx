@@ -10,25 +10,27 @@ export default function FooterResourcesSection({
 
       <ul className={styles.list}>
         <li>
-          <Link href="/about">
-            <a className={styles.link}>About Solfate</a>
+          <Link href="/about" className={styles.link}>
+            About Solfate
           </Link>
         </li>
         {/* <li>
-					<Link href="/legal/terms">
-						<a className={styles.link}>Terms &amp; Conditions</a>
-					</Link>
-				</li> */}
-        <li>
-          <Link href="/legal/privacy">
-            <a className={styles.link}>Privacy Policy</a>
+          <Link href="/legal/terms" className={styles.link}>
+            Terms &amp; Conditions
           </Link>
-        </li>
+        </li> */}
+        {/* <li>
+          <Link href="/legal/privacy" className={styles.link}>
+            Privacy Policy
+          </Link>
+        </li> */}
         <li>
-          <Link href="https://twitter.com/SolfatePod">
-            <a className={styles.link} target="_blank">
-              Contact Us
-            </a>
+          <Link
+            href="https://twitter.com/SolfatePod"
+            className={styles.link}
+            target="_blank"
+          >
+            Contact Us
           </Link>
         </li>
       </ul>

@@ -21,12 +21,10 @@ export default function PodcastEpisodeCard({ meta }: ComponentProps) {
       className={`${styles.card} ${styles.shadow} bg-white text-black p-4 md:p-7 space-y-4`}
     >
       <div className="space-y-2">
-        <Link href={href}>
-          <a className="link">
-            <h4 className="text-xl md:text-3xl">
-              {meta?.title || "Podcast Episode"}
-            </h4>
-          </a>
+        <Link href={href} className="link">
+          <h4 className="text-xl md:text-3xl">
+            {meta?.title || "Podcast Episode"}
+          </h4>
         </Link>
 
         <EpisodeMeta meta={meta} />
@@ -41,11 +39,9 @@ export default function PodcastEpisodeCard({ meta }: ComponentProps) {
           </div>
         )}
 
-        <Link href={href}>
-          <a className="space-x-2 place-content-end link flexer">
-            <span>Listen</span>
-            <ArrowRightIcon className="icon-sm" />
-          </a>
+        <Link href={href} className="space-x-2 place-content-end link flexer">
+          <span>Listen</span>
+          <ArrowRightIcon className="icon-sm" />
         </Link>
       </div>
     </div>

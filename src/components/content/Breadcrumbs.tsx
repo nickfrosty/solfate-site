@@ -35,10 +35,8 @@ export function Breadcrumbs({
         parents.map((item: any) => {
           return (
             <span key={item.href}>
-              <Link href={item.href}>
-                <a className="link-muted">
-                  {item?.label || item?.title || "Parent"}
-                </a>
+              <Link href={item.href} className="link-muted">
+                {item?.label || item?.title || "Parent"}
               </Link>
 
               <ChevronDoubleRightIcon className="inline-block mx-2 icon-xs" />
@@ -46,10 +44,8 @@ export function Breadcrumbs({
           );
         })}
 
-      <Link href={href}>
-        <a className="link-muted">
-          {meta?.label || meta?.title || "[unknown]"}
-        </a>
+      <Link href={href} className="link-muted">
+        {meta?.label || meta?.title || "[unknown]"}
       </Link>
     </section>
   );

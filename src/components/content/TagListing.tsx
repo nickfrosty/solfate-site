@@ -29,8 +29,8 @@ export default function TagListing({ tags, maxTagCount = 3 }: ComponentProps) {
         );
         // this site is not ready to handle episode `tag` based routing routing (one day...)
         // return (
-        //   <Link href={computeHref(tag)} key={tag}>
-        //     <a className="inline-code-link">{tag}</a>
+        //   <Link href={computeHref(tag)} key={tag} className="inline-code-link">
+        //     {tag}
         //   </Link>
         // );
       })}

@@ -56,21 +56,21 @@ export default function Page() {
         </div>
 
         <div className="grid gap-4 text-center md:grid-cols-2">
-          <Link href="https://github.com/solfate/solfate">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              className="block mx-auto w-min btn-flex"
-            >
-              <span>View on Github</span>
-              {/* <ArrowRightIcon className="icon-sm" /> */}
-            </a>
+          <Link
+            href="https://github.com/nickfrosty/solfate-cli"
+            target="_blank"
+            rel="noreferrer"
+            className="block mx-auto w-min btn-flex"
+          >
+            <span>View on Github</span>
+            {/* <ArrowRightIcon className="icon-sm" /> */}
           </Link>
-          <Link href="https://github.com/solfate/solfate/blob/master/cli/README.md">
-            <a className="block mx-auto w-min btn-flex btn-indigo">
-              <span>Read the Docs</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link
+            href="https://github.com/nickfrosty/solfate-cli/blob/master/cli/README.md"
+            className="block mx-auto w-min btn-flex btn-indigo"
+          >
+            <span>Read the Docs</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div>
       </div>

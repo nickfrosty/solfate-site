@@ -22,11 +22,9 @@ export default function Page() {
         <p className="mx-auto text-xl text-gray-500">I guess you hit a wall</p>
 
         <div className="flex justify-center">
-          <Link href="/">
-            <a className="block w-min btn-flex btn-indigo">
-              <span>No place like home</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link href="/" className="block w-min btn-flex btn-indigo">
+            <span>No place like home</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div>
       </div>

@@ -10,25 +10,15 @@ export default function FooterUtilitySection({
 
       <ul className={styles.list}>
         <li>
-          <Link href="/faucet">
-            <a className={styles.link}>Solana Faucet</a>
+          <Link href="/faucet" className={styles.link}>
+            Solana Faucet
           </Link>
         </li>
         <li>
-          <Link href="/extension">
-            <a className={styles.link}>Browser Extension</a>
+          <Link href="/extension" className={styles.link}>
+            Browser Extension
           </Link>
         </li>
-        {/* <li>
-          <Link href="/royalty">
-            <a className={styles.link}>Royalty Checker</a>
-          </Link>
-        </li> */}
-        {/* <li>
-          <Link href="/fees">
-            <a className={styles.link}>Fee Redeemer</a>
-          </Link>
-        </li> */}
       </ul>
     </section>
   );

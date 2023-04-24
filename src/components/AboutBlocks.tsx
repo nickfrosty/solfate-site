@@ -20,11 +20,9 @@ export default function AboutBlocks() {
             useful tools and utilities for the masses.
           </p>
 
-          <Link href={GITHUB}>
-            <a className="block w-min btn-flex">
-              <span>View on GitHub</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link href={GITHUB} className="block w-min btn-flex">
+            <span>View on GitHub</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div>
 
@@ -37,11 +35,9 @@ export default function AboutBlocks() {
             and builder in the Solana ecosystem.
           </p>
 
-          <Link href="/#utility">
-            <a className="text-lg tracking-wide link flexer">
-              <span className="">Explore Utilities</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link href="/#utility" className="text-lg tracking-wide link flexer">
+            <span className="">Explore Utilities</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div>
 
@@ -54,11 +50,9 @@ export default function AboutBlocks() {
             available to the masses.
           </p>
 
-          <Link href="/#products">
-            <a className="text-lg tracking-wide link flexer">
-              <span className="">Explore Products</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link href="/#products" className="text-lg tracking-wide link flexer">
+            <span className="">Explore Products</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div>
       </section>

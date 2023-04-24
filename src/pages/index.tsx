@@ -66,18 +66,17 @@ export default function Page({ episodes, featured }: PageProps) {
         </p>
 
         <div className="items-center justify-center block space-y-4 md:flex md:space-x-5 md:space-y-0">
-          <Link href={`/podcast`}>
-            <a className="block w-min btn-flex btn">
-              <Bars3CenterLeftIcon className="icon-sm" />
-              <span>Browse Episodes</span>
-            </a>
+          <Link href={`/podcast`} className="block w-min btn-flex btn">
+            <Bars3CenterLeftIcon className="icon-sm" />
+            <span>Browse Episodes</span>
           </Link>
 
-          <Link href={`/podcast/${episodes?.[0].slug || "0"}`}>
-            <a className="block w-min btn-flex btn-indigo">
-              <span>Latest Episode</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link
+            href={`/podcast/${episodes?.[0].slug || "0"}`}
+            className="block w-min btn-flex btn-indigo"
+          >
+            <span>Latest Episode</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div>
 

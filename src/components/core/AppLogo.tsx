@@ -31,21 +31,20 @@ export default function AppLogo({
       {/* <Burger /> */}
       {/* {burger && <Burger />} */}
 
-      <Link href="/">
-        {/* @click="$store.commit('closeSidebars')" */}
-        {/* click="alert('derp');" */}
-        <a
-          title="Home"
-          className="flex items-center justify-between space-x-2 whitespace-nowrap"
+      {/* @click="$store.commit('closeSidebars')" */}
+      {/* click="alert('derp');" */}
+      <Link
+        href="/"
+        title="Home"
+        className="flex items-center justify-between space-x-2 whitespace-nowrap"
+      >
+        {showImage ? image : null}
+        <span
+          v-if="text"
+          className="inline-block py-4 text-2xl font-bold tracking-wide"
         >
-          {showImage ? image : null}
-          <span
-            v-if="text"
-            className="inline-block py-4 text-2xl font-bold tracking-wide"
-          >
-            Solfate Podcast
-          </span>
-        </a>
+          Solfate Podcast
+        </span>
       </Link>
     </div>
   );

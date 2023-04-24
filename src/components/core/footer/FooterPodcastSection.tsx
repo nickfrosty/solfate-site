@@ -13,13 +13,13 @@ export default function FooterPodcastSection({
 
       <ul className={styles.list}>
         <li>
-          <Link href="/podcast">
-            <a className={styles.link}>Browse Episodes</a>
+          <Link href="/podcast" className={styles.link}>
+            Browse Episodes
           </Link>
         </li>
         {/* <li>
-          <Link href="/podcast/idk">
-            <a className={styles.link}>another link</a>
+          <Link href="/podcast/idk" className={styles.link}>
+            another link
           </Link>
         </li> */}
       </ul>

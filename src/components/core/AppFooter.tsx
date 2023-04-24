@@ -16,8 +16,8 @@ export default function AppFooter() {
       <section className={`container ${styles.inner} ${styles["two-column"]}`}>
         <div className={`mb-4 space-y-4 w-full text-white`}>
           <div className="flex items-center justify-between">
-            <Link href="/">
-              <a className="inline-block py-2 text-3xl font-bold">Solfate</a>
+            <Link href="/" className="inline-block py-2 text-3xl font-bold">
+              Solfate Podcast
             </Link>
             <div className="block md:hidden">
               <a

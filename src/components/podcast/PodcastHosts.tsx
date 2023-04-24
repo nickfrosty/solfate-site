@@ -21,11 +21,9 @@ export default function PodcastHosts({}) {
             useful tools and utilities for the masses.
           </p>
 
-          <Link href={GITHUB}>
-            <a className="block w-min btn-flex">
+          <Link href={GITHUB} className="block w-min btn-flex">
               <span>View on GitHub</span>
               <ArrowRightIcon className="icon-sm" />
-            </a>
           </Link>
         </div> */}
 
@@ -48,11 +46,9 @@ export default function PodcastHosts({}) {
 
             <p className="text-gray-500">{person?.bio}</p>
 
-            {/* <Link href="/podcast">
-              <a className="text-lg tracking-wide link flexer">
-                <span className="">Explore Episodes</span>
-                <ArrowRightIcon className="icon-sm" />
-              </a>
+            {/* <Link href="/podcast" className="text-lg tracking-wide link flexer">
+              <span className="">Explore Episodes</span>
+              <ArrowRightIcon className="icon-sm" />
             </Link> */}
           </section>
         ))}

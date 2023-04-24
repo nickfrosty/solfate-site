@@ -25,36 +25,39 @@ export default function Page() {
         </p>
 
         <div className="flex justify-center space-x-5">
-          {/* <Link href="/extension">
-            <a className="block w-min btn-flex disabled">
+          {/* <Link href="/extension" className="block w-min btn-flex disabled">
               <span>Chrome WebStore Coming Soon</span>
               <ClockIcon className="icon-sm" />
-            </a>
           </Link> */}
 
-          <Link href="https://github.com/solfate/extension">
-            <a
-              className="block w-min btn-flex btn-indigo"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>View on GitHub</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link
+            href="https://github.com/nickfrosty/solfate-browser-extension"
+            className="block w-min btn-flex btn-indigo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>View on GitHub</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div>
 
         <p className="grid gap-3 text-center md:gap-8 md:grid-cols-2">
-          <Link href="https://youtu.be/J11ybP3nZE8">
-            <a className="link" target="_blank" rel="noreferrer">
-              <span>Watch a Demo Video</span>
-            </a>
+          <Link
+            href="https://youtu.be/J11ybP3nZE8"
+            className="link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Watch a Demo Video</span>
           </Link>
 
-          <Link href="https://youtu.be/1Y9wEsJ8_j0">
-            <a className="link" target="_blank" rel="noreferrer">
-              <span>How to Manually Install</span>
-            </a>
+          <Link
+            href="https://youtu.be/1Y9wEsJ8_j0"
+            className="link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>How to Manually Install</span>
           </Link>
         </p>
       </div>
@@ -70,12 +73,10 @@ export default function Page() {
               every <i>.sol</i> domain. All of the data pulled directly off the
               blockchain using the Solana Name Service and IPFS.
             </p>
-            {/* <Link href="/extension">
-						<a className="block w-min btn btn-indigo">
-							<span>View Example Profile Page</span>
-							<ArrowRightIcon className="icon-sm" />
-						</a>
-					</Link> */}
+            {/* <Link href="/extension" className="block w-min btn btn-indigo">
+              <span>View Example Profile Page</span>
+              <ArrowRightIcon className="icon-sm" />
+            </Link> */}
           </div>
 
           <div className="space-y-4 md:col-span-1">

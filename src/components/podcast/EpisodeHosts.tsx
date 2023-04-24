@@ -17,24 +17,23 @@ export function EpisodeHosts({ guests, className = "" }: ComponentProps) {
       {PODCAST_HOSTS.map((person, index) => (
         <div key={index} className={clsx(styles["shadow-card"], "bg-white")}>
           <div className="flex p-4 space-x-4 md:space-x-6">
-            <Link href={`https://twitter.com/${person.twitter}`}>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                className="flex-shrink-0 avatar avatar-sm"
-              >
-                <img src={person.img} alt={person.name} />
-              </a>
+            <Link
+              href={`https://twitter.com/${person.twitter}`}
+              target="_blank"
+              rel="noreferrer"
+              className="flex-shrink-0 avatar avatar-sm"
+            >
+              <img src={person.img} alt={person.name} />
             </Link>
 
             <div className="flex-grow space-y-2">
               <div className="justify-between flexer">
-                <Link href={`https://twitter.com/${person.twitter}`}>
-                  <a target="_blank" rel="noreferrer">
-                    <h3 className="block text-2xl line-clamp-1">
-                      {person.name}
-                    </h3>
-                  </a>
+                <Link
+                  href={`https://twitter.com/${person.twitter}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <h3 className="block text-2xl line-clamp-1">{person.name}</h3>
                 </Link>
                 <SocialLinks person={person} className="text-gray-400" />
                 {/* <StarIcon className="block text-yellow-400 icon-sm" /> */}

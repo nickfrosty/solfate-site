@@ -29,10 +29,8 @@ export default function AppHeader() {
         </div>
 
         <div className={styles.mobileActionMenu}>
-          <Link href="/podcast">
-            <a className="icon-md">
-              <MicrophoneIcon className="w-full" />
-            </a>
+          <Link href="/podcast" className="icon-md">
+            <MicrophoneIcon className="w-full" />
           </Link>
 
           <button className="icon-lg" onClick={(e) => setShowMenu(!showMenu)}>
@@ -45,11 +43,9 @@ export default function AppHeader() {
         </div>
 
         {/* <div className={styles.desktopActionMenu}>
-          <Link href={`/podcast`}>
-            <a className="block w-min btn-flex">
-              <span>Podcast</span>
-              <ArrowRightIcon className="icon-sm" />
-            </a>
+          <Link href={`/podcast`} className="block w-min btn-flex">
+            <span>Podcast</span>
+            <ArrowRightIcon className="icon-sm" />
           </Link>
         </div> */}
 
