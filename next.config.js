@@ -1,4 +1,6 @@
-module.exports = {
+const { withContentlayer } = require("next-contentlayer");
+
+module.exports = withContentlayer({
   reactStrictMode: true,
   swcMinify: true,
   // webpack5: true,
@@ -7,4 +9,4 @@ module.exports = {
 
     return config;
   },
-};
+});
