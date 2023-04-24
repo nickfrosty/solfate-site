@@ -1,27 +1,13 @@
 import React from "react";
 import App from "next/app";
 import { DefaultSeo } from "next-seo";
-// import { ConnectionProvider } from "@solana/wallet-adapter-react";
 
 import "~/styles/globals.css";
-import dynamic from "next/dynamic";
-
-// define the master endpoint for production
-const endpoint = "https://ssc-dao.genesysgo.net";
-
-// const WalletProvider = dynamic(
-//   () => import("~/contexts/ClientWalletProvider.jsx"),
-//   {
-//     ssr: false,
-//   },
-// );
 
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      // <ConnectionProvider endpoint={endpoint}>
-      //   <WalletProvider>
       <React.Fragment>
         <DefaultSeo
           title="Solfate"
@@ -50,8 +36,6 @@ export default class MyApp extends App {
 
         <Component {...pageProps} />
       </React.Fragment>
-      //   </WalletProvider>
-      // </ConnectionProvider>
     );
   }
 }

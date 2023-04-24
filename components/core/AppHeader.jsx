@@ -4,9 +4,8 @@ import { useState } from "react";
 import AppLogo from "./AppLogo";
 import AppNav from "./AppNav";
 
-// import { SelectAndConnectWalletButton } from "~/components/SelectAndConnectButton";
 import styles from "~/styles/nav.module.css";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+// import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function AppHeader() {
   const [menu, setMenu] = useState(false);
@@ -50,7 +49,6 @@ export default function AppHeader() {
         </div> */}
 
         {/* <div className={styles.desktopActionMenu}>
-          <SelectAndConnectWalletButton />
         </div> */}
       </div>
     </nav>
