@@ -12,9 +12,9 @@ import PodcastEpisodesBlock from "@/components/podcast/PodcastEpisodesBlock";
 
 // construct the meta data for the page
 const metaData: NextSeoProps = {
-  title: "Building on Solana",
+  title: "Interviews with blockchain founders on Solana",
   description:
-    "Audio commentary from two developers building on Solana, Nick (@nickfrosty) and James (@jamesrp13).",
+    "Interviews with blockchain founders and audio commentary from two developers building on Solana, by Nick (@nickfrosty) and James (@jamesrp13).",
 };
 
 export async function getStaticProps() {
@@ -52,8 +52,8 @@ export default function Page({ episodes, featured }: PageProps) {
           Solfate <span className="shadow-orange-lg">Podcast</span>
         </h1>
 
-        <p className="mx-auto text-xl text-gray-500">
-          Audio commentary from two developers building on{" "}
+        <h2 className="mx-auto text-xl font-normal text-gray-500">
+          Interviews with blockchain founders and builders on{" "}
           <a
             href="https://solana.com"
             className="link"
@@ -63,7 +63,9 @@ export default function Page({ episodes, featured }: PageProps) {
             Solana
           </a>
           .
-        </p>
+          <br />
+          Audio commentary from two developers in the Solana ecosystem.
+        </h2>
 
         <div className="items-center justify-center block space-y-4 md:flex md:space-x-5 md:space-y-0">
           <Link href={`/podcast`} className="block w-min btn-flex btn">
