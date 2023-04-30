@@ -9,6 +9,7 @@ import { getDocsByPath, filterDocs } from "zumo";
 import PodcastHosts from "@/components/podcast/PodcastHosts";
 import RssLinks from "@/components/podcast/RssLinks";
 import PodcastEpisodesBlock from "@/components/podcast/PodcastEpisodesBlock";
+import { Episode, allEpisodes } from "contentlayer/generated";
 
 // construct the meta data for the page
 const metaData: NextSeoProps = {
@@ -18,21 +19,27 @@ const metaData: NextSeoProps = {
 };
 
 export async function getStaticProps() {
-  let episodes = await getDocsByPath("podcast/episodes");
+  // get the list of all episodes
+  let episodes = allEpisodes
+    .map((ep) => {
+      ep.body = "" as any;
+      return ep;
+    })
+    .sort((a, b) => parseFloat(b.slug) - parseFloat(a.slug));
+
+  console.log("total:", episodes.length);
 
   // extract the `featured` posts
-  const featured = filterDocs(episodes, { featured: true }, 2);
+  const featured = episodes.filter((item) => item.featured).slice(0, 2);
 
   // remove the `featured` from the `episodes`
-  if (Array.isArray(featured))
+  if (Array.isArray(featured) && featured.length > 0) {
     episodes = episodes?.filter(
-      (item: any) =>
+      (item) =>
         item.slug !==
-        featured.filter((ft) => ft.slug === item?.slug)?.[0]?.meta.slug,
+        featured.filter((ft) => ft.slug === item?.slug)?.[0]?.slug,
     );
-
-  // give the 404 page when the post is not found
-  // if (!episodes || !episodes?.length) return { notFound: true };
+  }
 
   return {
     props: { episodes, featured },
@@ -40,8 +47,8 @@ export async function getStaticProps() {
 }
 
 type PageProps = {
-  episodes: Array<any>;
-  featured: Array<any>;
+  episodes: Array<Episode>;
+  featured: Array<Episode>;
 };
 
 export default function Page({ episodes, featured }: PageProps) {

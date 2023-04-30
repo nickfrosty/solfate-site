@@ -1,7 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import PodcastEpisodeCard from "@/components/podcast/PodcastEpisodeCard";
+import { Episode } from "contentlayer/generated";
 
-type ComponentProps = SimpleComponentProps & { episodes: any; title: any };
+type ComponentProps = SimpleComponentProps & {
+  episodes: Array<Episode>;
+  title: string;
+};
 
 export default function PodcastEpisodesBlock({
   episodes,
@@ -19,8 +23,8 @@ export default function PodcastEpisodesBlock({
       <section className="container grid gap-8 md:grid-cols-2">
         {/* <section className="max-w-3xl mx-auto space-y-6"> */}
         {episodes?.length > 0 &&
-          episodes.map((ep: any, index: number) => (
-            <PodcastEpisodeCard key={index} meta={ep?.meta || {}} />
+          episodes.map((episode, id) => (
+            <PodcastEpisodeCard key={id} episode={episode} />
           ))}
 
         {/* {episodes.length > counter && (
