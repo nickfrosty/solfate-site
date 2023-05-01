@@ -3,8 +3,6 @@ import type { NextSeoProps } from "next-seo";
 import Layout from "@/layouts/default";
 import Link from "next/link";
 import { ArrowRightIcon, Bars3CenterLeftIcon } from "@heroicons/react/24/solid";
-// @ts-ignore
-import { getDocsByPath, filterDocs } from "zumo";
 
 import PodcastHosts from "@/components/podcast/PodcastHosts";
 import RssLinks from "@/components/podcast/RssLinks";

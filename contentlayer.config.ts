@@ -84,7 +84,7 @@ export const Episode = defineDocumentType(() => ({
     ep: {
       description: "Episode number (aka the file name)",
       type: "string",
-      resolve: (record) => record._id,
+      resolve: (record) => createSlug(record._id),
     },
     draft: {
       description: "Draft status of the episode",
