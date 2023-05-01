@@ -9,7 +9,11 @@ import remarkGfm from "remark-gfm";
 // import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 // import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
-export function ProseContent({ content = null, className = "" }) {
+type ComponentProps = SimpleComponentProps & {
+  content: string;
+};
+
+export function ProseContent({ content, className = "" }: ComponentProps) {
   return (
     <article className={styles.prose}>
       {/* @ts-ignore */}

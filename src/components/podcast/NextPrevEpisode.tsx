@@ -3,17 +3,18 @@ import Link from "next/link";
 import DisplayDate from "@/components/content/DisplayDate";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 import { CalendarDaysIcon, MicrophoneIcon } from "@heroicons/react/24/outline";
+import { Episode } from "contentlayer/generated";
 
 type ComponentProps = {
-  next?: any;
-  prev?: any;
+  next?: Episode;
+  prev?: Episode;
   hrefBase?: string;
 };
 
 export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
   return (
     <section className="grid w-full gap-8 md:grid-cols-2">
-      {prev !== undefined && prev?.slug ? (
+      {!!prev && prev?.slug ? (
         <Link
           href={`${hrefBase}/${prev.slug}`}
           className="w-full space-y-2 place-self-start btn btn-indigo"
@@ -46,7 +47,7 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
         <div></div>
       )}
 
-      {next !== undefined && next?.slug ? (
+      {!!next && next?.slug ? (
         <Link
           href={`${hrefBase}/${next.slug}`}
           className="w-full space-y-2 place-self-start btn btn-indigo"

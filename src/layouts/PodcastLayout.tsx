@@ -1,7 +1,6 @@
 import Layout from "@/layouts/default";
 import Link from "next/link";
-// @ts-ignore
-import { parseTemplate } from "zumo";
+import { Episode } from "contentlayer/generated";
 
 import { EpisodeMeta } from "@/components/podcast/EpisodeMeta";
 import { ProseContent } from "@/components/content/ProseContent";
@@ -9,24 +8,17 @@ import { NextPrevEpisode } from "@/components/podcast/NextPrevEpisode";
 import { EpisodeHosts } from "@/components/podcast/EpisodeHosts";
 import TagListing from "@/components/content/TagListing";
 
-type LayoutProps = { config: any; post: any; next: any; prev: any };
+type LayoutProps = {
+  episode: Episode;
+  next?: Episode;
+  prev?: Episode;
+};
 
-export default function PodcastLayout({
-  config,
-  post,
-  next,
-  prev,
-}: LayoutProps) {
+export default function PodcastLayout({ episode, next, prev }: LayoutProps) {
   // TODO: support setting a canonical tag, likely via a util function to standardize the data
 
-  // extract the used elements from the `post`
-  let { meta = {}, content = null } = post;
-
-  // compute the page's `href` based on the template
-  const href = parseTemplate(config.hrefTemplate, {
-    baseHref: config.baseHref,
-    slug: post.slug,
-  });
+  // note: some bug causes no episode to be provided on generate
+  if (!episode) return <>error</>;
 
   // define the site's address for use in social feeds
   const SITE_ADDRESS =
@@ -35,9 +27,9 @@ export default function PodcastLayout({
       : "https://podcast.solfate.pages.dev";
 
   const title = () => {
-    let title = post.meta.title;
+    let title = episode.title;
 
-    if (post.meta.ep) title = `ep${post.meta.ep}: ${title}`;
+    if (episode.ep) title = `ep${episode.ep}: ${title}`;
 
     return title;
   };
@@ -54,7 +46,7 @@ export default function PodcastLayout({
   //   // },
   //   openGraph: {
   //     type: "website",
-  //     url: `${SITE_ADDRESS}${href}`,
+  //     url: `${SITE_ADDRESS}${episode.href}`,
   //     // site_name: "Solfate",
   //     title: title(),
   //     images: [
@@ -69,49 +61,45 @@ export default function PodcastLayout({
   // };
 
   return (
-    <Layout seo={{ ...meta, ...seo }} className={``}>
+    <Layout seo={{ ...episode, ...seo }} className={``}>
       <section className="space-y-8 container-prose">
         <section className="space-y-3">
           <h1 className="">
-            <Link href={href} className="text-4xl shadow-orange-lg">
-              {meta?.title || "Podcast Episode"}
+            <Link href={episode.href} className="text-4xl shadow-orange-lg">
+              {episode.title || "Podcast Episode"}
             </Link>
           </h1>
 
-          <EpisodeMeta
-            meta={meta}
-            // baseHref={config.baseHref}
-            // tagHrefTemplate={config.tagHrefTemplate}
-          />
+          <EpisodeMeta episode={episode} />
         </section>
 
-        {meta?.tags?.length > 0 && (
+        {!!episode?.tags && (
           <div className="justify-between mt-5 flexer">
             <div className="line-clamp-1">
-              <TagListing tags={meta.tags} maxTagCount={5} />
+              <TagListing tags={episode.tags} maxTagCount={5} />
             </div>
           </div>
         )}
 
-        {meta?.transistorUrl && meta?.transistorUrl && (
+        {episode?.transistorUrl && episode?.transistorUrl && (
           <iframe
             width="100%"
             height="180"
             frameBorder="no"
             scrolling="no"
             seamless
-            src={meta.transistorUrl}
+            src={episode.transistorUrl}
           ></iframe>
         )}
 
         {/* <p className="text-xl md:text-2xl">{meta.description}</p> */}
 
-        <EpisodeHosts guests={post.meta?.guests} />
+        <EpisodeHosts guests={false /*episode?.guests*/} />
       </section>
 
       <main id="notes" className="pt-0 container-prose">
         {/* <h2 className="text-3xl">Show Notes</h2> */}
-        <ProseContent content={content} />
+        <ProseContent content={episode.body?.raw || ""} />
       </main>
 
       {/* <section className="">
@@ -123,7 +111,7 @@ export default function PodcastLayout({
 
       <section className="">
         <div className="container-prose">
-          <NextPrevEpisode next={next} prev={prev} hrefBase={config.baseHref} />
+          <NextPrevEpisode next={next} prev={prev} hrefBase={"/podcast"} />
         </div>
       </section>
     </Layout>

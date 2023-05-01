@@ -1,8 +1,6 @@
 import type { NextSeoProps } from "next-seo";
 import PodcastLayout from "@/layouts/PodcastLayout";
-
-// @ts-ignore
-import { generateStaticPaths, getDocBySlug, getDocMetaBySlug } from "zumo";
+import { Episode, allEpisodes } from "contentlayer/generated";
 
 // define some config data
 const config = {
@@ -14,66 +12,78 @@ const config = {
 };
 
 // construct the meta data for the page
-// const metaData = {
+// const metaData : NextSeoProps = {
 //   title: "Podcast",
 //   description: "",
 // };
 
-const breadcrumbParents = {
-  href: "/podcast",
-  label: "Solfate Podcast",
-};
-
 // get the listing of all of the markdown files
 export async function getStaticPaths() {
-  return generateStaticPaths(config.contentDir, false);
+  return {
+    paths: allEpisodes.map((item) => {
+      return {
+        params: {
+          slug: item.slug,
+        },
+      };
+    }),
+    fallback: true,
+  };
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const post = await getDocBySlug(params?.slug, config.contentDir);
+export async function getStaticProps({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
+  // define episode placeholders
+  let [episode, next, prev]: Array<Episode | null> = [null, null, null];
 
-  // give the 404 page when the post is not found
-  if (!post) return { notFound: true };
+  // get the current episode being viewed
+  const episodes = allEpisodes.sort(
+    (a, b) => parseFloat(b.slug) - parseFloat(a.slug),
+  );
 
-  // give 404 for `draft` pages in all non dev envs
+  // loop and locate all the desired episodes
+  for (let i = 0; i < episodes.length; i++) {
+    // ignore all except the current `slug`
+    if (episodes[i].slug != slug) continue;
+
+    episode = episodes[i];
+
+    // do not allow prev episode to have slug lower than 1
+    if (i > 0) next = episodes[i - 1];
+
+    // do not exceed the number of episodes
+    if (i < episodes.length - 1) prev = episodes[i + 1];
+  }
+
+  // todo: each of the episodes have the `body.html` field by default.
+  // todo: this could be removed to send less data to the client
+
+  if (!episode)
+    // 404 when the record is not found
+    return { notFound: true };
+
+  // 404 for `draft` pages (in all non dev envs)
   if (
-    post?.meta?.draft === true &&
+    episode?.draft === true &&
     process &&
     process.env?.NODE_ENV !== "development"
   )
     return { notFound: true };
 
-  // // parse out the `next` and `prev` blog posts, when defined by the post's `meta`
-  let [next, prev] = [null, null];
-
-  // if (post?.meta?.nextPage)
-  next = await getDocMetaBySlug(
-    (parseInt(params?.slug) + 1).toString(),
-    config.contentDir,
-  );
-  // negative numbers are no good :/
-  if (parseInt(params?.slug) > 0)
-    prev = await getDocMetaBySlug(
-      (parseInt(params?.slug) - 1).toString(),
-      config.contentDir,
-    );
-
-  // strip the tags from the `post`
-  // post.meta.tags = null;
-  // // TODO: add the `tag` based post browsing to these blog posts
-
   return {
-    props: { post, next, prev },
+    props: { episode, next, prev },
   };
 }
 
-export default function Page(props: any) {
-  return (
-    <PodcastLayout
-      {...props}
-      config={config}
-      breadcrumbParents={breadcrumbParents}
-      breadcrumbShowHome={false}
-    />
-  );
+type PageProps = {
+  episode: Episode;
+  next?: Episode;
+  prev?: Episode;
+};
+
+export default function Page(props: PageProps) {
+  return <PodcastLayout {...props} />;
 }

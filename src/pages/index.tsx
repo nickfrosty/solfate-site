@@ -22,12 +22,10 @@ export async function getStaticProps() {
   // get the list of all episodes
   let episodes = allEpisodes
     .map((ep) => {
-      ep.body = "" as any;
+      ep.body.html = "" as any;
       return ep;
     })
     .sort((a, b) => parseFloat(b.slug) - parseFloat(a.slug));
-
-  console.log("total:", episodes.length);
 
   // extract the `featured` posts
   const featured = episodes.filter((item) => item.featured).slice(0, 2);
