@@ -18,7 +18,7 @@ export function EpisodeMeta({ episode, className = "" }: ComponentProps) {
     >
       <span className="items-center flex-shrink hidden space-x-2 whitespace-nowrap sm:flex">
         <MicrophoneIcon className="icon-sm" />
-        <span>{`Ep ${parseInt(episode?.slug).toLocaleString()}`}</span>
+        <span>{`Ep ${episode.ep}`}</span>
       </span>
 
       <span className="col-span-2 space-x-2 whitespace-nowrap flexer">

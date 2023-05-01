@@ -27,9 +27,7 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
             {/* <span className="space-x-6 flexer">
                 <span className="space-x-2 md:mt-0 flexer">
                   <MicrophoneIcon className="icon-sm" />
-                  <span>{`Ep ${parseInt(
-                    prev?.meta?.slug,
-                  ).toLocaleString()}`}</span>
+                  <span>{`Ep ${prev.ep`}</span>
                 </span>
 
                 <span className="space-x-2 md:mt-0 flexer">
@@ -56,9 +54,7 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
             {/* <span className="space-x-6 flexer">
                 <span className="space-x-2 md:mt-0 flexer">
                   <MicrophoneIcon className="icon-sm" />
-                  <span>{`Ep ${parseInt(
-                    next?.meta?.slug,
-                  ).toLocaleString()}`}</span>
+                  <span>{`Ep ${next.ep}`}</span>
                 </span>
 
                 <span className="space-x-2 md:mt-0 flexer">
