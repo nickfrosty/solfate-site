@@ -33,11 +33,6 @@ export const Episode = defineDocumentType(() => ({
     //   description: "URL slug for the episode",
     //   required: false,
     // },
-    ep: {
-      type: "number",
-      description: "(deprecated) episode number",
-      required: false,
-    },
     date: {
       type: "date",
       description: "The public date of the episode",
