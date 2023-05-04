@@ -136,13 +136,7 @@ export default function Page({ seo, episode, next, prev }: PageProps) {
           <EpisodeMeta episode={episode} />
         </section>
 
-        {!!episode?.tags && (
-          <div className="justify-between mt-5 flexer">
-            <div className="line-clamp-1">
-              <TagListing tags={episode.tags} maxTagCount={5} />
-            </div>
-          </div>
-        )}
+        {!!episode?.tags && <TagListing tags={episode.tags} maxTagCount={5} />}
 
         {episode?.transistorUrl && episode?.transistorUrl && (
           <iframe

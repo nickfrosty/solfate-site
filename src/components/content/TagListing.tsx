@@ -20,7 +20,7 @@ export default function TagListing({ tags, maxTagCount = 3 }: ComponentProps) {
   // };
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap gap-2">
       {tags?.slice(0, maxTagCount)?.map((tag) => {
         return (
           <span className="tag" key={tag}>

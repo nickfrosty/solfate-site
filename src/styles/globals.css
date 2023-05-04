@@ -31,7 +31,7 @@ body {
 .sidebar {
   @apply fixed w-full h-full sm:w-80;
   /* @apply z-30; */
-  @apply overflow-auto flex-1;
+  @apply flex-1 overflow-auto;
   @apply transition-all duration-300 ease-in-out transform;
   /* @apply bg-white; */
 }
@@ -45,7 +45,7 @@ body {
 }
 
 .container-inner {
-  @apply max-w-7xl mx-auto;
+  @apply mx-auto max-w-7xl;
 }
 .container-spacing {
   @apply p-8 mx-auto md:py-14 md:px-4;
@@ -65,8 +65,8 @@ body {
 
 .focus-area {
   @apply container-inner;
-  @apply w-full items-center text-center md:text-left;
-  @apply grid gap-8 md:flex justify-between;
+  @apply items-center w-full text-center md:text-left;
+  @apply grid justify-between gap-8 md:flex;
   @apply mx-auto space-y-10 md:space-y-0 md:space-x-8 md:flex;
   @apply px-4 py-8;
 }
@@ -76,13 +76,13 @@ body {
 
 /* Define custom tailwind components */
 .dropdown-menu {
-  @apply transition-all duration-300 transform origin-top-right scale-95 -translate-y-2;
+  @apply transition-all duration-300 origin-top-right transform scale-95 -translate-y-2;
   @apply text-gray-700;
   /* @apply text-gray-100; */
 }
 .dropdown-inner {
   @apply whitespace-nowrap min-w-56;
-  @apply absolute right-0 mt-2 rounded-md origin-top-right outline-none;
+  @apply absolute right-0 mt-2 origin-top-right rounded-md outline-none;
   @apply bg-white border border-gray-300;
   /* @apply bg-gray-900 border border-gray-800; */
 }
@@ -110,7 +110,7 @@ body {
   @apply hover:text-blue-500;
 }
 .summary li {
-  @apply list-disc ml-8;
+  @apply ml-8 list-disc;
   @apply my-0;
 }
 .summary ul {
@@ -118,7 +118,7 @@ body {
 }
 .avatar {
   @apply rounded-full;
-  @apply block overflow-hidden flex-shrink-0 bg-gray-400;
+  @apply flex-shrink-0 block overflow-hidden bg-gray-400;
 }
 .avatar img {
   @apply w-full;
@@ -185,8 +185,8 @@ body {
 
 */
 .tag {
-  @apply px-3 py-1 ml-1 mr-2 rounded-lg;
-  @apply text-sm tracking-wide font-mono;
+  @apply px-3 py-1 rounded-lg;
+  @apply font-mono text-sm tracking-wide;
   @apply border border-indigo-600;
   @apply bg-transparent;
 }
@@ -200,14 +200,14 @@ body {
 
 .inline-code {
   @apply px-3 py-1 ml-1 mr-2 rounded-lg;
-  @apply text-base tracking-wide font-mono;
+  @apply font-mono text-base tracking-wide;
   @apply bg-slate-800 border border-slate-700 text-white !important;
 }
 
 /* Inline `msg` boxes used throughout the site */
 .msg {
   @apply px-4 py-3 rounded-lg;
-  @apply shadow-xl border;
+  @apply border shadow-xl;
   /* @apply text-2xl; */
   @apply bg-slate-800 border-slate-700;
   @apply my-5;
@@ -250,8 +250,8 @@ body {
 .msg.text::before {
   @apply block;
   @apply text-white;
-  @apply uppercase font-mono;
-  @apply font-semibold text-base;
+  @apply font-mono uppercase;
+  @apply text-base font-semibold;
 }
 .msg.note.text::before {
   content: "Note:";
@@ -296,10 +296,10 @@ h6 {
 }
 
 .grid-3 {
-  @apply grid gap-5 grid-cols-1 lg:grid-cols-3;
+  @apply grid grid-cols-1 gap-5 lg:grid-cols-3;
 }
 .grid-5 {
-  @apply grid gap-5 grid-cols-1 lg:grid-cols-5;
+  @apply grid grid-cols-1 gap-5 lg:grid-cols-5;
 }
 
 /*
@@ -313,15 +313,15 @@ h6 {
 } */
 .input {
   @apply scroller;
-  @apply block px-4 py-3 w-full leading-5 appearance-none;
+  @apply block w-full px-4 py-3 leading-5 appearance-none;
   @apply transition duration-150 ease-in-out;
-  @apply rounded-md border;
+  @apply border rounded-md;
   @apply text-black bg-white border-gray-600;
   /* @apply dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600; */
 }
 .btn.disabled,
 .input.disabled {
-  @apply bg-slate-200 cursor-default text-gray-700;
+  @apply text-gray-700 cursor-default bg-slate-200;
   @apply border-gray-800 !important;
   @apply translate-x-0 translate-y-0 !important;
   @apply shadow-none;
@@ -335,13 +335,13 @@ h6 {
 
 .btn {
   @apply items-center leading-normal transition appearance-none cursor-pointer;
-  @apply whitespace-nowrap rounded-xl font-semibold;
+  @apply font-semibold whitespace-nowrap rounded-xl;
   @apply px-5 py-2;
   /* @apply flex space-x-2; */
   @apply hover:no-underline;
 
   /* default color scheme */
-  @apply bg-white text-black;
+  @apply text-black bg-white;
 
   /* shadow effects */
   /* @apply border border-transparent; */
@@ -350,12 +350,12 @@ h6 {
 }
 .btn-flex {
   @apply btn;
-  @apply flexer space-x-2;
+  @apply space-x-2 flexer;
   @apply inline-flex !important;
 }
 .btn-flex:hover,
 .btn:hover {
-  @apply shadow-none translate-x-1 translate-y-1;
+  @apply translate-x-1 translate-y-1 shadow-none;
 }
 
 /*  */
@@ -373,7 +373,7 @@ h6 {
 }
 
 .btn-default {
-  @apply bg-white text-black;
+  @apply text-black bg-white;
   /* @apply text-black hover:bg-yellow-500 focus:bg-yellow-500; */
 }
 .btn-default:hover {
@@ -438,7 +438,7 @@ h6 {
   @apply text-white bg-blue-500 hover:bg-yellow-500;
 }
 .btn-indigo {
-  @apply text-white enabled:hover:text-white bg-indigo-500;
+  @apply text-white bg-indigo-500 enabled:hover:text-white;
   /* @apply enabled:hover:outline enabled:hover:outline-offset-4 enabled:hover:outline-2 enabled:hover:outline-indigo-600 enabled:hover:border-transparent; */
 
   /* enabled:hover: bg-gray-700; */
@@ -461,17 +461,17 @@ h6 {
 	Modal / dialog component styles
 */
 .modal {
-  @apply overflow-y-auto fixed inset-0 z-50;
+  @apply fixed inset-0 z-50 overflow-y-auto;
 }
 .modal .overlay {
-  @apply flex justify-center items-end px-4 pt-4 pb-20 min-h-screen text-center sm:block sm:p-0;
+  @apply flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0;
   @apply cursor-default;
 }
 .modal .shade {
-  @apply fixed inset-0 bg-black opacity-50 transition-opacity;
+  @apply fixed inset-0 transition-opacity bg-black opacity-50;
 }
 .modal.loading {
-  @apply fixed inset-0 bg-black opacity-70 transition-opacity;
+  @apply fixed inset-0 transition-opacity bg-black opacity-70;
 }
 .dialog {
   @apply inline-block my-auto text-left align-bottom;
@@ -489,18 +489,18 @@ h6 {
 */
 .loader {
   /* border-top-color: #3498db; */
-  @apply rounded-full ease-linear;
+  @apply ease-linear rounded-full;
   @apply w-min h-min;
-  @apply min-w-6 min-h-6 border-4 border-t-4;
+  @apply border-4 border-t-4 min-w-6 min-h-6;
   @apply border-gray-700 border-t-yellow-500;
   -webkit-animation: spinner 1.5s linear infinite;
   animation: spinner 1.5s linear infinite;
 }
 .loader-sm {
-  @apply min-w-5 min-h-5 border-2 border-t-2;
+  @apply border-2 border-t-2 min-w-5 min-h-5;
 }
 .loader-lg {
-  @apply min-w-8 min-h-8 border-8 border-t-8;
+  @apply border-8 border-t-8 min-w-8 min-h-8;
 }
 
 @-webkit-keyframes spinner {
@@ -594,7 +594,7 @@ h6 {
   @apply mb-12 text-center;
 }
 .auth .link-area {
-  @apply w-full mt-8 text-center space-x-2;
+  @apply w-full mt-8 space-x-2 text-center;
 }
 
 /*
@@ -608,12 +608,12 @@ h6 {
 }
 .sidebar-nav .link {
   @apply flex justify-start p-3 space-x-2 bg-transparent border border-transparent;
-  @apply hover:no-underline no-underline;
+  @apply no-underline hover:no-underline;
   @apply text-gray-500;
 }
 .sidebar-nav .link.active {
   @apply text-black;
-  @apply border-gray-200 bg-white;
+  @apply bg-white border-gray-200;
 }
 .sidebar-nav .link.inactive {
   @apply hover:text-black;
@@ -621,9 +621,9 @@ h6 {
 }
 
 .toggle {
-  @apply absolute left-0 mb-2 w-6 h-6 cursor-pointer;
+  @apply absolute left-0 w-6 h-6 mb-2 cursor-pointer;
   @apply transition duration-100 ease-linear transform;
-  @apply bg-white rounded-full border-2;
+  @apply bg-white border-2 rounded-full;
 }
 
 .flip-x {
