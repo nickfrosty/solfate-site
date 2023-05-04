@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { SITE } from "@/lib/constants";
 import Link from "next/link";
 // import Burger from "../utils/Burger";
 
@@ -43,7 +44,7 @@ export default function AppLogo({
           v-if="text"
           className="inline-block py-4 text-2xl font-bold tracking-wide"
         >
-          Solfate Podcast
+          {SITE.name}
         </span>
       </Link>
     </div>

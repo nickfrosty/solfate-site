@@ -3,6 +3,7 @@ import App from "next/app";
 import { DefaultSeo } from "next-seo";
 
 import "@/styles/globals.css";
+import { SITE } from "@/lib/constants";
 
 export default class MyApp extends App {
   render() {
@@ -10,19 +11,19 @@ export default class MyApp extends App {
     return (
       <React.Fragment>
         <DefaultSeo
-          title="Solfate Podcast"
-          titleTemplate="Solfate Podcast - %s"
-          defaultTitle="Solfate Podcast"
+          title={SITE.name}
+          titleTemplate={`${SITE.name} - %s`}
+          defaultTitle={SITE.name}
           openGraph={{
             type: "website",
-            url: "https://solfate.com/",
-            site_name: "Solfate Podcast",
+            url: SITE.url,
+            site_name: SITE.name,
             images: [
               {
-                url: "https://solfate.com/media/podcast/cover0-small.jpg",
+                url: `${SITE.url}/media/podcast/cover0-small.jpg`,
                 width: 256,
                 height: 256,
-                alt: "Solfate Podcast",
+                alt: SITE.name,
               },
             ],
           }}

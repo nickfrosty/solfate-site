@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HeartIcon } from "@heroicons/react/24/solid";
 
 import styles from "@/styles/footer.module.css";
-import { NICK, TWITTER } from "@/lib/constants";
+import { NICK, SITE, TWITTER } from "@/lib/constants";
 import { PODCAST_HOSTS } from "@/lib/podcast";
 
 // import FooterResourcesSection from "@/components/core/footer/FooterResourcesSection";
@@ -17,7 +17,7 @@ export default function AppFooter() {
         <div className={`mb-4 space-y-4 w-full text-white`}>
           <div className="flex items-center justify-between">
             <Link href="/" className="inline-block py-2 text-3xl font-bold">
-              Solfate Podcast
+              {SITE.name}
             </Link>
             <div className="block md:hidden">
               <a
@@ -67,7 +67,7 @@ export default function AppFooter() {
           <p>
             Copyright &copy; {new Date().getFullYear()}
             {` `}
-            Solfate Podcast
+            {SITE.name}
           </p>
 
           <p className="inline-flex mt-0 mb-2 space-x-1 text-sm">
