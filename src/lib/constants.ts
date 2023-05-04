@@ -2,6 +2,11 @@
   General constants for use throughout the site
 */
 
+export const SITE = {
+  name: "Solfate Podcast",
+  url: "https://solfate.com",
+};
+
 export const NICK = {
   name: "Nick Frostbutter",
   twitter: "@nickfrosty",
