@@ -227,7 +227,7 @@ module.exports = {
         "indigo-lg": "0px -10px 0px 0px rgba(79, 70, 229) inset !important",
         orange: "0px -3px 0px 0px rgba(245, 158, 11) inset !important",
         "orange-md": "0px -5px 0px 0px rgba(245, 158, 11) inset !important",
-        "orange-lg": "0px -10px 0px 0px rgba(245, 158, 11) inset !important",
+        "orange-lg": "0px -8px 0px 0px rgba(245, 158, 11) inset !important",
         "orange-light": "0px -5px 0px 0px rgba(251, 191, 36) inset !important",
         "orange-light-lg":
           "0px -10px 0px 0px rgba(251, 191, 36) inset !important",

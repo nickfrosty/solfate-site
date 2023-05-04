@@ -14,7 +14,7 @@ type ComponentProps = SimpleComponentProps & {
 export function EpisodeMeta({ episode, className = "" }: ComponentProps) {
   return (
     <section
-      className={`flex flex-wrap items-center space-x-3 w-full font-mono tracking-wide text-gray-500 md:space-x-6 ${className}`}
+      className={`flex flex-wrap items-center gap-8 w-full font-mono tracking-wide text-gray-500  ${className}`}
     >
       <span className="items-center flex-shrink hidden space-x-2 whitespace-nowrap sm:flex">
         <MicrophoneIcon className="icon-sm" />

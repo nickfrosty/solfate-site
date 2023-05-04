@@ -128,7 +128,10 @@ export default function Page({ seo, episode, next, prev }: PageProps) {
       <section className="space-y-8 container-prose">
         <section className="space-y-3">
           <h1 className="">
-            <Link href={episode.href} className="text-4xl shadow-orange-lg">
+            <Link
+              href={episode.href}
+              className="text-3xl md:text-4xl shadow-orange-md md:shadow-orange-lg"
+            >
               {episode.title || "Podcast Episode"}
             </Link>
           </h1>

@@ -17,10 +17,10 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
       {!!prev && prev?.slug ? (
         <Link
           href={`${hrefBase}/${prev.slug}`}
-          className="w-full space-y-2 place-self-start btn btn-indigo"
+          className="w-full space-y-2 place-self-start btn btn-lg btn-indigo"
         >
-          <span className="space-x-6 flexer">
-            <ArrowLeftIcon className="w-4 h-4 text-white" />
+          <span className="gap-6 text-base flexer">
+            <ArrowLeftIcon className="w-5 h-5 text-white" />
 
             <span className="line-clamp-1">Previous Episode</span>
 
@@ -48,9 +48,9 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
       {!!next && next?.slug ? (
         <Link
           href={`${hrefBase}/${next.slug}`}
-          className="w-full space-y-2 place-self-start btn btn-indigo"
+          className="w-full space-y-2 place-self-start btn btn-lg btn-indigo"
         >
-          <span className="justify-between space-x-6 flexer">
+          <span className="justify-between gap-6 flexer">
             {/* <span className="space-x-6 flexer">
                 <span className="space-x-2 md:mt-0 flexer">
                   <MicrophoneIcon className="icon-sm" />
@@ -64,7 +64,7 @@ export function NextPrevEpisode({ next, prev, hrefBase = "" }: ComponentProps) {
               </span> */}
             <span className="line-clamp-1">Next Episode</span>
 
-            <ArrowRightIcon className="w-4 h-4 text-white" />
+            <ArrowRightIcon className="w-5 h-5 text-white" />
           </span>
           {/* <span className="block line-clamp-1">
               {next?.meta?.title || "Next Episode"}

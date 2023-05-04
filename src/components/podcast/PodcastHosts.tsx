@@ -35,7 +35,7 @@ export default function PodcastHosts({}) {
               </div>
 
               <div className="space-y-4">
-                <h2 className="text-3xl">
+                <h2 className="text-4xl md:text-3xl">
                   {/* <h2 className="pl-4 text-3xl border-l-4 border-indigo-500"> */}
                   {person.name}
                 </h2>
@@ -68,13 +68,13 @@ export function SocialLinks({
   iconSize = "icon-sm",
 }: SocialLinksProps) {
   return (
-    <div className={`space-x-2 ${className}`}>
+    <div className={`flex items-center gap-3 ${className}`}>
       {person?.twitter && (
         <a
           href={`https://twitter.com/${person.twitter}`}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex"
+          className="inline-flex hover:-mt-2"
           title={`@${person.twitter} on Twitter`}
         >
           <img
@@ -90,7 +90,7 @@ export function SocialLinks({
           href={`https://github.com/${person.github}`}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex"
+          className="inline-flex hover:-mt-2"
           title={`${person.github} on Github`}
         >
           <img
@@ -106,7 +106,7 @@ export function SocialLinks({
           href={person.website}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex"
+          className="inline-flex hover:-mt-2"
           title={person.website}
         >
           <img

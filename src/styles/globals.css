@@ -48,7 +48,7 @@ body {
   @apply mx-auto max-w-7xl;
 }
 .container-spacing {
-  @apply p-8 mx-auto md:py-14 md:px-4;
+  @apply p-6 mx-auto md:py-14 md:px-4;
   /* @apply space-y-4 md:space-y-8; */
   @apply justify-between;
 }
