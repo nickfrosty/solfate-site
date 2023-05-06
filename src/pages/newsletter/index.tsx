@@ -76,7 +76,7 @@ export default function Page({ posts, featured }: PageProps) {
   return (
     <Layout seo={metaData} className="container space-y-16 md:space-y-24">
       <section className="grid-cols-2 gap-12 space-y-10 md:space-y-0 md:grid md:mb-30">
-        <section className="w-full space-y-4 place-content-start place-self-center">
+        <section className="w-full space-y-4 text-center md:text-left place-content-start place-self-center">
           <h1 className="text-4xl !leading-tight md:text-5xl">
             <span className="shadow-orange-md md:shadow-orange-lg">
               Solana news,
@@ -93,7 +93,7 @@ export default function Page({ posts, featured }: PageProps) {
 
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex items-center max-w-lg gap-4"
+            className="grid items-center max-w-lg gap-4 md:flex"
           >
             <input
               type="email"

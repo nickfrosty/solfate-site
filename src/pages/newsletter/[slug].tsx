@@ -100,7 +100,7 @@ export default function Page({ seo, post, next, prev }: PageProps) {
   if (!post) return <>error</>;
 
   return (
-    <Layout seo={{ ...post, ...seo }} className={``}>
+    <Layout seo={{ ...post, ...seo }} className={`overflow-hidden`}>
       <section className="space-y-8 text-center container-prose">
         <section className="space-y-3">
           <h1 className="group">
@@ -137,13 +137,13 @@ export default function Page({ seo, post, next, prev }: PageProps) {
       </section>
 
       <article id="newsletter" className="relative pt-0 container-prose">
-        <section className="relative md:-mx-[50vw] mb-5">
+        <section className="w-[500%] -ml-[250%] relative mb-5 left-[50%] right-[50%]">
           {post?.image && (
             <img
               src={post.image}
               className={clsx(
-                "max-w-4xl text-center mx-auto",
-                "rounded-xl border border-gray-300 shadow-lg",
+                "max-w-[100vw] md:max-w-4xl block text-center mx-auto",
+                "md:rounded-xl border border-gray-300 md:shadow-lg",
                 `object-cover object-center`,
                 `w-full h-full`,
               )}
