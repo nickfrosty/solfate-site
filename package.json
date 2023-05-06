@@ -9,7 +9,7 @@
     "dev": "yarn contentlayer && next dev",
     "export": "next export",
     "build": "next build",
-    "generate": "next build && next export",
+    "generate": "yarn contentlayer && next build && next export",
     "start": "next start",
     "lint": "next lint",
     "contentlayer": "contentlayer build --clearCache",
