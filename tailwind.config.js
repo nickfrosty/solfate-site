@@ -1,3 +1,7 @@
+/** @type {import('tailwindcss').Config} */
+
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 module.exports = {
   // mode: "jit",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -210,8 +214,9 @@ module.exports = {
         twitter: "#1d9bf0",
       },
       fontFamily: {
+        body: ["var(--font-theme)", ...fontFamily.sans],
         display: "var(--font-display)",
-        body: "var(--font-body)",
+        // body: "var(--font-body)",
       },
       fontSize: {
         "7xl": "5rem",

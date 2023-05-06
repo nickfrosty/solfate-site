@@ -2,9 +2,16 @@
   Quick formatter for displaying a single each of the tag items
 */
 
-type ComponentProps = { tags: string | Array<string>; maxTagCount?: number };
+type ComponentProps = SimpleComponentProps & {
+  tags: string | Array<string>;
+  maxTagCount?: number;
+};
 
-export default function TagListing({ tags, maxTagCount = 3 }: ComponentProps) {
+export default function TagListing({
+  tags,
+  maxTagCount = 3,
+  className = "",
+}: ComponentProps) {
   // split string `tags` into an array
   if (typeof tags === "string") tags = tags.split(",").map((tag) => tag.trim());
 
@@ -20,7 +27,7 @@ export default function TagListing({ tags, maxTagCount = 3 }: ComponentProps) {
   // };
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className={`flex flex-wrap gap-2 ${className}`}>
       {tags?.slice(0, maxTagCount)?.map((tag) => {
         return (
           <span className="tag" key={tag}>

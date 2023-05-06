@@ -22,10 +22,8 @@ html {
 body {
   @apply scroller;
   @apply text-black bg-color-light;
-  @apply tracking-wide;
-  @apply items-center;
-  /* @apply text-lg; */
-  /* @apply pt-26; */
+  @apply items-center tracking-wide;
+  @apply font-body;
 }
 
 .sidebar {
@@ -59,7 +57,7 @@ body {
 
 .container-prose {
   @apply container-inner;
-  @apply max-w-4xl py-6 !important;
+  @apply max-w-3xl py-6 !important;
   @apply container-spacing;
 }
 
@@ -187,7 +185,7 @@ body {
 .tag {
   @apply px-3 py-1 rounded-lg;
   @apply font-mono text-sm tracking-wide;
-  @apply border border-indigo-600;
+  @apply border border-indigo-200;
   @apply bg-transparent;
 }
 
@@ -291,15 +289,19 @@ h6 {
   /* @apply text-gray-600; */
   /* @apply text-gray-200; */
 }
-.box .label {
-  /* @apply text-gray-100; */
-}
+/* .box .label {
+  @apply text-gray-100;
+} */
 
 .grid-3 {
   @apply grid grid-cols-1 gap-5 lg:grid-cols-3;
 }
 .grid-5 {
   @apply grid grid-cols-1 gap-5 lg:grid-cols-5;
+}
+.card-grid {
+  @apply grid grid-cols-1 gap-8;
+  @apply sm:grid-cols-2 md:grid-cols-3;
 }
 
 /*
@@ -316,7 +318,7 @@ h6 {
   @apply block w-full px-4 py-3 leading-5 appearance-none;
   @apply transition duration-150 ease-in-out;
   @apply border rounded-md;
-  @apply text-black bg-white border-gray-600;
+  @apply text-black bg-white border-gray-300;
   /* @apply dark:text-gray-100 dark:bg-gray-800 dark:border-gray-600; */
 }
 .btn.disabled,
