@@ -45,8 +45,6 @@ export async function getStaticProps() {
     })
     .sort((a, b) => parseFloat(b.slug) - parseFloat(a.slug));
 
-  posts = posts.concat(posts, posts, posts, posts, posts, posts);
-
   // extract the `featured` posts
   // const featured = posts.filter((post) => post.featured).slice(0, 2);
 
