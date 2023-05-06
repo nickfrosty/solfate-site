@@ -103,7 +103,7 @@ export default function Page({ seo, post, next, prev }: PageProps) {
     <Layout seo={{ ...post, ...seo }} className={``}>
       <section className="space-y-8 text-center container-prose">
         <section className="space-y-3">
-          <h1 className="">
+          <h1 className="group">
             <Link
               href={post.href}
               className="text-3xl !leading-tight md:text-5xl lg:text-6xl "
@@ -112,7 +112,7 @@ export default function Page({ seo, post, next, prev }: PageProps) {
                 Solana News
               </span>
               <br />
-              <span className="!font-normal text-2xl md:text-5xl">
+              <span className="group-hover:underline !font-normal text-2xl md:text-5xl">
                 {post.title}
               </span>
             </Link>
