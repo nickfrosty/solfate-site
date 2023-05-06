@@ -4,7 +4,7 @@ export default function AppNav({ className = "" }) {
   return (
     <nav className={className}>
       <NavLink href="/podcast">Podcast</NavLink>
-      <NavLink href="/news">Solana News</NavLink>
+      <NavLink href="/newsletter">Newsletter</NavLink>
       <NavLink href="/faucet">
         {/* <img
           src={"/icons/shower.svg"}

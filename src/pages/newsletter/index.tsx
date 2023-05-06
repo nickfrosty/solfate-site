@@ -7,21 +7,23 @@ import { useState } from "react";
 import { INITIAL_EPISODES_PER_PAGE } from "@/lib/podcast";
 
 import { NewsPost, allNewsPosts } from "contentlayer/generated";
-import { NewsCard } from "@/components/news/NewsCard";
-import { NewsCardGrid } from "@/components/news/NewsCardGrid";
+import { NewsCard } from "@/components/newsletter/NewsCard";
+import { NewsCardGrid } from "@/components/newsletter/NewsCardGrid";
 import { SITE } from "@/lib/constants";
 
 // construct the meta data for the page
 const metaData: NextSeoProps = {
-  canonical: `${SITE.url}/news`,
+  titleTemplate: `${SITE.name} Newsletter - %s`,
+  canonical: `${SITE.url}/newsletter`,
   title: "Solana news from around the ecosystem",
   description:
-    "Byte sized, short form, and skimmable in a 2 minutes or less. Stay up-to-date with the Solana ecosystem.",
+    "Stay up-to-date with the Solana ecosystem.\
+    Byte sized, short form, and skimmable in 2 minutes or less.",
   openGraph: {
     type: "website",
-    url: `${SITE.url}/news`,
+    url: `${SITE.url}/newsletter`,
     // site_name: "Solfate",
-    title: "",
+    title: "Solana news from around the ecosystem, by Solfate",
     images: [
       {
         url: `${SITE.url}/media/solana-newsletter-cover.jpg`,
@@ -85,7 +87,7 @@ export default function Page({ posts, featured }: PageProps) {
             delivered weekly
           </h1>
 
-          <p className="text-xl">
+          <p className="text-xl text-gray-500">
             Byte sized, short form, and skimmable
             <br />
             <span className="italic underline">in 2 minutes or less</span>.

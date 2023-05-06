@@ -158,7 +158,8 @@ export const NewsPost = defineDocumentType(() => ({
     href: {
       description: "Local url path of the news post",
       type: "string",
-      resolve: (record) => `/news/${record?.slug ?? createSlug(record._id)}`,
+      resolve: (record) =>
+        `/newsletter/${record?.slug ?? createSlug(record._id)}`,
     },
   },
 }));
