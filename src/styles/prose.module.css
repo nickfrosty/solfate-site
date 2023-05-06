@@ -31,13 +31,13 @@
 
   h1,
   h1 a {
-    @apply font-bold leading-none no-underline uppercase font-display text-4xl;
+    @apply text-4xl font-bold leading-none no-underline uppercase font-display;
   }
 
   h2,
   h2 a {
-    @apply py-6  leading-none tracking-tight no-underline;
-    @apply font-bold text-2xl;
+    @apply py-6 leading-none tracking-tight no-underline;
+    @apply text-2xl font-bold;
   }
 
   h3 {
@@ -52,15 +52,15 @@
     @apply my-4 text-lg leading-relaxed;
     /* @apply capitalize; */
   }
-  > p:first-of-type {
+  /* > p:first-of-type {
     @apply text-xl md:text-2xl;
-  }
+  } */
 
   blockquote > p {
     @apply px-6 py-4 text-2xl italic font-semibold leading-tight;
-    @apply rounded-xl shadow-xl;
-    @apply md:mx-14 my-10;
-    /* @apply bg-indigo-900 text-white border-2 border-indigo-500; */
+    @apply shadow-xl rounded-xl;
+    @apply my-10 md:mx-14;
+    /* @apply text-white bg-indigo-900 border-2 border-indigo-500; */
   }
 
   > blockquote > blockquote > p {
@@ -71,7 +71,7 @@
   > img {
     @apply mx-auto my-10;
     @apply rounded-xl;
-    @apply shadow-lg border border-gray-800;
+    @apply border border-gray-800 shadow-lg;
   }
 
   ul:not(.list-none) {

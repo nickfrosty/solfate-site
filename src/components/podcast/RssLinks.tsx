@@ -3,7 +3,7 @@ import { RSS_PLATFORMS } from "@/lib/podcast";
 
 export default function RssLinks({ className = "" }) {
   return (
-    <div className={`gap-4 flexer justify-center ${className}`}>
+    <div className={`gap-4 flexer ${className}`}>
       {RSS_PLATFORMS.map((item, index) => (
         <a
           key={index}

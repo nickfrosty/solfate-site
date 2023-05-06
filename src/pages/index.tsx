@@ -88,9 +88,7 @@ export default function Page({ episodes, featured }: PageProps) {
           </Link>
         </div>
 
-        <div className="flex items-center justify-center gap-5">
-          <RssLinks />
-        </div>
+        <RssLinks className="flex items-center justify-center gap-5" />
       </section>
 
       <PodcastHosts />
