@@ -13,6 +13,15 @@ export default function AppHeader() {
 
   return (
     <nav className={styles.nav}>
+      {/* The backdrop, rendered as a fixed sibling to the panel container */}
+      {!!showMenu && (
+        <div
+          onClick={() => setShowMenu(false)}
+          className={styles.overlay}
+          aria-hidden="true"
+        />
+      )}
+
       <div className={styles.inner}>
         <div className={styles.linksListing}>
           <AppLogo className="pr-8" showImage={true} />

@@ -4,47 +4,52 @@
 
 /* Desktop (aka non-mobile specific styles) */
 .desktopMenu {
-  @apply hidden mx-auto w-full md:flex md:bg-transparent;
+  @apply hidden w-full mx-auto md:flex md:bg-transparent;
 }
 .desktopActionMenu {
-  @apply hidden justify-between space-x-2 md:flex;
+  @apply justify-between hidden space-x-2 md:flex;
 }
 
 /* Mobile specific styles */
 .mobileMenu {
-  @apply md:hidden md:bg-transparent mx-auto w-full border-b shadow-lg bg-color-light border-gray-800;
+  @apply w-full mx-auto border-b border-gray-800 shadow-lg md:hidden md:bg-transparent bg-color-light;
 }
 .mobileActionMenu {
-  @apply flex justify-between items-center md:hidden;
+  @apply flex items-center justify-between md:hidden;
   @apply space-x-4;
 }
 .dropdownActive {
-  @apply fixed left-0;
+  @apply fixed left-0 -mt-2;
 }
 .dropdownInactive {
   @apply hidden;
 }
 
 .nav {
+  /* @apply relative; */
   @apply sticky top-0 z-10;
   @apply lg:relative;
   @apply bg-color-light;
 
-  @apply w-full flex justify-between items-center h-16;
-  /* @apply border-b border-gray-800; */
+  @apply flex items-center justify-between w-full h-16;
+  @apply border-b border-gray-300;
   @apply md:px-8;
   /* @apply fixed top-0 z-20 bg-color-dark; */
   /* @apply border-b border-gray-400 shadow-md md:shadow-none md:border-0; */
 }
+.overlay {
+  @apply fixed inset-0 z-20;
+  @apply bg-white/5 backdrop-blur-sm;
+}
 
 .inner {
   /* @apply container-inner; */
-  @apply w-full;
-  @apply flex justify-between items-center mx-auto;
-  @apply space-y-0 space-x-5 px-4 md:py-2;
+  @apply z-30 w-full;
+  @apply flex items-center justify-between mx-auto;
+  @apply px-4 space-x-5 space-y-0 md:py-2;
 }
 .linksListing {
-  @apply inline-block flex-1 items-center mr-0 md:flex md:mr-2 md:justify-between md:space-x-8;
+  @apply items-center flex-1 inline-block mr-0 md:flex md:mr-2 md:justify-between md:space-x-8;
 }
 
 .nav a {
@@ -52,10 +57,10 @@
 }
 
 .link {
-  @apply flex space-x-2 items-center p-4 md:px-6;
+  @apply flex items-center p-4 space-x-2 md:px-6;
   @apply transition-colors duration-150 ease-in-out;
   @apply text-lg font-semibold;
-  @apply border-l-4 md:border-l-0 md:border-b-2 border-transparent;
+  @apply border-l-4 border-transparent md:border-l-0 md:border-b-2;
   @apply tracking-wide no-underline;
   /* @apply text-white; */
   @apply hover:text-indigo-500;
