@@ -137,8 +137,8 @@ export default function Page({ seo, post, next, prev }: PageProps) {
       </section>
 
       <article id="newsletter" className="relative pt-0 container-prose">
-        <section className="w-[500%] -ml-[250%] relative mb-5 left-[50%] right-[50%]">
-          {post?.image && (
+        {post?.image && (
+          <section className="w-[500%] -ml-[250%] relative mb-5 left-[50%] right-[50%]">
             <img
               src={post.image}
               className={clsx(
@@ -149,8 +149,8 @@ export default function Page({ seo, post, next, prev }: PageProps) {
               )}
               alt={post.title || "Solana News"}
             />
-          )}
-        </section>
+          </section>
+        )}
 
         {/* <h2 className="text-3xl">Show Notes</h2> */}
         <ProseContent content={post.body?.raw || ""} />
