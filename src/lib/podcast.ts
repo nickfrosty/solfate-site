@@ -2,8 +2,15 @@
   Specific constants for the podcast
 */
 
+import { SITE } from "./constants";
+
 //name is a name. define it for use
 export const INITIAL_EPISODES_PER_PAGE = 5;
+
+export const PODCAST = {
+  name: "Solfate Podcast",
+  url: `${SITE.url}/podcast`,
+};
 
 export const PODCAST_HOSTS = [
   {

@@ -4,7 +4,7 @@ import Layout from "@/layouts/default";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import { INITIAL_EPISODES_PER_PAGE } from "@/lib/podcast";
+import { INITIAL_EPISODES_PER_PAGE, PODCAST } from "@/lib/podcast";
 
 // import PodcastHosts from "@/components/podcast/PodcastHosts";
 import PodcastEpisodeCard from "@/components/podcast/PodcastEpisodeCard";
@@ -13,9 +13,11 @@ import { Episode, allEpisodes } from "contentlayer/generated";
 
 // construct the meta data for the page
 const metaData: NextSeoProps = {
-  title: "Browse Podcast Episodes",
+  titleTemplate: `${PODCAST.name} - %s`,
+  title: "Interviews with blockchain founders on Solana",
   description:
-    "Audio commentary from two developers building on Solana, Nick (@nickfrosty) and James (@jamesrp13).",
+    "Interviews with blockchain founders and audio commentary from \
+    two developers building on Solana, by Nick (@nickfrosty) and James (@jamesrp13).",
 };
 
 export async function getStaticProps() {
@@ -59,8 +61,8 @@ export default function Page({ episodes, featured }: PageProps) {
           Solfate <span className="shadow-orange-lg">Podcast</span>
         </h1>
 
-        <p className="mx-auto text-xl text-gray-500">
-          Audio commentary from two developers building on{" "}
+        <h2 className="mx-auto text-xl font-normal text-gray-500">
+          Interviews with blockchain founders and builders on{" "}
           <a
             href="https://solana.com"
             className="link"
@@ -70,9 +72,11 @@ export default function Page({ episodes, featured }: PageProps) {
             Solana
           </a>
           .
-        </p>
+          <br />
+          Audio commentary from two developers in the Solana ecosystem.
+        </h2>
 
-        <div className="flex items-center justify-center space-x-5">
+        <div className="grid items-center justify-center gap-4 mx-auto sm:gap-12 sm:flex">
           <RssLinks />
 
           <Link

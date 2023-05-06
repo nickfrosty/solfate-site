@@ -8,16 +8,7 @@ import { ProseContent } from "@/components/content/ProseContent";
 import { NextPrevEpisode } from "@/components/podcast/NextPrevEpisode";
 import { EpisodeHosts } from "@/components/podcast/EpisodeHosts";
 import TagListing from "@/components/content/TagListing";
-import { SITE } from "@/lib/constants";
-
-// define some config data
-const config = {
-  baseHref: "/podcast",
-  hrefTemplate: "{{baseHref}}/{{slug}}",
-  tagHrefTemplate: "{{baseHref}}/tag/{{tag}}",
-  contentDir: "podcast",
-  maxTagCount: 3,
-};
+import { PODCAST } from "@/lib/podcast";
 
 // construct the meta data for the page
 // const metaData : NextSeoProps = {
@@ -78,7 +69,8 @@ export async function getStaticProps({
 
   // define the seo settings to display
   const seo: NextSeoProps = {
-    canonical: `${SITE.url}/podcast/${episode.slug}`,
+    titleTemplate: `${PODCAST.name} - %s`,
+    canonical: `${PODCAST.url}/${episode.slug}`,
     openGraph: {
       title: `${episode?.ep ? `ep${episode.ep}: ` : ""}${episode.title}`,
     },

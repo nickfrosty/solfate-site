@@ -3,7 +3,7 @@
 */
 
 export const SITE = {
-  name: "Solfate Podcast",
+  name: "Solfate",
   url: "https://solfate.com",
 };
 
