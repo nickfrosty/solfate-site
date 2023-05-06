@@ -77,7 +77,7 @@ export default function Page({ episodes, featured }: PageProps) {
         </h2>
 
         <div className="grid items-center justify-center gap-4 mx-auto sm:gap-12 sm:flex">
-          <RssLinks />
+          <RssLinks className="justify-center" />
 
           <Link
             href={`/podcast/${episodes?.[0].slug || "0"}`}

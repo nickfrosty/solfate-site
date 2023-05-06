@@ -9,7 +9,7 @@ export default function FooterPodcastSection({
     <section className={className}>
       <h4 className={styles.title}>Podcast</h4>
 
-      <RssLinks className="my-3" />
+      <RssLinks className="gap-3" />
 
       <ul className={styles.list}>
         <li>
