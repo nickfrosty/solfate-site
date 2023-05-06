@@ -27,7 +27,7 @@ export function NewsCard({
       href={post.href || "#"}
       className={clsx(styles["shadow-card"], "bg-white overflow-hidden group")}
     >
-      <span className="flex-shrink-0 block w-full bg-gray-200 rounded-t-lg h-60">
+      <span className="flex-shrink-0 block w-full bg-gray-200 rounded-t-lg h-50">
         {/* TODO: onerror load a default image, or remove the image? */}
         {/* {post?.draft === true && <FloatLabel label={"draft"} overlay={true} />} */}
 

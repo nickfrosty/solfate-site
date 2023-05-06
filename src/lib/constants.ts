@@ -4,7 +4,9 @@
 
 export const SITE = {
   name: "Solfate",
-  url: "https://solfate.com",
+  url: process?.env?.CF_PAGES_URL
+    ? process.env.CF_PAGES_URL
+    : "https://solfate.com",
 };
 
 export const NICK = {

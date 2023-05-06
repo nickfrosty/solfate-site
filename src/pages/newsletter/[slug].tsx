@@ -106,11 +106,15 @@ export default function Page({ seo, post, next, prev }: PageProps) {
           <h1 className="">
             <Link
               href={post.href}
-              className="text-3xl !leading-snug md:text-5xl lg:text-6xl shadow-orange-md md:shadow-orange-lg"
+              className="text-3xl !leading-tight md:text-5xl lg:text-6xl "
             >
-              Solana News
+              <span className="shadow-orange-md md:shadow-orange-lg">
+                Solana News
+              </span>
               <br />
-              {post.title}
+              <span className="!font-normal text-2xl md:text-5xl">
+                {post.title}
+              </span>
             </Link>
           </h1>
 
@@ -133,7 +137,7 @@ export default function Page({ seo, post, next, prev }: PageProps) {
       </section>
 
       <article id="newsletter" className="relative pt-0 container-prose">
-        <section className="relative -mx-[50vw] mb-20">
+        <section className="relative md:-mx-[50vw] mb-5">
           {post?.image && (
             <img
               src={post.image}
