@@ -76,14 +76,15 @@ export async function getStaticProps({
       cardType: "summary",
     },
     openGraph: {
-      title: `${episode?.ep ? `#${episode.ep}: ` : ""}${episode.title}`,
       type: "website",
+      title: `${episode?.ep ? `#${episode.ep}: ` : ""}${episode.title}`,
+      description: episode.description,
       url: `${PODCAST.url}/${episode.slug}`,
       images: [
         {
-          url: `${SITE.url}/media/podcast/cover0-small.jpg`,
-          width: 300,
-          height: 300,
+          url: `${SITE.url}/media/podcast/cover0.jpg`,
+          width: 800,
+          height: 800,
           alt: SITE.name,
         },
       ],
