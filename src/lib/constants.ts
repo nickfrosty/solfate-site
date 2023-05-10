@@ -4,7 +4,7 @@
 
 export const SITE = {
   name: "Solfate",
-  url: "https://solfate.com",
+  url: process?.env?.NEXT_PUBLIC_SITE_URL || "https://solfate.com",
 };
 
 export const NICK = {

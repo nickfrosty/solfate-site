@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
           site_name: SITE.name,
           images: [
             {
-              url: `${SITE.url}/media/podcast/cover0-small.jpg`,
+              url: `${SITE.url}/social.png`,
               width: 256,
               height: 256,
               alt: SITE.name,
@@ -44,8 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
         twitter={{
           handle: "@SolfatePod",
           site: "@SolfatePod",
-          cardType: "summary",
-          // cardType: "summary_large_image",
+          cardType: "summary_large_image",
         }}
       />
 
