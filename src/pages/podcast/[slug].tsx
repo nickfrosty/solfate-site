@@ -9,6 +9,7 @@ import { NextPrevEpisode } from "@/components/podcast/NextPrevEpisode";
 import { EpisodeHosts } from "@/components/podcast/EpisodeHosts";
 import TagListing from "@/components/content/TagListing";
 import { PODCAST } from "@/lib/podcast";
+import { SITE } from "@/lib/constants";
 
 // construct the meta data for the page
 // const metaData : NextSeoProps = {
@@ -71,8 +72,21 @@ export async function getStaticProps({
   const seo: NextSeoProps = {
     titleTemplate: `${PODCAST.name} - %s`,
     canonical: `${PODCAST.url}/${episode.slug}`,
+    twitter: {
+      cardType: "summary",
+    },
     openGraph: {
-      title: `${episode?.ep ? `ep${episode.ep}: ` : ""}${episode.title}`,
+      title: `${episode?.ep ? `#${episode.ep}: ` : ""}${episode.title}`,
+      type: "website",
+      url: `${PODCAST.url}/${episode.slug}`,
+      images: [
+        {
+          url: `${SITE.url}/media/podcast/cover0-small.jpg`,
+          width: 300,
+          height: 300,
+          alt: SITE.name,
+        },
+      ],
     },
   };
   // todo: handle seo metadata settings to display the audio on social
