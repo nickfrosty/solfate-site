@@ -67,13 +67,13 @@ export default function Page({ episodes, featured }: PageProps) {
           </a>
           .
           <br />
-          Audio commentary from two developers in the Solana ecosystem.
+          From two developers in the Solana ecosystem.
         </h2>
 
-        <div className="items-center justify-center block space-y-4 md:flex md:space-x-5 md:space-y-0">
+        <div className="grid items-center justify-center gap-4 md:flex">
           <Link
             href={`/podcast`}
-            className="block text-lg w-min btn-flex btn btn-lg"
+            className="justify-center block w-full md:w-min btn-flex btn btn-lg"
           >
             <Bars3CenterLeftIcon className="icon-base" />
             <span>Browse Episodes</span>
@@ -81,7 +81,7 @@ export default function Page({ episodes, featured }: PageProps) {
 
           <Link
             href={`/podcast/${episodes?.[0].slug || "0"}`}
-            className="block text-lg w-min btn-flex btn-indigo btn-lg"
+            className="justify-center block w-full md:w-min btn-flex btn-indigo btn-lg"
           >
             <span>Latest Episode</span>
             <ArrowRightIcon className="icon-base" />
