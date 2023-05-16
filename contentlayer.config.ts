@@ -62,6 +62,10 @@ export const Episode = defineDocumentType(() => ({
       description: "Comma separated listing of tags",
       required: false,
     },
+    image: {
+      type: "string",
+      description: "Social share image",
+    },
 
     transistorUrl: {
       type: "string",

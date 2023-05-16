@@ -81,37 +81,23 @@ export async function getStaticProps({
       description: episode.description,
       url: `${PODCAST.url}/${episode.slug}`,
       images: [
-        {
-          url: `${SITE.url}/media/podcast/cover0.jpg`,
-          width: 800,
-          height: 800,
-          alt: SITE.name,
-        },
+        episode?.image
+          ? {
+              url: `${SITE.url}/media/podcast/episodes/${episode.image}`,
+              width: 1280,
+              height: 720,
+              alt: SITE.name,
+            }
+          : {
+              url: `${SITE.url}/media/podcast/cover0.jpg`,
+              width: 800,
+              height: 800,
+              alt: SITE.name,
+            },
       ],
     },
   };
   // todo: handle seo metadata settings to display the audio on social
-
-  // if (post.meta.image)
-  //  seo = {
-  //   // twitter: {
-  //   //   cardType: "summary_large_image",
-  //   // },
-  //   openGraph: {
-  //     type: "website",
-  //     url: `${SITE.url}${episode.href}`,
-  //     // site_name: "Solfate",
-  //     title: title(),
-  //     images: [
-  //       {
-  //         url: `${SITE.url}/media/podcast/cover0.jpg`,
-  //         width: 800,
-  //         height: 800,
-  //         alt: SITE.name,
-  //       },
-  //     ],
-  //   },
-  // };
 
   return {
     props: { seo, episode, next, prev },
