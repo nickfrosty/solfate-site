@@ -73,7 +73,7 @@ export async function getStaticProps({
     titleTemplate: `${PODCAST.name} - %s`,
     canonical: `${PODCAST.url}/${episode.slug}`,
     twitter: {
-      cardType: "summary",
+      cardType: episode?.image ? "summary_large_image" : "summary",
     },
     openGraph: {
       type: "website",
