@@ -4,7 +4,10 @@
 
 export const SITE = {
   name: "Solfate",
-  url: "https://solfate.com",
+  url:
+    process.env.NODE_ENV == "development"
+      ? "http://localhost:3000"
+      : "https://solfate.com",
 };
 
 export const NICK = {
